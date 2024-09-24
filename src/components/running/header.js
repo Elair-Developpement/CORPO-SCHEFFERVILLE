@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const Header = () => {
+export default function Header() {
   return (
     <header className="bg-white text-black p-4 container mx-auto flex justify-between items-center">
       {/* TODO: Add logo */}
@@ -36,6 +36,4 @@ const Header = () => {
       </ul>
     </header>
   );
-};
-
-export default Header;
+}
