@@ -3,7 +3,7 @@ import ServiceCard from "@/components/home/serviceCard";
 
 export default function Home() {
   return (
-    <main className={""}>
+    <main>
       <HomeImage />
       <div
         className={
