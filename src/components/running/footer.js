@@ -2,8 +2,17 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className={"flex flex-wrap space-y-5 items-center justify-center"}>
+    <footer
+      className={
+        "absolute flex flex-wrap space-y-5 items-center justify-center py-6"
+      }
+    >
       <ul className={"flex space-x-6"}>
+        <li>
+          <Link href={"/"} className={"hover:underline"}>
+            Accueil
+          </Link>
+        </li>
         <li>
           <Link href={"/newsletter"} className={"hover:underline"}>
             Infolettre
