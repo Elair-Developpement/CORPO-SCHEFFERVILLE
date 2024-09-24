@@ -15,7 +15,7 @@ export default function HomeImage() {
         <h1 className="flex text-7xl text-white drop-shadow-lg">
           Notre mission
         </h1>
-        <p className="flex text-white drop-shadow-lg leading-relaxed text-center w-[625px]">
+        <p className="flex text-white drop-shadow-lg leading-relaxed text-center max-w-[625px]">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque in
           libero magna. Praesent eget pellentesque lorem. Aenean quis dui sed
           sapien dignissim volutpat eu vel ex. Praesent tempor enim in augue
