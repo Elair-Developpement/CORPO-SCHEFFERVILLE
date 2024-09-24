@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function HomeImage() {
   return (
-    <div className="relative w-full h-[625px]">
+    <div className="relative w-full h-[675px]">
       <Image
         src="/images/home_aerial_view.jpg"
         alt="Vue aérienne de Schefferville, crédit photo: Pierre Bouchard"
