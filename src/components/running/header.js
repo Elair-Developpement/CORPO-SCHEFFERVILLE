@@ -4,26 +4,34 @@ const Header = () => {
   return (
     <header className="bg-white text-black p-4">
       <nav className="container mx-auto flex justify-between items-center">
-        {/* Logo */}
         <div className="text-2xl font-bold">
           <Link href="/">Corporation de développement de Schefferville</Link>
         </div>
-
         {/* Navigation Links */}
-        <ul className="flex space-x-6">
+        <ul className={"flex space-x-6"}>
           <li>
-            <Link href="/newsletter">Infolettre</Link>
+            <Link href={"/newsletter"} className={"hover:underline"}>
+              Infolettre
+            </Link>
           </li>
           <li>
-            <a href={"https://ville-schefferville.ca/"} target={"_blank"}>
+            <a
+              href={"https://ville-schefferville.ca/"}
+              target={"_blank"}
+              className={"hover:underline"}
+            >
               Ville de Schefferville
             </a>
           </li>
           <li>
-            <Link href="/contact">Nous joindre</Link>
+            <Link href="/contact" className={"hover:underline"}>
+              Nous joindre
+            </Link>
           </li>
           <li>
-            <Link href="/contact">En</Link>
+            <Link href="/todo" className={"hover:underline"}>
+              En
+            </Link>
           </li>
         </ul>
       </nav>
