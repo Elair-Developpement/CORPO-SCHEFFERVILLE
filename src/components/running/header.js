@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <header className="bg-white text-black p-4 container mx-auto flex justify-between items-center">
+    <header className="bg-white text-black py-8 container mx-auto flex justify-between items-center">
       {/* TODO: Add logo */}
       <div className="text-2xl font-bold">
         <Link href="/">Corporation de développement de Schefferville</Link>
