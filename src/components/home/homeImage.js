@@ -15,7 +15,7 @@ export default function HomeImage() {
         <h1 className="flex text-7xl text-white drop-shadow-lg">
           Notre mission
         </h1>
-        <p className="flex text-white drop-shadow-lg leading-relaxed text-center max-w-[625px]">
+        <p className="flex text-white drop-shadow-lg text-xl leading-relaxed text-center max-w-[625px]">
           Favoriser le développement durable de Schefferville et de sa région en
           réalisant en partenariat des projets dans les domains de l'habitation,
           du développement économique et de la vie communautaire et culturelle.

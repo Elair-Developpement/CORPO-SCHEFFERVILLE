@@ -17,7 +17,15 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Poppins", sans-serif;
+}
+
+h1, h2, h3 {
+    font-family: DM_Sans, sans-serif;
+}
+
+.poppins {
+  font-family: var(--font-poppins), sans-serif;
 }
 
 @layer utilities {
