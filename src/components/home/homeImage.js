@@ -16,14 +16,9 @@ export default function HomeImage() {
           Notre mission
         </h1>
         <p className="flex text-white drop-shadow-lg leading-relaxed text-center max-w-[625px]">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque in
-          libero magna. Praesent eget pellentesque lorem. Aenean quis dui sed
-          sapien dignissim volutpat eu vel ex. Praesent tempor enim in augue
-          gravida volutpat. In a metus odio. Pellentesque et pretium dolor. Cras
-          ullamcorper urna nulla. Maecenas vel laoreet tellus. Lorem ipsum dolor
-          sit amet, consectetur adipiscing elit. Donec in massa eu nulla
-          porttitor auctor id sed erat. Pellentesque ullamcorper ex nec dolor
-          aliquam, vitae egestas ipsum aliquet.
+          Favoriser le développement durable de Schefferville et de sa région en
+          réalisant en partenariat des projets dans les domains de l'habitation,
+          du développement économique et de la vie communautaire et culturelle.
         </p>
       </div>
     </div>
