@@ -1,7 +1,11 @@
+import Map from "../../components/map/basicMap";
+
 export default function Housing() {
   return (
     <main>
-      <div></div>
+      <div>
+        <Map />
+      </div>
     </main>
   );
 }

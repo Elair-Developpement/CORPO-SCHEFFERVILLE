@@ -5,12 +5,14 @@ export default function Header() {
   return (
     <header className="bg-white text-black container mx-auto flex justify-between items-center">
       {/* TODO: Replace LOGO */}
-      <Image
-        src="/logos/Schefferville-Logo-H-Avec_sous-app-RGB.jpg"
-        alt="Logo de la ville de Schefferville, à remplacer avec celui de la corporation."
-        width={350}
-        height={100}
-      />
+      <Link href={"/"}>
+        <Image
+          src="/logos/Schefferville-Logo-H-Avec_sous-app-RGB.jpg"
+          alt="Logo de la ville de Schefferville, à remplacer avec celui de la corporation."
+          width={350}
+          height={100}
+        />
+      </Link>
       {/* Navigation Links */}
       <ul className={"flex space-x-6"}>
         <li>
