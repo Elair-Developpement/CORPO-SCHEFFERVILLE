@@ -24,9 +24,7 @@ const Map = () => {
     return () => map.remove();
   }, []);
 
-  return (
-    <div ref={mapContainerRef} style={{ width: "100%", height: "600px" }} />
-  );
+  return <div ref={mapContainerRef} style={{ width: "100%" }} />;
 };
 
 export default dynamic(() => Promise.resolve(Map), { ssr: false });
