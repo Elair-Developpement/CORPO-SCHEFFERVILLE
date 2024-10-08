@@ -5,6 +5,10 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+    --green-1: #3e4827;
+    --green-2: #636a51;
+    --orange-1: #b94700;
+    --orange-2: #bd6439;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,10 +26,6 @@ body {
 
 h1, h2, h3 {
     font-family: DM_Sans, sans-serif;
-}
-
-.poppins {
-  font-family: var(--font-poppins), sans-serif;
 }
 
 @layer utilities {

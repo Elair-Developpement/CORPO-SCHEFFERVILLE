@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <header className="bg-white text-black container mx-auto flex justify-between items-center">
+    <header className="text-black container mx-auto flex justify-between items-center">
       {/* TODO: Replace LOGO */}
       <Link href={"/"}>
         <Image
