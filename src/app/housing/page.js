@@ -3,7 +3,9 @@ import Map from "../../components/map/basicMap";
 
 export default function Housing() {
   return (
-    <main className={"h-[calc(100vh-249.27px)] flex-col flex"}>
+    <main
+      className={"container mx-auto min-h-[calc(100vh-249.27px)] flex-col flex"}
+    >
       <TitleCard
         title={"Logements"}
         description={
@@ -12,7 +14,7 @@ export default function Housing() {
           "une banque de terrains . Dans les deux cas n’hésitez pas à nous contacter !"
         }
       />
-      <div className={"flex flex-grow w-screen"}>
+      <div className={"flex flex-grow max-h-full w-full mb-7"}>
         <Map />
       </div>
     </main>

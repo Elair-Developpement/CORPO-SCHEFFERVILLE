@@ -23,11 +23,11 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-dm-sans), sans-serif;
 }
 
 h1, h2, h3 {
-    font-family: DM_Sans, sans-serif;
+    font-family: var(--font-poppins), sans-serif;
 }
 
 @layer utilities {

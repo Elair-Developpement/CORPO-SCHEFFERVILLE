@@ -19,7 +19,7 @@ export default function Home() {
             path={"/housing"}
           />
           <ServiceCard
-            title={"Vie communautaire"}
+            title={"Vie communautaire et culturelle"}
             description={
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque in libero magna. Praesent eget pellentesque lorem. Aenean quis dui sed sapien dignissim volutpat eu vel ex."
             }
@@ -28,7 +28,7 @@ export default function Home() {
         </div>
         <div className={"flex flex-col space-y-10"}>
           <ServiceCard
-            title={"Affaires"}
+            title={"Développement économique"}
             description={
               "Cras ullamcorper urna nulla. Maecenas vel laoreet tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in massa eu nulla porttitor auctor id sed erat."
             }
