@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 export default function TitleCard({ title, description }) {
   return (
     <div className="flex flex-col container py-5 space-y-4">
