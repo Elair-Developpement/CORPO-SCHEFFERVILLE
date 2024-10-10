@@ -1,3 +1,5 @@
+import TitleCard from "@/components/common/titleCard";
+
 export default function Contact() {
   return (
     <main

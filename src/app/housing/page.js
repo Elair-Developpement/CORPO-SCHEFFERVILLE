@@ -7,7 +7,7 @@ export default function Housing() {
       className={"container mx-auto min-h-[calc(100vh-249.27px)] flex-col flex"}
     >
       <TitleCard
-        title={"Logements"}
+        title={"Logements et terrains disponibles"}
         description={
           "Vous souhaitez louer un logement? Nous possédons quelques propriétés\n" +
           "résidentielles. Vous êtes à la recherche d’un terrain à construire ? Nous possédons\n" +

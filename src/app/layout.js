@@ -5,8 +5,6 @@ import "../styles/globals.css";
 import Header from "@/components/running/header";
 import Footer from "@/components/running/footer";
 
-/* TODO: FIX FONTS */
-
 const poppins = Poppins({
   subsets: ["latin"],
   variable: "--font-poppins",
