@@ -17,8 +17,9 @@ export default function HomeImage() {
         </h1>
         <p className="flex text-white drop-shadow-lg text-xl leading-relaxed text-center max-w-[625px]">
           Favoriser le développement durable de Schefferville et de sa région en
-          réalisant en partenariat des projets dans les domains de l'habitation,
-          du développement économique et de la vie communautaire et culturelle.
+          réalisant en partenariat des projets dans les domaines de
+          l'habitation, du développement économique et de la vie communautaire
+          et culturelle.
         </p>
       </div>
     </div>

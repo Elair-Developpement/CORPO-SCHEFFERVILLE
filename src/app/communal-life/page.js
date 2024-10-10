@@ -48,10 +48,7 @@ export default function Communal_life() {
           <div className={"flex w-full justify-between"}>
             <div className={"flex text-xl font-bold"}>En développement</div>
             <div className={"flex-col text-right"}>
-              <div>Salle de conditionnement physique</div>
-              <div>Aréna</div>
-              <div>Piscine</div>
-              <div>Aire de jeux pour enfants</div>
+              <div>Salle multifonctionnelle</div>
             </div>
           </div>
         </div>
