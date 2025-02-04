@@ -36,7 +36,8 @@ export default function Footer() {
       </ul>
       <p className={"flex justify-center text-xs text-white"}>
         Tous droits réservés © 2024 Corporation de développement de
-        Schefferville | Conception : Elair Développement
+        Schefferville | Conception : Elair Développement |{" "}
+        <Link href={"/login"}>Admin</Link>
       </p>
     </footer>
   );
