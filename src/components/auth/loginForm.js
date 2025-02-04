@@ -1,6 +1,6 @@
 export default function LoginForm() {
   return (
-    <form action={signup}>
+    <form>
       <div>
         <label htmlFor="email">Courriel</label>
         <input id="email" name="email" type="email" placeholder="Courriel" />
