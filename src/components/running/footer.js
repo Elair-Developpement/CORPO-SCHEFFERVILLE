@@ -1,4 +1,5 @@
 import Link from "next/link";
+import ContactPopover from "@/components/running/contactPopover";
 
 export default function Footer() {
   return (
@@ -24,9 +25,7 @@ export default function Footer() {
           </a>
         </li>
         <li>
-          <Link href="/contact" className="hover:underline">
-            Nous joindre
-          </Link>
+          <ContactPopover />
         </li>
         <li>
           <Link href="/contact" className="hover:underline">
