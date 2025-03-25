@@ -14,7 +14,7 @@ export default function Home() {
           <ServiceCard
             title={"Habitation"}
             description={
-              "Aenean quis dui sed sapien dignissim volutpat eu vel ex. Praesent tempor enim in augue gravida volutpat. In a metus odio. Pellentesque et pretium dolor. Cras ullamcorper urna nulla."
+              "L’habitation est au cœur du développement communautaire et économique. Nous disposons d’une banque de terrains afin de répondre à vos besoins. Nous travaillons sur un projet de logements abordables et de la revitalisation du quartier Eclipse. Faite nous part de vos besoins, nous vous accompagnerons."
             }
             path={"/housing"}
           />
