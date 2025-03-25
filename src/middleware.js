@@ -38,12 +38,15 @@ export const middleware = async (request) => {
 
   const isProtectedRoute = protectedRoutes.includes(pathname);
 
-  const session = await supabase.auth.getUser();
+  const {
+    data: { user },
+    error,
+  } = await supabase.auth.getUser();
 
-  if (isProtectedRoute && session.error) {
-    const loginUrl = new URL("/login", request.url);
-    loginUrl.searchParams.set("redirect", pathname);
-    return NextResponse.redirect(loginUrl);
+  if (isProtectedRoute && (!user || error)) {
+    const redirectUrl = new URL("/login", request.url);
+    redirectUrl.searchParams.set("redirect", pathname);
+    return NextResponse.redirect(redirectUrl);
   }
 
   return supabaseResponse;
