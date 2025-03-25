@@ -1,10 +1,11 @@
-import TitleCard from "@/components/common/titleCard";
+import PageTitleAndDescription from "@/components/common/pageTitleAndDescription";
 import { Tabs, Tab } from "@/components/utils/tabs";
+import ContactPopover from "@/components/dialog/contactPopover";
 
 export default function Business() {
   return (
-    <div className={"container mx-auto min-h-[calc(100vh-249.27px)]"}>
-      <TitleCard
+    <main className={"container mx-auto min-h-[calc(100vh-249.27px)]"}>
+      <PageTitleAndDescription
         title={"Développement économique"}
         description={
           "Vous avez en tête un projet d'entreprise ? vous souhaitez démarrer une entreprise\n" +
@@ -21,18 +22,23 @@ export default function Business() {
               Démarrer un projet ou une entreprise
             </h2>
             <p className="text-gray-700">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
-              mollitia, molestiae quas vel sint commodi repudiandae consequuntur
-              voluptatum laborum numquam blanditiis harum quisquam eius sed odit
-              fugiat iusto fuga praesentium optio, eaque rerum! Provident
-              similique accusantium nemo autem. Veritatis obcaecati tenetur iure
-              eius earum ut molestias architecto voluptate aliquam nihil,
-              eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit,
-              tenetur error, harum nesciunt ipsum debitis quas aliquid.
-              Reprehenderit, quia. Quo neque error repudiandae fuga? Ipsa
-              laudantium molestias eos sapiente officiis modi at sunt excepturi
-              expedita sint? Sed quibusdam recusandae alias error harum maxime
-              adipisci amet laborum.
+              Vous souhaitez démarrer un projet, une activité ou mettre en place
+              une initiative,{" "}
+              <ContactPopover
+                triggerText={"faites-nous en part"}
+                classname={"hover:underline text-orange_2"}
+              />
+              . Notre longue expérience en gestion et développement de projet
+              conjugué à un réseau de contact et des partenaires pour le
+              financement, vous aidera à atteindre vos objectifs. Nous vous
+              précisons que les échanges demeureront confidentiels. Si vous être
+              à l’étape de préfaisabilité, envoyez-nous le sommaire du projet.
+              NOus en discuterons. Votre projet n’est pas encore démarré mais
+              votre plan d’affaires est monté, soumettez-le-nous afin de le
+              valider et s’assurer d’obtenir les aides financières selon les
+              règles établis par les partenaires financiers. N’oubliez pas que
+              lorsque qu’un projet est démarré, il est difficile de demander du
+              financement.
             </p>
           </div>
         </Tab>
@@ -100,6 +106,6 @@ export default function Business() {
           </div>
         </Tab>
       </Tabs>
-    </div>
+    </main>
   );
 }

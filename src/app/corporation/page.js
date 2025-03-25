@@ -1,11 +1,11 @@
 import { Tabs, Tab } from "@/components/utils/tabs";
-import TitleCard from "@/components/common/titleCard";
+import PageTitleAndDescription from "@/components/common/pageTitleAndDescription";
 import ProfileCard from "@/components/common/profileCard";
 
 export default function Corporation() {
   return (
-    <div className={"container mx-auto min-h-[calc(100vh-249.27px)]"}>
-      <TitleCard
+    <main className={"container mx-auto min-h-[calc(100vh-249.27px)]"}>
+      <PageTitleAndDescription
         title={"La corporation"}
         description={
           "La corporation de développement de Schefferville est un organisme sans but lucratif paramunicipal dont les membres sont nommés majoritairement par la Ville de Schefferville. Les nations innues de Matimekush-Lac-John et Kawawachichamak nomment également des représentants."
@@ -113,6 +113,6 @@ export default function Corporation() {
           </div>
         </Tab>
       </Tabs>
-    </div>
+    </main>
   );
 }

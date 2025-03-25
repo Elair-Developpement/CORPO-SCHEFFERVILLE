@@ -1,4 +1,4 @@
-import TitleCard from "@/components/common/titleCard";
+import PageTitleAndDescription from "@/components/common/pageTitleAndDescription";
 import Map from "../../components/map/basicMap";
 
 export default function Housing() {
@@ -6,7 +6,7 @@ export default function Housing() {
     <main
       className={"container mx-auto min-h-[calc(100vh-249.27px)] flex-col flex"}
     >
-      <TitleCard
+      <PageTitleAndDescription
         title={"Logements et terrains disponibles"}
         description={
           "Vous souhaitez louer un logement? Nous possédons quelques propriétés\n" +

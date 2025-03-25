@@ -4,11 +4,11 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 
-export default function ContactPopover() {
+export default function ContactPopover({ triggerText }) {
   return (
     <Popover>
       <PopoverTrigger href="/contact" className="hover:underline">
-        Nous joindre
+        {triggerText}
       </PopoverTrigger>
       <PopoverContent>
         <div className="flex flex-col container space-y-2">

@@ -1,4 +1,4 @@
-import TitleCard from "@/components/common/titleCard";
+import PageTitleAndDescription from "@/components/common/pageTitleAndDescription";
 
 export default function Contact() {
   return (

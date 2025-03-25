@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import ContactPopover from "@/components/running/contactPopover";
+import ContactPopover from "@/components/dialog/contactPopover";
 
 export default function Header() {
   return (
@@ -36,7 +36,7 @@ export default function Header() {
             </a>
           </li>
           <li>
-            <ContactPopover />
+            <ContactPopover triggerText={"Nous joindre"} />
           </li>
           <li>
             <Link href="/todo" className={"hover:underline"}>

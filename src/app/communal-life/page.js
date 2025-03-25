@@ -1,11 +1,11 @@
-import TitleCard from "@/components/common/titleCard";
+import PageTitleAndDescription from "@/components/common/pageTitleAndDescription";
 
 export default function Communal_life() {
   return (
     <main
       className={"container mx-auto min-h-[calc(100vh-249.27px)] flex flex-col"}
     >
-      <TitleCard
+      <PageTitleAndDescription
         title={"Loisir, vie communautaire et culturelle, saines habitudes"}
         description={
           "Nous souhaitons enrichir l’offre aux citoyens en matière de loisirs, de sport, de plein\n" +
