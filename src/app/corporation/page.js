@@ -1,8 +1,28 @@
+"use server";
+
+import { createClient } from "@/utils/supabase/server";
 import { Tabs, Tab } from "@/components/utils/tabs";
 import PageTitleAndDescription from "@/components/common/pageTitleAndDescription";
 import ProfileCard from "@/components/common/profileCard";
 
-export default function Corporation() {
+export default async function Corporation() {
+  const supabase = await createClient();
+
+  const { data: assemblee } = await supabase
+    .from("members")
+    .select("*")
+    .eq("section", "assemblee");
+
+  const { data: conseil } = await supabase
+    .from("members")
+    .select("*")
+    .eq("section", "conseil");
+
+  const { data: direction } = await supabase
+    .from("members")
+    .select("*")
+    .eq("section", "direction");
+
   return (
     <main className={"container mx-auto min-h-[calc(100vh-249.27px)]"}>
       <PageTitleAndDescription
@@ -12,85 +32,57 @@ export default function Corporation() {
         }
       />
       <Tabs>
-        <Tab label="Assemblée générale">
-          <div className="py-4">
-            <h2 className="text-xl font-bold mb-2 text-green_1">
-              Assemblée générale
-            </h2>
-            <ProfileCard
-              title={"Rôle 1"}
-              name={"Nom 1"}
-              image={"/images/blank_person.png"}
-            />
-            <ProfileCard
-              title={"Rôle 2"}
-              name={"Nom 2"}
-              image={"/images/blank_person.png"}
-            />
-            <ProfileCard
-              title={"Rôle 3"}
-              name={"Nom 3"}
-              image={"/images/blank_person.png"}
-            />
-            <ProfileCard
-              title={"Rôle 4"}
-              name={"Nom 4"}
-              image={"/images/blank_person.png"}
-            />
-          </div>
-        </Tab>
-        <Tab label="Conseil d'administration">
-          <div className="py-4">
-            <h2 className="text-xl font-bold mb-2 text-green_1">
-              Conseil d'administration
-            </h2>
-            <ProfileCard
-              title={"Rôle 1"}
-              name={"Nom 1"}
-              image={"/images/blank_person.png"}
-            />
-            <ProfileCard
-              title={"Rôle 2"}
-              name={"Nom 2"}
-              image={"/images/blank_person.png"}
-            />
-            <ProfileCard
-              title={"Rôle 3"}
-              name={"Nom 3"}
-              image={"/images/blank_person.png"}
-            />
-            <ProfileCard
-              title={"Rôle 4"}
-              name={"Nom 4"}
-              image={"/images/blank_person.png"}
-            />
-          </div>
-        </Tab>
-        <Tab label="Direction générale">
-          <div className="py-4">
-            <h2 className="text-xl font-bold mb-2 text-green_1">
-              Direction générale
-            </h2>
-            <ProfileCard
-              title={"Rôle 1"}
-              name={"Nom 1"}
-              image={"/images/blank_person.png"}
-            />
-            <ProfileCard
-              title={"Rôle 2"}
-              name={"Nom 2"}
-              image={"/images/blank_person.png"}
-            />
-            <ProfileCard
-              title={"Rôle 3"}
-              name={"Nom 3"}
-              image={"/images/blank_person.png"}
-            />
-            <ProfileCard
-              title={"Rôle 4"}
-              name={"Nom 4"}
-              image={"/images/blank_person.png"}
-            />
+        <Tab label="Membres">
+          <div className="py-4 grid grid-cols-3">
+            <div>
+              <h2 className="text-xl font-bold mb-2 text-green_1">
+                Assemblée générale
+              </h2>
+              <p>
+                L'assemblée des membres est constituée de représentants de la
+                nation innu de Matimekush-Lac John, de la nation naskapie de
+                Kawawachikamach et de la ville de Schefferville.
+              </p>
+              {assemblee.map((member) => (
+                <ProfileCard
+                  key={member.id}
+                  name={member.name}
+                  role={member.role}
+                  image={member.image || "/images/blank_person.png"}
+                />
+              ))}
+            </div>
+            <div>
+              <h2 className="text-xl font-bold mb-2 text-green_1">
+                Conseil d'administration
+              </h2>
+              <p>
+                Le conseil d'administration est composé de sept membres
+                représentants des trois communautés. Trois sièges sont réservés
+                pour chaque volet de développement.
+              </p>
+              {conseil.map((member) => (
+                <ProfileCard
+                  key={member.id}
+                  name={member.name}
+                  role={member.role}
+                  image={member.image || "/images/blank_person.png"}
+                />
+              ))}
+            </div>
+            <div>
+              <h2 className="text-xl font-bold mb-2 text-green_1">
+                Direction générale
+              </h2>
+              {direction.map((member) => (
+                <ProfileCard
+                  key={member.id}
+                  name={member.name}
+                  role={member.role}
+                  image={member.image || "/images/blank_person.png"}
+                />
+              ))}
+            </div>
           </div>
         </Tab>
         <Tab label="Documents">

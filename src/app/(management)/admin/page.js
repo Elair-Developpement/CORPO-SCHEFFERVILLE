@@ -1,29 +1,66 @@
 import { redirect } from "next/navigation";
-
 import { createClient } from "@/utils/supabase/server";
+import PageTitle from "@/components/common/pageTitle";
 
 export default async function Admin() {
   const supabase = await createClient();
 
-  const { data, error } = await supabase.auth.getUser();
-  if (error || !data?.user) {
+  const { data: userData, error: userError } = await supabase.auth.getUser();
+  if (userError || !userData?.user) {
     redirect("/login");
   }
 
-  async function signOut() {
-    const supabase = await createClient();
+  const { data: members, error: membersError } = await supabase
+    .from("members")
+    .select("*")
+    .order("section");
 
-    const { error } = await supabase.auth.signOut();
-
-    if (error) {
-      return { error: "Erreur lors de la déconnexion" };
-    }
+  if (membersError) {
+    return <div>Error loading members data</div>;
   }
 
   return (
     <main className={"container mx-auto min-h-[calc(100vh-249.27px)]"}>
-      <div>
-        <h1>Bienvenue {data.user.email}</h1>
+      <div className={"w-full"}>
+        <PageTitle title="Console administrateur" />
+        <h1 className={"text-orange_2 mb-6"}>
+          Vous êtes connectés en tant que :{" "}
+          <span className={"font-bold"}>{userData.user.email}</span>
+        </h1>
+
+        <div className="overflow-x-auto">
+          <table className="min-w-full bg-white border border-gray-300">
+            <thead className="bg-gray-100">
+              <tr>
+                <th className="px-6 py-3 border-b text-left">Nom</th>
+                <th className="px-6 py-3 border-b text-left">Rôle</th>
+                <th className="px-6 py-3 border-b text-left">Section</th>
+                <th className="px-6 py-3 border-b text-left">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {members.map((member) => (
+                <tr key={member.id} className="hover:bg-gray-50">
+                  <td className="px-6 py-4 border-b">{member.name}</td>
+                  <td className="px-6 py-4 border-b">{member.role}</td>
+                  <td className="px-6 py-4 border-b">
+                    {member.section === "assemblee" && "Assemblée générale"}
+                    {member.section === "conseil" && "Conseil d'administration"}
+                    {member.section === "direction" && "Direction générale"}
+                  </td>
+                  <td className="px-6 py-4 border-b">
+                    <button className="text-blue-600 hover:text-blue-800 mr-2">
+                      Modifier
+                    </button>
+                    <button className="text-red-600 hover:text-red-800">
+                      Supprimer
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </main>
   );

@@ -37,7 +37,7 @@ export default function Login() {
           </div>
           <button
             formAction={signIn}
-            className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
+            className="w-full bg-green_1 hover:bg-white hover:text-green_1 hover:border-green_1 text-white font-bold py-3 px-5 border-2 rounded"
           >
             Se connecter
           </button>
