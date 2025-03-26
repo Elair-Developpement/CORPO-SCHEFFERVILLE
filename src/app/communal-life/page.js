@@ -1,37 +1,23 @@
-"use client";
-
-import { useEffect, useState } from "react";
 import PageTitleAndDescription from "@/components/common/pageTitleAndDescription";
-import { createClient } from "@/utils/supabase/client";
+import { createClient } from "@/utils/supabase/server";
 
-export default function Communal_life() {
-    const [activities, setActivities] = useState({
-        ongoing: [],
-        available: [],
-        developing: [],
-    });
+export default async function Communal_life() {
+    const supabase = createClient();
 
-    useEffect(() => {
-        async function fetchActivities() {
-            const supabase = createClient();
-            const { data, error } = await supabase.from("projects").select("*");
+    const { data: ongoing } = await supabase
+        .from("members")
+        .select("*")
+        .eq("category", "en-cours");
 
-            if (error) {
-                console.error("Erreur lors de l'obtention des activités", error);
-                return;
-            }
+    const { data: equipment } = await supabase
+        .from("members")
+        .select("*")
+        .eq("category", "equipements-disponibles");
 
-            const categorizedActivities = {
-                ongoing: data.filter(activity => activity.category === "en-cours"),
-                upcoming: data.filter(activity => activity.category === "en-developpement"),
-                equipment: data.filter(activity => activity.category === "equipements-disponibles"),
-            };
-
-            setActivities(categorizedActivities);
-        }
-
-        fetchActivities();
-    }, []);
+    const { data: upcoming } = await supabase
+        .from("members")
+        .select("*")
+        .eq("category", "en-developpement");
 
     return (
         <main className={"container mx-auto min-h-[calc(100vh-249.27px)] flex flex-col"}>
@@ -56,7 +42,7 @@ export default function Communal_life() {
                     <div className={"flex w-full justify-between"}>
                         <div className={"flex text-xl font-bold"}>Activités en cours</div>
                         <div className={"flex-col text-right"}>
-                            {activities.ongoing.map(activity => (
+                            {ongoing.map(activity => (
                                 <div key={activity.id}>{activity.name}</div>
                             ))}
                         </div>
@@ -66,7 +52,7 @@ export default function Communal_life() {
                     <div className={"flex w-full justify-between"}>
                         <div className={"flex text-xl font-bold"}>Équipements disponibles</div>
                         <div className={"flex-col text-right"}>
-                            {activities.upcoming.map(activity => (
+                            {equipment.map(activity => (
                                 <div key={activity.id}>{activity.name}</div>
                             ))}
                         </div>
@@ -76,7 +62,7 @@ export default function Communal_life() {
                     <div className={"flex w-full justify-between"}>
                         <div className={"flex text-xl font-bold"}>En développement</div>
                         <div className={"flex-col text-right"}>
-                            {activities.equipment.map(activity => (
+                            {upcoming.map(activity => (
                                 <div key={activity.id}>{activity.name}</div>
                             ))}
                         </div>
