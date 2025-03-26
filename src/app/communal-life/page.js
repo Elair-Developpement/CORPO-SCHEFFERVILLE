@@ -14,7 +14,7 @@ export default function Communal_life() {
     useEffect(() => {
         async function fetchActivities() {
             const supabase = createClient();
-            const { data, error } = await supabase.from("activities").select("*");
+            const { data, error } = await supabase.from("projects").select("*");
 
             if (error) {
                 console.error("Erreur lors de l'obtention des activités", error);
@@ -22,9 +22,9 @@ export default function Communal_life() {
             }
 
             const categorizedActivities = {
-                ongoing: data.filter(activity => activity.category === "ongoing"),
-                available: data.filter(activity => activity.category === "available"),
-                developing: data.filter(activity => activity.category === "developing"),
+                ongoing: data.filter(activity => activity.category === "en-cours"),
+                upcoming: data.filter(activity => activity.category === "en-developpement"),
+                equipment: data.filter(activity => activity.category === "equipements-disponibles"),
             };
 
             setActivities(categorizedActivities);
@@ -66,7 +66,7 @@ export default function Communal_life() {
                     <div className={"flex w-full justify-between"}>
                         <div className={"flex text-xl font-bold"}>Équipements disponibles</div>
                         <div className={"flex-col text-right"}>
-                            {activities.available.map(activity => (
+                            {activities.upcoming.map(activity => (
                                 <div key={activity.id}>{activity.name}</div>
                             ))}
                         </div>
@@ -76,7 +76,7 @@ export default function Communal_life() {
                     <div className={"flex w-full justify-between"}>
                         <div className={"flex text-xl font-bold"}>En développement</div>
                         <div className={"flex-col text-right"}>
-                            {activities.developing.map(activity => (
+                            {activities.equipment.map(activity => (
                                 <div key={activity.id}>{activity.name}</div>
                             ))}
                         </div>
