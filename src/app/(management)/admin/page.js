@@ -23,7 +23,12 @@ export default async function Admin() {
     .select("*")
     .order("section");
 
-  if (membersError) {
+  const { data: projects, error: projectsError } = await supabase
+    .from("projects")
+    .select("*")
+    .order("category");
+
+  if (membersError || projectsError) {
     return <div>Error loading members data</div>;
   }
 
@@ -56,7 +61,43 @@ export default async function Admin() {
         </AccordionItem>
         <AccordionItem value="item-5">
           <AccordionTrigger>Vie communautaire & culturelle</AccordionTrigger>
-          <AccordionContent></AccordionContent>
+          <AccordionContent>
+            <table className="min-w-full bg-white border border-gray-300">
+              <thead className="bg-gray-100">
+                <tr>
+                  <th className="px-6 py-3 border-b text-left">Nom</th>
+                  <th className="px-6 py-3 border-b text-left">Catégorie</th>
+                  <th className="px-6 py-3 border-b text-left">Description</th>
+                  <th className="px-6 py-3 border-b text-left">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {projects?.map((project) => (
+                  <tr key={project.id} className="hover:bg-gray-50">
+                    <td className="px-6 py-4 border-b">{project.name}</td>
+                    <td className="px-6 py-4 border-b">
+                      {project.category === "en-cours" && "En cours"}
+                      {project.category === "equipements-disponibles" &&
+                        "Équipements disponibles"}
+                      {project.category === "en-developpement" &&
+                        "En développement"}
+                    </td>
+                    <td className="px-6 py-4 border-b">
+                      {project.description}
+                    </td>
+                    <td className="px-6 py-4 border-b">
+                      <button className="text-blue-600 hover:text-blue-800 mr-2">
+                        Modifier
+                      </button>
+                      <button className="text-red-600 hover:text-red-800">
+                        Supprimer
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </AccordionContent>
         </AccordionItem>
         <AccordionItem value="item-6">
           <AccordionTrigger>La corporation</AccordionTrigger>
