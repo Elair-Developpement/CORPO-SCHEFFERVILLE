@@ -1,5 +1,5 @@
 import Link from "next/link";
-// Component imports
+
 import PageTitleAndDescription from "@/components/common/pageTitleAndDescription";
 import { buttonVariants } from "@/components/ui/button";
 
