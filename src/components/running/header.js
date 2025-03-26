@@ -17,6 +17,7 @@ export default function Header() {
             alt="Logo de la ville de Schefferville, à remplacer avec celui de la corporation."
             width={350}
             height={100}
+            priority={true}
           />
         </Link>
         {/* Navigation Links */}

@@ -1,9 +1,6 @@
-"use client";
+"use server";
 
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
+import { redirect, useRouter, useSearchParams } from "next/navigation";
 import { use, useState } from "react";
 
 import { Button } from "@/components/ui/button";
@@ -16,7 +13,8 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { useRouter, useSearchParams } from "next/navigation";
+import { createClient } from "@/utils/supabase/server";
+import { revalidatePath } from "next/cache";
 
 const formSchema = z.object({
   email: z.string().email({ message: "Adresse courriel invalide." }),
@@ -25,9 +23,6 @@ const formSchema = z.object({
 
 export default function LoginForm() {
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const redirectPath = searchParams.get("redirect") || "/";
-  const supabase = createClientComponentClient();
   const [error, setError] = useState(null);
 
   const form = useForm({
@@ -39,6 +34,7 @@ export default function LoginForm() {
   });
 
   async function onSubmit(values) {
+    const supabase = await createClient();
     try {
       const { error } = await supabase.auth.signInWithPassword({
         email: values.email,
@@ -46,14 +42,16 @@ export default function LoginForm() {
       });
 
       if (error) {
-        setError(error.message);
+        setError("Erreur de connexion, vérifiez vos identifiants.");
         return;
       }
 
-      router.refresh();
-      router.push(redirectPath);
+      revalidatePath("/", "layout");
+      redirect("/admin");
     } catch (error) {
-      setError("An error occurred during login");
+      setError(
+        "Une erreur est survenue lors de la connexion, veuillez réessayer.",
+      );
     }
   }
 

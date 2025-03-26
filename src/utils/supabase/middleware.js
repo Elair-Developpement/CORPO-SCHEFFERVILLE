@@ -1,5 +1,5 @@
 import { createServerClient } from "@supabase/ssr";
-import { NextResponse, NextRequest } from "next/server";
+import { NextResponse } from "next/server";
 
 // Pages protégées
 const protectedRoutes = ["/admin"];
@@ -36,13 +36,12 @@ export async function updateSession(request) {
     data: { user },
   } = await supabase.auth.getUser();
 
-  const pathname = request.nextUrl.pathname;
-  const isProtectedRoute = protectedRoutes.includes(pathname);
-
-  if (isProtectedRoute && !user) {
-    const url = request.nextUrl.clone();
-    url.pathname = "/login";
-    return NextResponse.redirect(url);
+  if (!user) {
+    if (protectedRoutes.includes(request.nextUrl.pathname)) {
+      const url = request.nextUrl.clone();
+      url.pathname = "/login";
+      return NextResponse.redirect(url);
+    }
   }
 
   return supabaseResponse;
