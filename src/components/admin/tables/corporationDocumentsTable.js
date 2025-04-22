@@ -1,22 +1,49 @@
-import { createClient } from "@/utils/supabase/server";
+"use client";
 
-export default async function CorporationDocumentsTable() {
-  const supabase = await createClient();
+import { useState, useEffect } from "react";
+import { createClient } from "@/utils/supabase/client";
+
+export default function CorporationDocumentsTable() {
+  const [documents, setDocuments] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const supabase = createClient();
   const bucketId = "corpo-documents";
 
-  const { data: corporationDocumentsBucket, error: corpoDocsError } =
-    await supabase.storage.from(bucketId).list();
+  useEffect(() => {
+    const fetchDocuments = async () => {
+      const { data, error } = await supabase.storage.from(bucketId).list();
+      if (!error) {
+        const documentsList = data.map((doc) => ({
+          name: doc.name,
+          url: supabase.storage.from(bucketId).getPublicUrl(doc.name).data
+            .publicUrl,
+        }));
+        setDocuments(documentsList);
+      }
+      setLoading(false);
+    };
 
-  if (corpoDocsError) {
-    return (
-      <div>Erreur lors du chargement des documents de la corporation.</div>
+    fetchDocuments();
+  }, [supabase]);
+
+  const handleDelete = async (fileName) => {
+    const confirmed = confirm(
+      "Êtes-vous sûr de vouloir supprimer ce document ?",
     );
-  }
+    if (!confirmed) return;
 
-  const corporationDocumentsList = corporationDocumentsBucket.map((doc) => ({
-    name: doc.name,
-    url: supabase.storage.from(bucketId).getPublicUrl(doc.name).data.publicUrl,
-  }));
+    const { error } = await supabase.storage.from(bucketId).remove([fileName]);
+    if (!error) {
+      setDocuments((prev) => prev.filter((doc) => doc.name !== fileName));
+      alert("Document supprimé avec succès !");
+    } else {
+      alert("Erreur lors de la suppression du document : " + error.message);
+    }
+  };
+
+  if (loading) {
+    return <div>Chargement des documents...</div>;
+  }
 
   return (
     <div className="overflow-x-auto">
@@ -28,7 +55,7 @@ export default async function CorporationDocumentsTable() {
           </tr>
         </thead>
         <tbody>
-          {corporationDocumentsList.map((doc) => (
+          {documents.map((doc) => (
             <tr key={doc.name} className="hover:bg-gray-50">
               <td className="px-6 py-4 border-b">{doc.name}</td>
               <td className="px-6 py-4 border-b">
@@ -40,6 +67,12 @@ export default async function CorporationDocumentsTable() {
                 >
                   Télécharger
                 </a>
+                <button
+                  onClick={() => handleDelete(doc.name)}
+                  className="text-red-600 hover:text-red-800 ml-4"
+                >
+                  Supprimer
+                </button>
               </td>
             </tr>
           ))}

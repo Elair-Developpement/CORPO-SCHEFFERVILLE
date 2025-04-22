@@ -1,16 +1,44 @@
-import { createClient } from "@/utils/supabase/server";
+"use client";
 
-export default async function CorporationMembersTable() {
-  const supabase = await createClient();
+import { useState, useEffect } from "react";
+import { createClient } from "@/utils/supabase/client";
+
+export default function CorporationMembersTable() {
+  const [members, setMembers] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const supabase = createClient();
   const tableName = "members";
 
-  const { data: members, error: membersError } = await supabase
-    .from(tableName)
-    .select("*")
-    .order("section");
+  useEffect(() => {
+    const fetchMembers = async () => {
+      const { data, error } = await supabase
+        .from(tableName)
+        .select("*")
+        .order("section");
+      if (!error) {
+        setMembers(data);
+      }
+      setLoading(false);
+    };
 
-  if (membersError) {
-    return <div>Erreur lors du chargement des mombres de la corporation.</div>;
+    fetchMembers();
+  }, [supabase]);
+
+  const handleDelete = async (id) => {
+    const confirmed = confirm("Êtes-vous sûr de vouloir supprimer ce membre ?");
+    if (!confirmed) return;
+
+    const { error } = await supabase.from(tableName).delete().eq("id", id);
+    if (!error) {
+      setMembers((prev) => prev.filter((member) => member.id !== id));
+      alert("Membre supprimé avec succès !");
+    } else {
+      alert("Erreur lors de la suppression du membre : " + error.message);
+    }
+  };
+
+  if (loading) {
+    return <div>Chargement des membres...</div>;
   }
 
   return (
@@ -35,10 +63,16 @@ export default async function CorporationMembersTable() {
                 {member.section === "direction" && "Direction générale"}
               </td>
               <td className="px-6 py-4 border-b">
-                <button className="text-blue-600 hover:text-blue-800 mr-2">
+                <button
+                  onClick={() => alert("Modifier functionality here")}
+                  className="text-blue-600 hover:text-blue-800 mr-2"
+                >
                   Modifier
                 </button>
-                <button className="text-red-600 hover:text-red-800">
+                <button
+                  onClick={() => handleDelete(member.id)}
+                  className="text-red-600 hover:text-red-800"
+                >
                   Supprimer
                 </button>
               </td>
