@@ -9,6 +9,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import NewslettersTable from "@/components/admin/tables/newslettersTable";
 import CorporationMembersTable from "@/components/admin/tables/corporationMembersTable";
 import CorporationDocumentsTable from "@/components/admin/tables/corporationDocumentsTable";
 import UploadCorporationDocumentsDialog from "@/components/admin/formDialog/uploadCorporationDocumentsDialog";
@@ -51,6 +52,7 @@ export default async function Admin() {
             <p className={"ml-1 text-orange_2 font-bold text-2xl"}>
               Documents d'infolettres
             </p>
+            <NewslettersTable />
           </AccordionContent>
         </AccordionItem>
         <AccordionItem value="item-3">
