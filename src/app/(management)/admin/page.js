@@ -9,6 +9,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import UploadCorporationDocumentsDialog from "@/components/admin/formDialog/uploadCorporationDocumentsDialog";
 
 export default async function Admin() {
   const supabase = await createClient();
@@ -28,9 +29,18 @@ export default async function Admin() {
     .select("*")
     .order("category");
 
-  if (membersError || projectsError) {
+  const { data: corpoDocsBucket, error: corpoDocsError } =
+    await supabase.storage.from("corpo-documents").list();
+
+  if (membersError || projectsError || corpoDocsError) {
     return <div>Error loading members data</div>;
   }
+
+  const corpoDocs = corpoDocsBucket.map((doc) => ({
+    name: doc.name,
+    url: supabase.storage.from("corpo-documents").getPublicUrl(doc.name).data
+      .publicUrl,
+  }));
 
   return (
     <main className={"container mx-auto min-h-[calc(100vh-249.27px)]"}>
@@ -49,7 +59,11 @@ export default async function Admin() {
         </AccordionItem>
         <AccordionItem value="item-2">
           <AccordionTrigger>Infolettre</AccordionTrigger>
-          <AccordionContent></AccordionContent>
+          <AccordionContent>
+            <p className={"ml-1 text-orange_2 font-bold text-2xl"}>
+              Documents d'infolettres
+            </p>
+          </AccordionContent>
         </AccordionItem>
         <AccordionItem value="item-3">
           <AccordionTrigger>Habitation</AccordionTrigger>
@@ -62,6 +76,9 @@ export default async function Admin() {
         <AccordionItem value="item-5">
           <AccordionTrigger>Vie communautaire & culturelle</AccordionTrigger>
           <AccordionContent>
+            <p className={"ml-1 text-orange_2 font-bold text-2xl"}>
+              Projets et équipements
+            </p>
             <table className="min-w-full bg-white border border-gray-300">
               <thead className="bg-gray-100">
                 <tr>
@@ -102,6 +119,7 @@ export default async function Admin() {
         <AccordionItem value="item-6">
           <AccordionTrigger>La corporation</AccordionTrigger>
           <AccordionContent>
+            <p className={"ml-1 text-orange_2 font-bold text-2xl"}>Membres</p>
             <div className="overflow-x-auto">
               <table className="min-w-full bg-white border border-gray-300">
                 <thead className="bg-gray-100">
@@ -130,6 +148,37 @@ export default async function Admin() {
                         <button className="text-red-600 hover:text-red-800">
                           Supprimer
                         </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className={"ml-1 text-orange_2 font-bold text-2xl"}>
+              Documents corporatifs
+            </p>
+            <UploadCorporationDocumentsDialog />
+            <div className="overflow-x-auto">
+              <table className="min-w-full bg-white border border-gray-300">
+                <thead className="bg-gray-100">
+                  <tr>
+                    <th className="px-6 py-3 border-b text-left">Nom</th>
+                    <th className="px-6 py-3 border-b text-left">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {corpoDocs.map((doc) => (
+                    <tr key={doc.name} className="hover:bg-gray-50">
+                      <td className="px-6 py-4 border-b">{doc.name}</td>
+                      <td className="px-6 py-4 border-b">
+                        <a
+                          href={doc.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-blue-600 hover:text-blue-800"
+                        >
+                          Télécharger
+                        </a>
                       </td>
                     </tr>
                   ))}
