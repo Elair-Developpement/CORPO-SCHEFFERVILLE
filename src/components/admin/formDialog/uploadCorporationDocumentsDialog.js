@@ -2,19 +2,26 @@
 
 import { useState } from "react";
 import { createClient } from "@/utils/supabase/client";
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogTrigger,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
 
 export default function UploadCorporationDocumentsDialog() {
   const [uploadStatus, setUploadStatus] = useState("");
   const supabase = createClient();
+  const bucketId = "corpo-documents";
 
   const handleFileChange = async (event) => {
     const file = event.target.files[0];
     if (!file) return;
 
-    const fileName = `${Date.now()}-${file.name}`; // Generate a unique file name
+    const fileName = `${file.name}`;
     const { error } = await supabase.storage
-      .from("corpo-documents") // Replace with your bucket name
+      .from(bucketId) // Replace with your bucket name
       .upload(fileName, file);
 
     if (error) {
@@ -26,8 +33,9 @@ export default function UploadCorporationDocumentsDialog() {
 
   return (
     <Dialog>
-      <DialogTrigger className="hover:underline">
-        Ajouter Document
+      <DialogTitle className="sr-only">Ajouter un document</DialogTitle>
+      <DialogTrigger asChild className="hover:underline">
+        <Button variant="outline">Ajouter un document</Button>
       </DialogTrigger>
       <DialogContent>
         <div className="flex flex-col container space-y-2">

@@ -9,6 +9,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import CorporationMembersTable from "@/components/admin/tables/corporationMembersTable";
+import CorporationDocumentsTable from "@/components/admin/tables/corporationDocumentsTable";
 import UploadCorporationDocumentsDialog from "@/components/admin/formDialog/uploadCorporationDocumentsDialog";
 
 export default async function Admin() {
@@ -19,28 +21,14 @@ export default async function Admin() {
     redirect("/login");
   }
 
-  const { data: members, error: membersError } = await supabase
-    .from("members")
-    .select("*")
-    .order("section");
-
   const { data: projects, error: projectsError } = await supabase
     .from("projects")
     .select("*")
     .order("category");
 
-  const { data: corpoDocsBucket, error: corpoDocsError } =
-    await supabase.storage.from("corpo-documents").list();
-
-  if (membersError || projectsError || corpoDocsError) {
+  if (projectsError) {
     return <div>Error loading members data</div>;
   }
-
-  const corpoDocs = corpoDocsBucket.map((doc) => ({
-    name: doc.name,
-    url: supabase.storage.from("corpo-documents").getPublicUrl(doc.name).data
-      .publicUrl,
-  }));
 
   return (
     <main className={"container mx-auto min-h-[calc(100vh-249.27px)]"}>
@@ -120,71 +108,12 @@ export default async function Admin() {
           <AccordionTrigger>La corporation</AccordionTrigger>
           <AccordionContent>
             <p className={"ml-1 text-orange_2 font-bold text-2xl"}>Membres</p>
-            <div className="overflow-x-auto">
-              <table className="min-w-full bg-white border border-gray-300">
-                <thead className="bg-gray-100">
-                  <tr>
-                    <th className="px-6 py-3 border-b text-left">Nom</th>
-                    <th className="px-6 py-3 border-b text-left">Rôle</th>
-                    <th className="px-6 py-3 border-b text-left">Section</th>
-                    <th className="px-6 py-3 border-b text-left">Actions</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {members.map((member) => (
-                    <tr key={member.id} className="hover:bg-gray-50">
-                      <td className="px-6 py-4 border-b">{member.name}</td>
-                      <td className="px-6 py-4 border-b">{member.role}</td>
-                      <td className="px-6 py-4 border-b">
-                        {member.section === "assemblee" && "Assemblée générale"}
-                        {member.section === "conseil" &&
-                          "Conseil d'administration"}
-                        {member.section === "direction" && "Direction générale"}
-                      </td>
-                      <td className="px-6 py-4 border-b">
-                        <button className="text-blue-600 hover:text-blue-800 mr-2">
-                          Modifier
-                        </button>
-                        <button className="text-red-600 hover:text-red-800">
-                          Supprimer
-                        </button>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+            <CorporationMembersTable />
             <p className={"ml-1 text-orange_2 font-bold text-2xl"}>
               Documents corporatifs
             </p>
             <UploadCorporationDocumentsDialog />
-            <div className="overflow-x-auto">
-              <table className="min-w-full bg-white border border-gray-300">
-                <thead className="bg-gray-100">
-                  <tr>
-                    <th className="px-6 py-3 border-b text-left">Nom</th>
-                    <th className="px-6 py-3 border-b text-left">Actions</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {corpoDocs.map((doc) => (
-                    <tr key={doc.name} className="hover:bg-gray-50">
-                      <td className="px-6 py-4 border-b">{doc.name}</td>
-                      <td className="px-6 py-4 border-b">
-                        <a
-                          href={doc.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-blue-600 hover:text-blue-800"
-                        >
-                          Télécharger
-                        </a>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+            <CorporationDocumentsTable />
           </AccordionContent>
         </AccordionItem>
       </Accordion>
