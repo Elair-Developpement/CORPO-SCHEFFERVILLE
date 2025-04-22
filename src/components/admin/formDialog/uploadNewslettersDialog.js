@@ -28,7 +28,6 @@ export default function UploadNewslettersDialog() {
       setUploadStatus("Error uploading file: " + error.message);
     } else {
       setUploadStatus("File uploaded successfully!");
-      refre;
     }
   };
 
