@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import PageTitleAndDescription from "@/components/common/pageTitleAndDescription";
+import NewslettersTable from "@/app/newsletter/(components)/newslettersTable";
 import { buttonVariants } from "@/components/ui/button";
 
 export default function Newsletter() {
@@ -21,6 +22,10 @@ export default function Newsletter() {
       <Link href={"/"} className={buttonVariants({ variant: "outline" })}>
         S'inscrire à l'infolettre
       </Link>
+      <p className={"my-4"}>
+        Vous pouvez consultez et télécharger toutes les infolettres ci-dessous.
+      </p>
+      <NewslettersTable />
     </main>
   );
 }
