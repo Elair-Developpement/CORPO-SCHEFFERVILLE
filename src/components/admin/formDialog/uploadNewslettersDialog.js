@@ -10,10 +10,10 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 
-export default function UploadCorporationDocumentsDialog() {
+export default function UploadNewslettersDialog() {
   const [uploadStatus, setUploadStatus] = useState("");
   const supabase = createClient();
-  const bucketId = "corpo-documents";
+  const bucketId = "newsletters";
 
   const handleFileChange = async (event) => {
     const file = event.target.files[0];
@@ -28,14 +28,15 @@ export default function UploadCorporationDocumentsDialog() {
       setUploadStatus("Error uploading file: " + error.message);
     } else {
       setUploadStatus("File uploaded successfully!");
+      refre;
     }
   };
 
   return (
     <Dialog>
-      <DialogTitle className="sr-only">Téléverser un document</DialogTitle>
+      <DialogTitle className="sr-only">Ajouter un document</DialogTitle>
       <DialogTrigger asChild className="hover:underline bg-green_2 text-white">
-        <Button variant="outline">Ajouter un document</Button>
+        <Button variant="outline">Téléverser un document</Button>
       </DialogTrigger>
       <DialogContent>
         <div className="flex flex-col container space-y-2">
