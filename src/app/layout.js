@@ -1,5 +1,4 @@
-import { Poppins } from "next/font/google";
-import { DM_Sans } from "next/font/google";
+import { Poppins, DM_Sans } from "next/font/google";
 import "../styles/globals.css";
 
 import Header from "@/components/running/header";

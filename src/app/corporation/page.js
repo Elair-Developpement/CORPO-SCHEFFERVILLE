@@ -1,9 +1,10 @@
 "use server";
 
-import { createClient } from "@/utils/supabase/server";
-import { Tabs, Tab } from "@/components/utils/tabs";
+import { createClient } from "@/lib/supabase/server";
+import { Tabs, Tab } from "@/components/ui/tabs";
 import PageTitleAndDescription from "@/components/common/pageTitleAndDescription";
 import ProfileCard from "@/components/common/profileCard";
+import CorporationDocumentsTable from "@/app/corporation/(components)/corporationDocumentsTable";
 
 export default async function Corporation() {
   const supabase = await createClient();
@@ -102,6 +103,7 @@ export default async function Corporation() {
               expedita sint? Sed quibusdam recusandae alias error harum maxime
               adipisci amet laborum.
             </p>
+            <CorporationDocumentsTable />
           </div>
         </Tab>
       </Tabs>

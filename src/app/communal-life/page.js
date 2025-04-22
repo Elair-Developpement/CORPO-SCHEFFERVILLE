@@ -1,5 +1,5 @@
 import PageTitleAndDescription from "@/components/common/pageTitleAndDescription";
-import { createClient } from "@/utils/supabase/server";
+import { createClient } from "@/lib/supabase/server";
 
 export default async function Communal_life() {
   const supabase = await createClient();

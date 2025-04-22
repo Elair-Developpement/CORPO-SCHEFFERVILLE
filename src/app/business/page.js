@@ -1,5 +1,5 @@
 import PageTitleAndDescription from "@/components/common/pageTitleAndDescription";
-import { Tabs, Tab } from "@/components/utils/tabs";
+import { Tabs, Tab } from "@/components/ui/tabs";
 import ContactPopover from "@/components/dialog/contactPopover";
 
 export default function Business() {
