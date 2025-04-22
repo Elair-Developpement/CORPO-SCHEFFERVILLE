@@ -1,7 +1,19 @@
+"use client";
+
 import PageTitleAndDescription from "@/components/common/pageTitleAndDescription";
-import Map from "../../components/map/basicMap";
+import { useMemo } from "react";
+import dynamic from "next/dynamic";
 
 export default function Housing() {
+  const Map = useMemo(
+    () =>
+      dynamic(() => import("@/components/map/leafletMap"), {
+        loading: () => <p>A map is loading</p>,
+        ssr: false,
+      }),
+    [],
+  );
+
   return (
     <main
       className={"container mx-auto min-h-[calc(100vh-249.27px)] flex-col flex"}
