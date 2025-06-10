@@ -9,6 +9,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
+import { Description } from "@radix-ui/react-dialog";
 
 export default function UploadCorporationDocumentsDialog() {
   const [uploadStatus, setUploadStatus] = useState("");

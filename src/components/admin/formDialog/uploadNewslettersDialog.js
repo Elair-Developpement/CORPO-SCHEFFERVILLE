@@ -10,10 +10,9 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 
-export default function UploadNewslettersDialog() {
+export default function UploadNewslettersDialog({ bucketId }) {
   const [uploadStatus, setUploadStatus] = useState("");
   const supabase = createClient();
-  const bucketId = "newsletters";
 
   const handleFileChange = async (event) => {
     const file = event.target.files[0];
@@ -21,7 +20,7 @@ export default function UploadNewslettersDialog() {
 
     const fileName = `${file.name}`;
     const { error } = await supabase.storage
-      .from(bucketId) // Replace with your bucket name
+      .from(bucketId)
       .upload(fileName, file);
 
     if (error) {
