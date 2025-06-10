@@ -1,3 +1,5 @@
+import { NextIntlClientProvider } from "next-intl";
+
 import { Poppins, DM_Sans } from "next/font/google";
 import "../styles/globals.css";
 
@@ -21,13 +23,22 @@ export const metadata = {
   description: "",
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }, { params }) {
+  let messages;
+  try {
+    messages = (await import(`../../messages/${params.locale}.json`)).default;
+  } catch (error) {
+    messages = (await import(`../../messages/fr.json`)).default;
+  }
+
   return (
-    <html lang="fr">
+    <html lang={params.locale} className="scroll-smooth">
       <body className={`${poppins.variable} ${dmSans.variable} antialiased`}>
-        <Header />
-        <main>{children}</main>
-        <Footer />
+        <NextIntlClientProvider locale={params.locale} messages={messages}>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </NextIntlClientProvider>
       </body>
     </html>
   );
