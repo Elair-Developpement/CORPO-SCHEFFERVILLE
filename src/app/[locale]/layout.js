@@ -1,7 +1,7 @@
 import { NextIntlClientProvider } from "next-intl";
 
 import { Poppins, DM_Sans } from "next/font/google";
-import "../styles/globals.css";
+import "../globals.css";
 
 import Header from "@/components/running/header";
 import Footer from "@/components/running/footer";
