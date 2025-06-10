@@ -1,7 +1,12 @@
+"use client";
+
+import { useTranslations } from "next-intl";
+
 import HomeImage from "@/components/home/homeImage";
 import ServiceCard from "@/components/home/serviceCard";
 
 export default function Home() {
+  const t = useTranslations("home");
   return (
     <main>
       <HomeImage />
