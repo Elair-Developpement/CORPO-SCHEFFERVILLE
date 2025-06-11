@@ -7,7 +7,8 @@ import {
 } from "@/components/ui/popover";
 
 export default function ContactPopover({ triggerText }) {
-  const t = useTranslations("contact-us-popover");
+  const t = useTranslations("contact-popover");
+  const u = useTranslations("running");
 
   return (
     <Popover>
@@ -17,7 +18,7 @@ export default function ContactPopover({ triggerText }) {
       <PopoverContent>
         <div className="flex flex-col container space-y-2">
           <h1 className="text-3xl text-left text-orange_1 justify-center font-bold">
-            {t("title")}
+            {u("contact-us")}
           </h1>
           <p className="text-left">
             {t("text-part-1")}

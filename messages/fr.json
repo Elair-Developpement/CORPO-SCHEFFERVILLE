@@ -8,13 +8,29 @@
     "copyright": "Tous droits réservés © 2025 Corporation de développement de Schefferville | Conception : Elair Développement | ",
     "admin": "Admin"
   },
-  "contact-us-popover": {
-    "title": "Nous joindre",
+  "contact-popover": {
     "text-part-1": "Pour répondre à vos questions ou pour avoir de l’information sur les projets en cours. Écrivez-nous à l’adresse électronique : ",
     "text-part-2": "ou téléphonez-nous au :"
   },
   "home": {
     "mission": "Notre mission",
-    "mission-text": "Favoriser le développement durable de Schefferville et de sa région en réalisant en partenariat des projets dans les domaines de l'habitation, du développement économique et de la vie communautaire et culturelle."
+    "mission-text": "Favoriser le développement durable de Schefferville et de sa région en réalisant en partenariat des projets dans les domaines de l'habitation, du développement économique et de la vie communautaire et culturelle.",
+    "more": "En savoir plus"
+  },
+  "housing": {
+    "housing": "Habitation",
+    "intro-text": "L’habitation est au cœur du développement communautaire et économique. Nous disposons d’une banque de terrains afin de répondre à vos besoins. Nous travaillons sur un projet de logements abordables et de la revitalisation du quartier Eclipse. Faite nous part de vos besoins, nous vous accompagnerons."
+  },
+  "business": {
+    "business": "Développement économique",
+    "intro-text": "Vous avez en tête un projet d'entreprise ? Vous souhaitez démarrer une entreprise d'économie sociale, connaître les ressources et les services disponibles à Schefferville ? En apprendre plus sur les projets miniers ? Vous êtes à la recherche d'un site pour votre entreprise ? Nous vous invitons à consulter cette section ou à nous contacter."
+  },
+  "communal-life":{
+    "communal-life": "Vie communautaire et culturelle",
+    "intro-text": "Nous souhaitons enrichir l’offre aux citoyens en matière de loisirs, de sport, de plein air, d’activités culturelles et communautaires et de saines habitudes de vie. Des activités sont en cours, peut-être souhaitez-vous démarrer un projet ou encore vous informer sur les équipements disponibles et en développement."
+  },
+  "corporation": {
+    "corporation": "La corporation",
+    "intro-text": "La corporation de développement de Schefferville est un organisme sans but lucratif paramunicipal dont les membres sont nommés majoritairement par la Ville de Schefferville. Les nations innues de Matimekush-Lac-John et Kawawachichamak nomment également des représentants."
   }
 }

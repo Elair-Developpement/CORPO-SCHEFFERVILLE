@@ -8,13 +8,30 @@
     "copyright": "All rights reserved © 2025 Corporation de développement de Schefferville | Design: Elair Développement | ",
     "admin": "Admin"
   },
-  "contact-us-popover": {
+  "contact-popover": {
     "title": "Contact us",
     "text-part-1": "To answer your questions or to get information about ongoing projects, write to us at the email address: ",
     "text-part-2": "or call us at:"
   },
   "home": {
     "mission": "Our mission",
-    "mission-text": "To promote the sustainable development of Schefferville and its region by partnering on projects in the areas of housing, economic development, and community and cultural life."
+    "mission-text": "To promote the sustainable development of Schefferville and its region by partnering on projects in the areas of housing, economic development, and community and cultural life.",
+    "more": "Learn more"
+  },
+  "housing": {
+    "housing": "Housing",
+    "intro-text": "Housing is at the heart of community and economic development. We have a bank of land to meet your needs. We are working on a project for affordable housing and the revitalization of the Eclipse neighborhood. Share your needs with us, and we will assist you."
+  },
+  "business": {
+    "business": "Economic Development",
+    "intro-text": "Do you have a business project in mind? Are you looking to start a social economy enterprise, learn about the resources and services available in Schefferville, or find out more about mining projects? Are you searching for a site for your business? We invite you to explore this section or contact us."
+  },
+  "communal-life":{
+    "communal-life": "Communal and Cultural Life",
+    "intro-text": "We aim to enrich the offerings for citizens in terms of recreation, sports, outdoor activities, cultural and community activities, and healthy living habits. Activities are underway; perhaps you want to start a project or learn about available and developing facilities."
+  },
+  "corporation": {
+    "corporation": "The Corporation",
+    "intro-text": "The Corporation de développement de Schefferville is a non-profit paramunicipal organization whose members are primarily appointed by the City of Schefferville. The Innu nations of Matimekush-Lac-John and Kawawachikamach also appoint representatives."
   }
 }
