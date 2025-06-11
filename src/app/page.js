@@ -7,9 +7,10 @@ import ServiceCard from "@/components/home/serviceCard";
 
 export default function Home() {
   const t = useTranslations("home");
+
   return (
     <main>
-      <HomeImage />
+      <HomeImage missionTitle={t("mission")} missionText={t("mission-text")} />
       <div
         className={
           "py-20 px-16 mx-auto flex flex-row justify-center space-x-11"
