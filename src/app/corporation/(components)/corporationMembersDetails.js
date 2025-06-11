@@ -29,7 +29,7 @@ export default function CorporationMembersDetails() {
   }, []);
 
   return (
-    <div className="py-4 grid grid-cols-3">
+    <div className="py-4 grid grid-cols-3 gap-2">
       <div>
         <h2 className="text-xl font-bold mb-2 text-green_1">
           {t("general-assembly")}

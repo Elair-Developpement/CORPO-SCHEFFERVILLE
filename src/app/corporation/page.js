@@ -15,10 +15,10 @@ export default function Corporation() {
         description={t("intro-text")}
       />
       <Tabs>
-        <Tab label={t("members")}>
+        <Tab label={t("members")} value="members">
           <CorporationMembersDetails />
         </Tab>
-        <Tab label={t("documents")}>
+        <Tab label={t("documents")} value="documents">
           <div className="py-4">
             <h2 className="text-xl font-bold mb-2 text-green_1">
               {t("documents")}
