@@ -2,7 +2,6 @@
 
 import { useTranslations } from "next-intl";
 import { setUserLocale } from "@/lib/locale/locale";
-import { useTransition } from "react";
 
 /**
  * Composant qui consiste d'une lien pour changer la langue du site web
