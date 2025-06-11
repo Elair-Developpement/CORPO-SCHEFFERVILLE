@@ -1,3 +1,5 @@
+import { useTranslations } from "next-intl";
+
 import {
   Popover,
   PopoverContent,
@@ -5,6 +7,8 @@ import {
 } from "@/components/ui/popover";
 
 export default function ContactPopover({ triggerText }) {
+  const t = useTranslations("contact-us-popover");
+
   return (
     <Popover>
       <PopoverTrigger href="/contact" className="hover:underline">
@@ -13,19 +17,20 @@ export default function ContactPopover({ triggerText }) {
       <PopoverContent>
         <div className="flex flex-col container space-y-2">
           <h1 className="text-3xl text-left text-orange_1 justify-center font-bold">
-            Nous Joindre
+            {t("title")}
           </h1>
           <p className="text-left">
-            Pour répondre à vos questions ou pour avoir de l’information sur les
-            projets en cours. Écrivez-nous à l’adresse électronique : <br />
+            {t("text-part-1")}
+            <br />
             <a
+              target={"_blank"}
               href={`mailto:cds@schefferville.ca`}
               className={"hover:underline text-orange_2"}
             >
               cds@schefferville.ca
             </a>
             <br />
-            ou téléphonez-nous au :
+            {t("text-part-2")}
             <br />
             <a
               href={"tel:418-297-5747"}

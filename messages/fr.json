@@ -8,6 +8,11 @@
     "copyright": "Tous droits réservés © 2025 Corporation de développement de Schefferville | Conception : Elair Développement | ",
     "admin": "Admin"
   },
+  "contact-us-popover": {
+    "title": "Nous joindre",
+    "text-part-1": "Pour répondre à vos questions ou pour avoir de l’information sur les projets en cours. Écrivez-nous à l’adresse électronique : ",
+    "text-part-2": "ou téléphonez-nous au :"
+  },
   "home": {
     "mission": "Notre mission",
     "mission-text": "Favoriser le développement durable de Schefferville et de sa région en réalisant en partenariat des projets dans les domaines de l'habitation, du développement économique et de la vie communautaire et culturelle."
