@@ -1,4 +1,13 @@
 {
+  "running": {
+    "home": "Home",
+    "newsletter": "Newsletter",
+    "schefferville-website": "Ville de Schefferville",
+    "contact-us": "Contact us",
+    "locale-switcher": "Fr",
+    "copyright": "All rights reserved © 2025 Corporation de développement de Schefferville | Design: Elair Développement | ",
+    "admin": "Admin"
+  },
   "home": {
     "mission": "Our mission",
     "mission-text": "To promote the sustainable development of Schefferville and its region by partnering on projects in the areas of housing, economic development, and community and cultural life."
