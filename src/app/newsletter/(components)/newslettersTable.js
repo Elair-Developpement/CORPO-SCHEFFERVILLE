@@ -1,9 +1,12 @@
 "use client";
 
-import { createClient } from "@/lib/supabase/client";
+import { useTranslations } from "next-intl";
 import { useState, useTransition, useEffect } from "react";
 
+import { createClient } from "@/lib/supabase/client";
+
 export default function NewslettersTable() {
+  const t = useTranslations("common");
   const [newsletters, setNewsletters] = useState([]);
   const [isPending, startTransition] = useTransition();
 
@@ -34,8 +37,8 @@ export default function NewslettersTable() {
       <table className="min-w-full bg-white border border-gray-300">
         <thead className="bg-gray-100">
           <tr>
-            <th className="px-6 py-3 border-b text-left">Nom</th>
-            <th className="px-6 py-3 border-b text-left">Actions</th>
+            <th className="px-6 py-3 border-b text-left">{t("name")}</th>
+            <th className="px-6 py-3 border-b text-left">{t("action")}</th>
           </tr>
         </thead>
         <tbody>
@@ -49,7 +52,7 @@ export default function NewslettersTable() {
                   rel="noopener noreferrer"
                   className="text-blue-500 hover:underline"
                 >
-                  Télécharger
+                  {t("download")}
                 </a>
               </td>
             </tr>

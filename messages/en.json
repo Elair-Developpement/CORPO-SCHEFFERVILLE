@@ -1,4 +1,9 @@
 {
+  "common": {
+    "name": "Name",
+    "action": "Action",
+    "download": "Download"
+  },
   "running": {
     "home": "Home",
     "newsletter": "Newsletter",
@@ -38,6 +43,16 @@
   },
   "corporation": {
     "corporation": "The Corporation",
-    "intro-text": "The Corporation de développement de Schefferville is a non-profit paramunicipal organization whose members are primarily appointed by the City of Schefferville. The Innu nations of Matimekush-Lac-John and Kawawachikamach also appoint representatives."
+    "intro-text": "The Corporation de développement de Schefferville is a non-profit paramunicipal organization whose members are primarily appointed by the City of Schefferville. The Innu nations of Matimekush-Lac-John and Kawawachikamach also appoint representatives.",
+    "intro-text-follow-up": "In addition to information about the corporation and its members, you will find several public documents concerning the corporation in the Documents tab.",
+    "members": "Members",
+    "documents": "Documents",
+    "documents-text": "You will find here the public documents of the Corporation de développement de Schefferville. For any questions, please do not hesitate to contact us.",
+    "general-assembly": "General Assembly",
+    "general-assembly-text": "The members' assembly consists of representatives from the Innu nation of Matimekush-Lac John, the Naskapi nation of Kawawachikamach, and the City of Schefferville.",
+    "board-of-directors": "Board of Directors",
+    "board-of-directors-text": "The board of directors is composed of seven members representing the three communities. Three seats are reserved for each development area.",
+    "general-management": "General Management",
+    "general-management-text": ""
   }
 }
