@@ -1,19 +1,33 @@
-import { createClient } from "@/lib/supabase/server";
+"use client";
 
-export default async function NewslettersTable() {
-  const supabase = await createClient();
-  const bucketId = "newsletters";
+import { createClient } from "@/lib/supabase/client";
+import { useState, useTransition, useEffect } from "react";
 
-  const { data, error } = await supabase.storage.from(bucketId).list();
+export default function NewslettersTable() {
+  const [newsletters, setNewsletters] = useState([]);
+  const [isPending, startTransition] = useTransition();
 
-  if (error) {
-    return <div>Erreur lors du chargement des documents.</div>;
-  }
+  useEffect(() => {
+    startTransition(async () => {
+      const supabase = await createClient();
+      const bucketId = "newsletters";
 
-  const documentsList = data.map((doc) => ({
-    name: doc.name,
-    url: supabase.storage.from(bucketId).getPublicUrl(doc.name).data.publicUrl,
-  }));
+      const { data, error } = await supabase.storage.from(bucketId).list();
+
+      if (error) {
+        console.error("Erreur lors du chargement des documents:", error);
+        return;
+      }
+
+      const newslettersMap = data.map((doc) => ({
+        name: doc.name,
+        url: supabase.storage.from(bucketId).getPublicUrl(doc.name).data
+          .publicUrl,
+      }));
+
+      setNewsletters(newslettersMap);
+    });
+  }, []);
 
   return (
     <div className="overflow-x-auto">
@@ -25,7 +39,7 @@ export default async function NewslettersTable() {
           </tr>
         </thead>
         <tbody>
-          {documentsList.map((doc) => (
+          {newsletters.map((doc) => (
             <tr key={doc.name} className="hover:bg-gray-50">
               <td className="px-6 py-4 border-b">{doc.name}</td>
               <td className="px-6 py-4 border-b">
