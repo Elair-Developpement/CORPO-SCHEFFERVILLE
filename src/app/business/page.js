@@ -3,6 +3,7 @@ import { useTranslations } from "next-intl";
 import PageTitleAndDescription from "@/components/common/pageTitleAndDescription";
 import { Tabs, Tab } from "@/components/ui/tabs";
 import ContactPopover from "@/components/dialog/contactPopover";
+import BusinessDirectorySearch from "@/app/business/(components)/businessDirectorySearch";
 import { Button } from "@/components/ui/button";
 
 export default function Business() {
@@ -54,20 +55,7 @@ export default function Business() {
             <h2 className="text-xl font-bold mb-2 text-green_1">
               {t("label-directory")}
             </h2>
-            <p className="text-gray-700">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
-              mollitia, molestiae quas vel sint commodi repudiandae consequuntur
-              voluptatum laborum numquam blanditiis harum quisquam eius sed odit
-              fugiat iusto fuga praesentium optio, eaque rerum! Provident
-              similique accusantium nemo autem. Veritatis obcaecati tenetur iure
-              eius earum ut molestias architecto voluptate aliquam nihil,
-              eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit,
-              tenetur error, harum nesciunt ipsum debitis quas aliquid.
-              Reprehenderit, quia. Quo neque error repudiandae fuga? Ipsa
-              laudantium molestias eos sapiente officiis modi at sunt excepturi
-              expedita sint? Sed quibusdam recusandae alias error harum maxime
-              adipisci amet laborum.
-            </p>
+            <BusinessDirectorySearch />
           </div>
         </Tab>
       </Tabs>
