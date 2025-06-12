@@ -14,15 +14,16 @@ import { Description } from "@radix-ui/react-dialog";
 export default function UploadCorporationDocumentsDialog() {
   const [uploadStatus, setUploadStatus] = useState("");
   const supabase = createClient();
-  const bucketId = "corpo-documents";
+  const bucketId = "documents";
+  const folderId = "corporation";
 
   const handleFileChange = async (event) => {
     const file = event.target.files[0];
     if (!file) return;
 
-    const fileName = `${file.name}`;
+    const fileName = `${folderId}/${file.name}`;
     const { error } = await supabase.storage
-      .from(bucketId) // Replace with your bucket name
+      .from(bucketId)
       .upload(fileName, file);
 
     if (error) {

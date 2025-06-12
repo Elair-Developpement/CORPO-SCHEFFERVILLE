@@ -7,11 +7,14 @@ export default function CorporationDocumentsTable() {
   const [documents, setDocuments] = useState([]);
   const [loading, setLoading] = useState(true);
   const supabase = createClient();
-  const bucketId = "corpo-documents";
+  const bucketId = "documents";
+  const folderId = "corporation";
 
   useEffect(() => {
     const fetchDocuments = async () => {
-      const { data, error } = await supabase.storage.from(bucketId).list();
+      const { data, error } = await supabase.storage
+        .from(bucketId)
+        .list(folderId);
       if (!error) {
         const documentsList = data.map((doc) => ({
           name: doc.name,
@@ -32,7 +35,9 @@ export default function CorporationDocumentsTable() {
     );
     if (!confirmed) return;
 
-    const { error } = await supabase.storage.from(bucketId).remove([fileName]);
+    const { error } = await supabase.storage
+      .from(bucketId)
+      .remove([`${folderId}/${fileName}`]);
     if (!error) {
       setDocuments((prev) => prev.filter((doc) => doc.name !== fileName));
       alert("Document supprimé avec succès !");
