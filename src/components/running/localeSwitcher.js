@@ -21,7 +21,7 @@ export default function LocaleSwitcher() {
   return (
     <a
       onClick={() => handleLocaleChange(t("locale-switcher"))}
-      className={"hover:underline"}
+      className={"hover:underline cursor-pointer"}
     >
       {t("locale-switcher")}
     </a>
