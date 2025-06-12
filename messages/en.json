@@ -33,7 +33,11 @@
   },
   "housing": {
     "housing": "Housing",
-    "intro-text": "Housing is at the heart of community and economic development. We have a bank of land to meet your needs. We are working on a project for affordable housing and the revitalization of the Eclipse neighborhood. Share your needs with us, and we will assist you."
+    "intro-text": "Housing is at the heart of community and economic development. We have a bank of land to meet your needs. We are working on a project for affordable housing and the revitalization of the Eclipse neighborhood. Share your needs with us, and we will assist you.",
+    "housing-alt": "Available housing and land",
+    "page-text": "Are you looking to rent a home? We have a few residential properties available. Are you searching for land to build on? We have a bank of land available. In both cases, do not hesitate to contact us!",
+    "central-sector": "Central sector",
+    "industrial-sector": "Industrial sector"
   },
   "business": {
     "business": "Economic Development",

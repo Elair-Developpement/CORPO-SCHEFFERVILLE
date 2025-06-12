@@ -32,7 +32,11 @@
   },
   "housing": {
     "housing": "Habitation",
-    "intro-text": "L’habitation est au cœur du développement communautaire et économique. Nous disposons d’une banque de terrains afin de répondre à vos besoins. Nous travaillons sur un projet de logements abordables et de la revitalisation du quartier Eclipse. Faite nous part de vos besoins, nous vous accompagnerons."
+    "intro-text": "L’habitation est au cœur du développement communautaire et économique. Nous disposons d’une banque de terrains afin de répondre à vos besoins. Nous travaillons sur un projet de logements abordables et de la revitalisation du quartier Eclipse. Faite nous part de vos besoins, nous vous accompagnerons.",
+    "housing-alt": "Logements et terrains disponibles",
+    "page-text": "Vous souhaitez louer un logement? Nous possédons quelques propriétés résidentielles. Vous êtes à la recherche d’un terrain à construire ? Nous possédons une banque de terrains . Dans les deux cas n’hésitez pas à nous contacter !",
+    "central-sector": "Secteur central",
+    "industrial-sector": "Secteur industriel"
   },
   "business": {
     "business": "Développement économique",
