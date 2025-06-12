@@ -2,7 +2,9 @@
   "common": {
     "name": "Name",
     "action": "Action",
-    "download": "Download"
+    "download": "Download",
+    "contact-us": "Contact us",
+    "to-do": "Section under construction..."
   },
   "running": {
     "home": "Home",
@@ -35,7 +37,12 @@
   },
   "business": {
     "business": "Economic Development",
-    "intro-text": "Do you have a business project in mind? Are you looking to start a social economy enterprise, learn about the resources and services available in Schefferville, or find out more about mining projects? Are you searching for a site for your business? We invite you to explore this section or contact us."
+    "intro-text": "Do you have a business project in mind? Are you looking to start a social economy enterprise, learn about the resources and services available in Schefferville, or find out more about mining projects? Are you searching for a site for your business? We invite you to explore this section or contact us.",
+    "label-project": "Start a project or business",
+    "project-text": "Do you want to start a project, activity, or initiative? Let us know. Our extensive experience in project management and development, combined with a network of contacts and funding partners, will help you achieve your goals. We assure you that discussions will remain confidential. If you are at the pre-feasibility stage, send us a project summary for discussion. If your business plan is ready, submit it to us for validation and to ensure you receive financial assistance according to the rules set by financial partners. Remember that once a project is started, it is difficult to request funding.",
+    "label-finance": "Funding and partners",
+    "label-mining": "Mining projects",
+    "label-directory": "Businesses and resources directory"
   },
   "communal-life":{
     "communal-life": "Communal and Cultural Life",

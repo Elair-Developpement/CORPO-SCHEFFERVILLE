@@ -12,7 +12,13 @@ export default function Corporation() {
     <main className={"container mx-auto min-h-[calc(100vh-249.27px)]"}>
       <PageTitleAndDescription
         title={t("corporation")}
-        description={t("intro-text")}
+        description={
+          <>
+            <p>{t("intro-text")}</p>
+            <br />
+            <p>{t("intro-text-follow-up")}</p>
+          </>
+        }
       />
       <Tabs>
         <Tab label={t("members")} value="members">

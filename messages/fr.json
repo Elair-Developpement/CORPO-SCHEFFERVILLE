@@ -2,7 +2,9 @@
   "common": {
     "name": "Nom",
     "action": "Action",
-    "download": "Télécharger"
+    "download": "Télécharger",
+    "contact-us": "Contactez-nous.",
+    "to-do": "Section à venir..."
   },
   "running": {
     "home": "Accueil",
@@ -34,7 +36,12 @@
   },
   "business": {
     "business": "Développement économique",
-    "intro-text": "Vous avez en tête un projet d'entreprise ? Vous souhaitez démarrer une entreprise d'économie sociale, connaître les ressources et les services disponibles à Schefferville ? En apprendre plus sur les projets miniers ? Vous êtes à la recherche d'un site pour votre entreprise ? Nous vous invitons à consulter cette section ou à nous contacter."
+    "intro-text": "Vous avez en tête un projet d'entreprise ? Vous souhaitez démarrer une entreprise d'économie sociale, connaître les ressources et les services disponibles à Schefferville ? En apprendre plus sur les projets miniers ? Vous êtes à la recherche d'un site pour votre entreprise ? Nous vous invitons à consulter cette section ou à nous contacter.",
+    "label-project": "Démarrer un projet ou une entreprise",
+    "project-text": "Vous souhaitez démarrer un projet, une activité ou mettre en place une initiative, faites-nous en part. Notre longue expérience en gestion et développement de projet conjugué à un réseau de contact et des partenaires pour le financement, vous aidera à atteindre vos objectifs. Nous vous précisons que les échanges demeureront confidentiels. Si vous être à l’étape de préfaisabilité, envoyez-nous le sommaire du projet. Nous en discuterons. Votre projet n’est pas encore démarré mais votre plan d’affaires est monté, soumettez-le-nous afin de le valider et s’assurer d’obtenir les aides financières selon les règles établis par les partenaires financiers. N’oubliez pas que lorsque qu’un projet est démarré, il est difficile de demander du financement.",
+    "label-finance": "Financement et partenaires",
+    "label-mining": "Projets miniers",
+    "label-directory": "Bottin entreprises et ressources"
   },
   "communal-life":{
     "communal-life": "Vie communautaire et culturelle",
