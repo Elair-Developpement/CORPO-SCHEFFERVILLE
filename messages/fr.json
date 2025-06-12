@@ -53,5 +53,13 @@
     "board-of-directors-text": "Le conseil d'administration est composé de sept membres représentants des trois communautés. Trois sièges sont réservés pour chaque volet de développement.",
     "general-management": "Direction générale",
     "general-management-text": ""
+  },
+  "login-admin": {
+    "login-admin": "Connexion Admin",
+    "email": "Adresse courriel:",
+    "password": "Mot de passe:",
+    "login-button": "Se connecter",
+    "login-button-loading": "Connexion...",
+    "login-error": "Erreur de connexion, veuillez vérifier vos identifiants."
   }
 }

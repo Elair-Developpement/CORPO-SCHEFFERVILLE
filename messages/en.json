@@ -54,5 +54,13 @@
     "board-of-directors-text": "The board of directors is composed of seven members representing the three communities. Three seats are reserved for each development area.",
     "general-management": "General Management",
     "general-management-text": ""
+  },
+  "login-admin": {
+    "login-admin": "Admin Login",
+    "email": "Email address:",
+    "password": "Password:",
+    "login-button": "Login",
+    "login-button-loading": "Logging in...",
+    "login-error": "Login error, please check your credentials."
   }
 }
