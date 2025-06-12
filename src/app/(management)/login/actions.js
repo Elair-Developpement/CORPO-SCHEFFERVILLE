@@ -16,7 +16,8 @@ export async function signIn(formData) {
   const { error } = await supabase.auth.signInWithPassword(data);
 
   if (error) {
-    return { error: "Erreur de connexion, vérifiez vos identifiants." };
+    console.error("Sign-in error:", error);
+    return { error: error };
   }
 
   revalidatePath("/admin", "layout");

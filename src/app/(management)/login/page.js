@@ -1,10 +1,29 @@
+"use client";
+
 import { useTranslations } from "next-intl";
+import { useState, useTransition } from "react";
 
 import PageTitle from "@/components/common/pageTitle";
 import { signIn } from "./actions";
 
 export default function Login() {
   const t = useTranslations("login-admin");
+  const [error, setError] = useState();
+  const [isPending, startTransition] = useTransition();
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+    startTransition(async () => {
+      setError(null);
+
+      const formData = new FormData(event.target);
+      const result = await signIn(formData);
+
+      if (result.error) {
+        setError(t("login-error"));
+      }
+    });
+  }
 
   return (
     <main
@@ -14,15 +33,18 @@ export default function Login() {
     >
       <div className="w-full max-w-md">
         <PageTitle title={t("login-admin")} />
-        <form>
+        {error && <div className="mb-4 text-red-500">{error}</div>}
+        <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label htmlFor="email" className="block mb-2">
               {t("email")}
             </label>
             <input
               id="email"
+              name="email"
               type="email"
               required
+              onInvalid={() => setError(t("invalid-email-error"))}
               className="w-full p-2 border rounded"
             />
           </div>
@@ -32,16 +54,17 @@ export default function Login() {
             </label>
             <input
               id="password"
+              name="password"
               type="password"
               required
               className="w-full p-2 border rounded"
             />
           </div>
           <button
-            formAction={signIn}
+            type={"submit"}
             className="w-full bg-green_1 hover:bg-white hover:text-green_1 hover:border-green_1 text-white font-bold py-3 px-5 border-2 rounded"
           >
-            {t("login-button")}
+            {isPending ? t("login-button-loading") : t("login-button")}
           </button>
         </form>
       </div>

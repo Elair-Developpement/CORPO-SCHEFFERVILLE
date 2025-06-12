@@ -60,6 +60,7 @@
     "password": "Mot de passe:",
     "login-button": "Se connecter",
     "login-button-loading": "Connexion...",
-    "login-error": "Erreur de connexion, veuillez vérifier vos identifiants."
+    "login-error": "Erreur de connexion, veuillez vérifier vos identifiants.",
+    "invalid-email-error": "Veuillez entrer une adresse courriel valide."
   }
 }

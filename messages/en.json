@@ -61,6 +61,7 @@
     "password": "Password:",
     "login-button": "Login",
     "login-button-loading": "Logging in...",
-    "login-error": "Login error, please check your credentials."
+    "login-error": "Login error, please check your credentials.",
+    "invalid-email-error": "Please enter a valid email address."
   }
 }
