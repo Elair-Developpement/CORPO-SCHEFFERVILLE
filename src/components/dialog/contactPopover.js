@@ -12,9 +12,7 @@ export default function ContactPopover({ triggerText }) {
 
   return (
     <Popover>
-      <PopoverTrigger href="/contact" className="hover:underline">
-        {triggerText}
-      </PopoverTrigger>
+      <PopoverTrigger className="hover:underline">{triggerText}</PopoverTrigger>
       <PopoverContent>
         <div className="flex flex-col container space-y-2">
           <h1 className="text-3xl text-left text-orange_1 justify-center font-bold">
