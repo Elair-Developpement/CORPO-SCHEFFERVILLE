@@ -50,7 +50,11 @@
   "communal-life":{
     "communal-life": "Vie communautaire et culturelle",
     "communal-life-alt": "Loisirs, vie communautaire et culturelle, saines habitudes",
-    "intro-text": "Nous souhaitons enrichir l’offre aux citoyens en matière de loisirs, de sport, de plein air, d’activités culturelles et communautaires et de saines habitudes de vie. Des activités sont en cours, peut-être souhaitez-vous démarrer un projet ou encore vous informer sur les équipements disponibles et en développement."
+    "intro-text": "Nous souhaitons enrichir l’offre aux citoyens en matière de loisirs, de sport, de plein air, d’activités culturelles et communautaires et de saines habitudes de vie. Des activités sont en cours, peut-être souhaitez-vous démarrer un projet ou encore vous informer sur les équipements disponibles et en développement.",
+    "intro-text-follow-up": "",
+    "ongoing": "Activités en cours",
+    "gear": "Équipements disponibles",
+    "in-development": "En développement"
   },
   "corporation": {
     "corporation": "La corporation",

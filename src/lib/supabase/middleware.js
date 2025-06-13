@@ -4,6 +4,11 @@ import { NextResponse } from "next/server";
 // Pages protégées
 const protectedRoutes = ["/admin"];
 
+/**
+ * Middleware de Supabase qui vérifie si l'utilisateur est connecté avant d'Accéder à une route protégée.
+ * @param request
+ * @returns {Promise<NextResponse<unknown>|*>}
+ */
 export async function updateSession(request) {
   let supabaseResponse = NextResponse.next({
     request,

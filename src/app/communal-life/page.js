@@ -3,8 +3,8 @@
 import { useTranslations } from "next-intl";
 import { useEffect, useState, useTransition } from "react";
 
-import PageTitleAndDescription from "@/components/common/pageTitleAndDescription";
 import { createClient } from "@/lib/supabase/client";
+import PageTitleAndDescription from "@/components/common/pageTitleAndDescription";
 
 export default function Communal_life() {
   const t = useTranslations("communal-life");
@@ -39,7 +39,7 @@ export default function Communal_life() {
       <div className={"flex flex-col py-5"}>
         <div className={"flex bg-orange_2 p-2 text-white"}>
           <div className={"flex w-full justify-between"}>
-            <div className={"flex text-xl font-bold"}>Activités en cours</div>
+            <div className={"flex text-xl font-bold"}>{t("ongoing")}</div>
             <div className={"flex-col text-right"}>
               {projects
                 .filter((project) => project.category === "en-cours")
@@ -51,9 +51,7 @@ export default function Communal_life() {
         </div>
         <div className={"flex p-2"}>
           <div className={"flex w-full justify-between"}>
-            <div className={"flex text-xl font-bold"}>
-              Équipements disponibles
-            </div>
+            <div className={"flex text-xl font-bold"}>{t("gear")}</div>
             <div className={"flex-col text-right"}>
               {projects
                 .filter(
@@ -67,7 +65,9 @@ export default function Communal_life() {
         </div>
         <div className={"flex bg-orange_2 p-2 text-white"}>
           <div className={"flex w-full justify-between"}>
-            <div className={"flex text-xl font-bold"}>En développement</div>
+            <div className={"flex text-xl font-bold"}>
+              {t("in-development")}
+            </div>
             <div className={"flex-col text-right"}>
               {projects
                 .filter((project) => project.category === "en-developpement")

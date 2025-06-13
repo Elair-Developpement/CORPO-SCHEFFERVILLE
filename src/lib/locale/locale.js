@@ -17,10 +17,9 @@ export async function getUserLocale() {
 /**
  * Définit la langue de l'utilisateur dans les cookies.
  * @param locale {string} La langue à définir pour l'utilisateur.
- * @returns {Promise<void>}
  */
 export async function setUserLocale(locale) {
-  // Validate the locale against the list of supported locales.
+  // Vérifie que la langue est supportée.
   if (!locales.includes(locale)) {
     throw new Error(`Locale "${locale}" is not supported.`);
   }
