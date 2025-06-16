@@ -4,6 +4,8 @@ import { getLocale } from "next-intl/server";
 import { Poppins, DM_Sans } from "next/font/google";
 import "@/styles/globals.css";
 
+import { Toaster } from "@/components/ui/sonner";
+
 import Header from "@/components/running/header";
 import Footer from "@/components/running/footer";
 
@@ -33,6 +35,7 @@ export default async function RootLayout({ children }) {
         <NextIntlClientProvider>
           <Header />
           <main>{children}</main>
+          <Toaster position="top-center" />
           <Footer />
         </NextIntlClientProvider>
       </body>

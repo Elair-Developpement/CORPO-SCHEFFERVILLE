@@ -4,6 +4,7 @@ import { useTranslations } from "next-intl";
 import { useState, useTransition, useEffect } from "react";
 
 import { createClient } from "@/lib/supabase/client";
+import { removeYYYYMMDDFromFileName } from "@/lib/utils";
 
 export default function NewslettersTable() {
   const t = useTranslations("common");
@@ -44,7 +45,9 @@ export default function NewslettersTable() {
         <tbody>
           {newsletters.map((doc) => (
             <tr key={doc.name} className="hover:bg-gray-50">
-              <td className="px-6 py-4 border-b">{doc.name}</td>
+              <td className="px-6 py-4 border-b">
+                {removeYYYYMMDDFromFileName(doc.name)}
+              </td>
               <td className="px-6 py-4 border-b">
                 <a
                   href={doc.url}

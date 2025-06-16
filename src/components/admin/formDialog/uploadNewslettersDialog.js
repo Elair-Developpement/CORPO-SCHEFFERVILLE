@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { getYYYYMMDDNow } from "@/lib/utils";
 
 export default function UploadNewslettersDialog({ bucketId }) {
   const [uploadStatus, setUploadStatus] = useState("");
@@ -22,7 +23,7 @@ export default function UploadNewslettersDialog({ bucketId }) {
     const file = event.target.files[0];
     if (!file) return;
 
-    const fileName = `${file.name}`;
+    const fileName = `${getYYYYMMDDNow()}-${file.name}`;
     const { error } = await supabase.storage
       .from(bucketId)
       .upload(fileName, file);

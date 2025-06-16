@@ -1,7 +1,6 @@
-"use client";
-
 import { useTranslations } from "next-intl";
 
+import SonnerNewsletterService from "@/components/home/sonnerNewsletterService";
 import HomeImage from "@/components/home/homeImage";
 import ServiceCard from "@/components/home/serviceCard";
 
@@ -14,6 +13,7 @@ export default function Home() {
 
   return (
     <main>
+      <SonnerNewsletterService />
       <HomeImage missionTitle={t("mission")} missionText={t("mission-text")} />
       <div
         className={
