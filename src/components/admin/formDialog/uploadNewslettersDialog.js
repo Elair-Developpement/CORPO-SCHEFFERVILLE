@@ -1,13 +1,17 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
 import { createClient } from "@/lib/supabase/client";
 import {
   Dialog,
   DialogContent,
-  DialogTrigger,
+  DialogDescription,
+  DialogHeader,
   DialogTitle,
+  DialogTrigger,
 } from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
 export default function UploadNewslettersDialog({ bucketId }) {
@@ -32,18 +36,23 @@ export default function UploadNewslettersDialog({ bucketId }) {
 
   return (
     <Dialog>
-      <DialogTitle className="sr-only">Ajouter un document</DialogTitle>
-      <DialogTrigger asChild className="hover:underline bg-green_2 text-white">
+      <DialogTrigger
+        asChild
+        className="hover:underline bg-green_2 text-white my-2"
+      >
         <Button variant="outline">Téléverser un document</Button>
       </DialogTrigger>
       <DialogContent>
+        <DialogHeader>
+          <DialogTitle className="text-2xl text-orange_1 font-bold">
+            Ajouter une infolettre
+          </DialogTitle>
+          <DialogDescription className="text-lg">
+            Pour ajouter une nouvelle infolettre, veuillez sélectionner le
+            fichier à téléverser en cliquant ci-dessous.
+          </DialogDescription>
+        </DialogHeader>
         <div className="flex flex-col container space-y-2">
-          <h1 className="text-3xl text-left text-orange_1 justify-center font-bold">
-            Nouveau document
-          </h1>
-          <p className="text-left">
-            Pour ajouter un nouveau document, cliquez sur le bouton ci-dessous.
-          </p>
           <input
             type="file"
             id="fileInput"

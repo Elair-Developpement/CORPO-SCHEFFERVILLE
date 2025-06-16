@@ -5,10 +5,8 @@ import { useState, useEffect } from "react";
 import { createClient } from "@/lib/supabase/client";
 import {
   Dialog,
-  DialogClose,
   DialogContent,
   DialogDescription,
-  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
@@ -90,14 +88,14 @@ export default function ProjectsDialog({
       <DialogTrigger asChild>{dialogTrigger}</DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>
+          <DialogTitle className="text-2xl text-orange_1 font-bold">
             {modifyProject
               ? "Modifier un projet ou équipement"
               : "Nouveau projet ou équipement"}
           </DialogTitle>
-          <DialogDescription>
+          <DialogDescription className="text-lg">
             {modifyProject
-              ? "Modifiez les détails du projet ou équipement."
+              ? `Modifiez les détails du projet ou équipement: ${modifyProject.name}.`
               : "Ajoutez un nouveau projet ou équipement à la liste."}
           </DialogDescription>
         </DialogHeader>
