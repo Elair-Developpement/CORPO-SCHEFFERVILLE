@@ -48,6 +48,7 @@ export default function ProjectsTable() {
           <tr>
             <th className="px-6 py-3 border-b text-left">Nom</th>
             <th className="px-6 py-3 border-b text-left">Catégorie</th>
+            <th className="px-6 py-3 border-b text-left">Lien Info</th>
             <th className="px-6 py-3 border-b text-left">Actions</th>
           </tr>
         </thead>
@@ -60,6 +61,18 @@ export default function ProjectsTable() {
                 {project.category === "equipements-disponibles" &&
                   "Équipements disponibles"}
                 {project.category === "en-developpement" && "En développement"}
+              </td>
+              <td className="px-6 py-4 border-b">
+                {project.info_link && (
+                  <a
+                    href={project.info_link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-500 hover:text-blue-700"
+                  >
+                    Voir Info
+                  </a>
+                )}
               </td>
               <td className="px-6 py-4 border-b">
                 <button
