@@ -4,7 +4,8 @@
     "action": "Action",
     "download": "Télécharger",
     "contact-us": "Contactez-nous.",
-    "to-do": "Section à venir..."
+    "to-do": "Section à venir...",
+    "browse": "Choisir un fichier"
   },
   "running": {
     "home": "Accueil",

@@ -11,11 +11,11 @@ export default function ActivityListItem({ activity }) {
     return (
       <a
         href={activity.info_link}
-        className="hover:underline cursor-pointer flex items-center gap-2"
+        className="hover:underline cursor-pointer justify-end flex gap-2"
         target="_blank"
         rel="noopener noreferrer"
       >
-        <span>{activity.name}</span>
+        <div>{activity.name}</div>
         <ExternalLink />
       </a>
     );

@@ -11,11 +11,11 @@ import {
 } from "@/components/ui/accordion";
 import UploadNewslettersDialog from "@/components/admin/formDialog/uploadNewslettersDialog";
 import NewslettersTable from "@/components/admin/tables/newslettersTable";
-import ProjectsDialog from "@/components/admin/formDialog/projectsDialog";
 import ProjectsTable from "@/components/admin/tables/projectsTable";
 import CorporationMembersTable from "@/components/admin/tables/corporationMembersTable";
 import CorporationDocumentsTable from "@/components/admin/tables/corporationDocumentsTable";
 import UploadCorporationDocumentsDialog from "@/components/admin/formDialog/uploadCorporationDocumentsDialog";
+import { Button } from "@/components/ui/button";
 
 export default async function Admin() {
   const supabase = await createClient();
@@ -64,7 +64,6 @@ export default async function Admin() {
             <p className={"ml-1 text-orange_2 font-bold text-2xl"}>
               Projets et équipements
             </p>
-            <ProjectsDialog />
             <ProjectsTable />
           </AccordionContent>
         </AccordionItem>

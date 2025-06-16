@@ -4,7 +4,8 @@
     "action": "Action",
     "download": "Download",
     "contact-us": "Contact us",
-    "to-do": "Section under construction..."
+    "to-do": "Section under construction...",
+    "browse": "Choose a file"
   },
   "running": {
     "home": "Home",

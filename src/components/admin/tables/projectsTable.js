@@ -3,6 +3,9 @@
 import { useState, useEffect } from "react";
 import { createClient } from "@/lib/supabase/client";
 
+import ProjectsDialog from "@/components/admin/formDialog/projectsDialog";
+import { Button } from "@/components/ui/button";
+
 export default function ProjectsTable() {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -43,6 +46,13 @@ export default function ProjectsTable() {
 
   return (
     <div className="overflow-x-auto">
+      <ProjectsDialog
+        dialogTrigger={
+          <Button variant="outline" className="bg-green_2 text-white my-2">
+            Ajouter un projet ou équipement
+          </Button>
+        }
+      />
       <table className="min-w-full bg-white border border-gray-300">
         <thead className="bg-gray-100">
           <tr>
