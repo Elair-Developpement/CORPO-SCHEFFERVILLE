@@ -34,6 +34,18 @@ export default function ProjectsDialog({
   const [file, setFile] = useState(null);
   const [uploading, setUploading] = useState(false);
 
+  useEffect(() => {
+    if (modifyProject) {
+      setName(modifyProject.name || "");
+      setCategory(modifyProject.category || "");
+      setInfoLink(modifyProject.info_link || "");
+    } else {
+      setName("");
+      setCategory("");
+      setInfoLink("");
+    }
+  }, [modifyProject]);
+
   // Handle file upload
   async function handleFileUpload(e) {
     const file = e.target.files[0];
@@ -55,14 +67,22 @@ export default function ProjectsDialog({
     }
   }
 
-  // Handle form submit
   async function handleSubmit(e) {
     e.preventDefault();
-
-    const { error } = await supabase
-      .from(tableName)
-      .insert([{ name, category, info_link: infoLink }]);
-    if (!error && onSuccess) onSuccess();
+    if (modifyProject && modifyProject.id) {
+      // Update existing project
+      const { error } = await supabase
+        .from(tableName)
+        .update({ name, category, info_link: infoLink })
+        .eq("id", modifyProject.id);
+      if (!error && onSuccess) onSuccess();
+    } else {
+      // Insert new project
+      const { error } = await supabase
+        .from(tableName)
+        .insert([{ name, category, info_link: infoLink }]);
+      if (!error && onSuccess) onSuccess();
+    }
   }
 
   return (

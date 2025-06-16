@@ -40,6 +40,23 @@ export default function ProjectsTable() {
     }
   };
 
+  const onDialogSuccess = () => {
+    // Re-fetch projects after dialog success
+    setLoading(true);
+    createClient()
+      .from(tableName)
+      .select("*")
+      .order("category")
+      .then(({ data, error }) => {
+        if (!error) {
+          setProjects(data);
+        } else {
+          console.error("Error fetching projects:", error);
+        }
+        setLoading(false);
+      });
+  };
+
   if (loading) {
     return <div>Chargement des projets...</div>;
   }
@@ -52,6 +69,7 @@ export default function ProjectsTable() {
             Ajouter un projet ou équipement
           </Button>
         }
+        onSuccess={onDialogSuccess}
       />
       <table className="min-w-full bg-white border border-gray-300">
         <thead className="bg-gray-100">
@@ -85,12 +103,15 @@ export default function ProjectsTable() {
                 )}
               </td>
               <td className="px-6 py-4 border-b">
-                <button
-                  onClick={() => alert("Modifier le projet")}
-                  className="text-blue-500 hover:text-blue-700 mr-2"
-                >
-                  Modifier
-                </button>
+                <ProjectsDialog
+                  dialogTrigger={
+                    <button className="text-blue-500 hover:text-blue-700 mr-2">
+                      Modifier
+                    </button>
+                  }
+                  onSuccess={onDialogSuccess}
+                  modifyProject={project}
+                />
                 <button
                   onClick={() => handleDelete(project.id)}
                   className="text-red-600 hover:text-red-800"
