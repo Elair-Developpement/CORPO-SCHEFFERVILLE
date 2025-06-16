@@ -18,7 +18,7 @@ export default function Newsletter() {
         description={t("intro-text")}
       />
 
-      <p className={"my-4"}>{t("download-text")}</p>
+      <p className={"my-1"}>{t("download-text")}</p>
       <NewslettersTable />
     </main>
   );

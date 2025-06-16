@@ -7,7 +7,7 @@ import { toast } from "sonner";
 
 export default function SonnerNewsletterService() {
   const supabase = createClient();
-  const bucketId = "newsletters";
+  const tableName = "newsletters";
 
   // If the last newsletter was uploaded less than 10  days ago, show a sonner to redirect to newsletter, inviting guests to look at it
 
@@ -16,38 +16,43 @@ export default function SonnerNewsletterService() {
 
   useEffect(() => {
     startTransition(async () => {
-      const { data, error } = await supabase.storage.from(bucketId).list();
+      const { data, error } = await supabase
+        .from(tableName)
+        .select("*")
+        .order("created_at", { ascending: false });
 
       if (error) {
         console.error("Error fetching newsletters:", error);
         return;
       }
 
-      const newslettersList = data.map((doc) => ({
-        name: doc.name,
-        url: supabase.storage.from(bucketId).getPublicUrl(doc.name).data
-          .publicUrl,
-        updatedAt: doc.updated_at,
-      }));
+      setNewsletters(data);
 
-      setNewsletters(newslettersList);
+      if (data.length > 0) {
+        const lastNewsletter = data[0];
+        const lastNewsletterDate = new Date(lastNewsletter.created_at);
+        const currentDate = new Date();
+        const daysDifference = Math.floor(
+          (currentDate - lastNewsletterDate) / (1000 * 60 * 60 * 24),
+        );
 
-      if (newslettersList.length > 0) {
-        const lastNewsletter = newslettersList[newslettersList.length - 1];
-        const lastUpdated = new Date(lastNewsletter.updatedAt);
-        const now = new Date();
-        const diffDays = Math.ceil((now - lastUpdated) / (1000 * 60 * 60 * 24));
-
-        if (diffDays < 10) {
-          toast("&#128226 Une nouvelle infolettre est disponible !", {
-            action: {
-              label: "Télécharger l'infolettre",
-              onClick: () => {
-                window.open(lastNewsletter.url, "_blank");
+        if (
+          daysDifference < 10 &&
+          !sessionStorage.getItem("newsletterToastShown")
+        ) {
+          toast(
+            `Une nouvelle infolettre est disponible ! ${lastNewsletter.name}`,
+            {
+              action: {
+                label: "Télécharger",
+                onClick: () => {
+                  window.open(lastNewsletter.link, "_blank");
+                },
               },
+              duration: 30000,
             },
-            duration: 10000,
-          });
+          );
+          sessionStorage.setItem("newsletterToastShown", "true"); //
         }
       }
     });
