@@ -17,9 +17,7 @@ export default function Newsletter() {
         title={t("newsletter")}
         description={t("intro-text")}
       />
-      <Link href={"/"} className={buttonVariants({ variant: "outline" })}>
-        {t("subscribe")}
-      </Link>
+
       <p className={"my-4"}>{t("download-text")}</p>
       <NewslettersTable />
     </main>

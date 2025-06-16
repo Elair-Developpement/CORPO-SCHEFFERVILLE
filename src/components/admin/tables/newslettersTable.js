@@ -4,24 +4,21 @@ import { useState, useEffect } from "react";
 import { createClient } from "@/lib/supabase/client";
 
 import { removeYYYYMMDDFromFileName } from "@/lib/utils";
+import NewslettersDialog from "@/components/admin/formDialog/newslettersDialog";
+import { Button } from "@/components/ui/button";
 
 export default function NewslettersTable() {
   const supabase = createClient();
-  const bucketId = "newsletters";
+  const tableName = "newsletters";
 
   const [newsletters, setNewsletters] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchNewsletters = async () => {
-      const { data, error } = await supabase.storage.from(bucketId).list();
+      const { data, error } = await supabase.from(tableName).select("*");
       if (!error) {
-        const newslettersList = data.map((doc) => ({
-          name: doc.name,
-          url: supabase.storage.from(bucketId).getPublicUrl(doc.name).data
-            .publicUrl,
-        }));
-        setNewsletters(newslettersList);
+        setNewsletters(data);
       }
       setLoading(false);
     };
@@ -29,21 +26,38 @@ export default function NewslettersTable() {
     fetchNewsletters();
   }, [supabase]);
 
-  const handleDelete = async (fileName) => {
+  const handleDelete = async (id) => {
     const confirmed = confirm(
       "Êtes-vous sûr de vouloir supprimer ce document ?",
     );
     if (!confirmed) return;
 
-    const { error } = await supabase.storage.from(bucketId).remove([fileName]);
+    const { error } = await supabase.from(tableName).delete().eq("id", id);
+
     if (!error) {
       setNewsletters((prev) =>
-        prev.filter((newsletter) => newsletter.name !== fileName),
+        prev.filter((newsletter) => newsletter.id !== id),
       );
       alert("Document supprimé avec succès !");
     } else {
       alert("Erreur lors de la suppression du document : " + error.message);
     }
+  };
+
+  const onDialogSuccess = () => {
+    // Re-fetch projects after dialog success
+    setLoading(true);
+    createClient()
+      .from(tableName)
+      .select("*")
+      .then(({ data, error }) => {
+        if (!error) {
+          setNewsletters(data);
+        } else {
+          console.error("Error fetching projects:", error);
+        }
+        setLoading(false);
+      });
   };
 
   if (loading) {
@@ -52,6 +66,14 @@ export default function NewslettersTable() {
 
   return (
     <div className="overflow-x-auto">
+      <NewslettersDialog
+        dialogTrigger={
+          <Button variant="outline" className="bg-green_2 text-white my-2">
+            Ajouter une infolettre
+          </Button>
+        }
+        onSuccess={onDialogSuccess}
+      />
       <table className="min-w-full bg-white border border-gray-300">
         <thead className="bg-gray-100">
           <tr>
@@ -75,7 +97,7 @@ export default function NewslettersTable() {
                   Télécharger
                 </a>
                 <button
-                  onClick={() => handleDelete(doc.name)}
+                  onClick={() => handleDelete(doc.id)}
                   className="text-red-500 hover:underline ml-4"
                 >
                   Supprimer

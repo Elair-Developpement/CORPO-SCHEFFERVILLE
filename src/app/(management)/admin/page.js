@@ -46,7 +46,6 @@ export default async function Admin() {
             <p className={"ml-1 text-orange_2 font-bold text-2xl"}>
               Documents d'infolettres
             </p>
-            <UploadNewslettersDialog bucketId={"newsletters"} />
             <NewslettersTable />
           </AccordionContent>
         </AccordionItem>

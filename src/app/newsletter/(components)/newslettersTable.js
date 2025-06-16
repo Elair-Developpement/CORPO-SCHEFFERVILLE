@@ -7,16 +7,21 @@ import { createClient } from "@/lib/supabase/client";
 import { removeYYYYMMDDFromFileName } from "@/lib/utils";
 
 export default function NewslettersTable() {
+  const tableName = "newsletters";
+
   const t = useTranslations("common");
+
   const [newsletters, setNewsletters] = useState([]);
   const [isPending, startTransition] = useTransition();
 
   useEffect(() => {
     startTransition(async () => {
       const supabase = await createClient();
-      const bucketId = "newsletters";
 
-      const { data, error } = await supabase.storage.from(bucketId).list();
+      const { data, error } = await supabase
+        .from(tableName)
+        .select("*")
+        .order("created_at", { ascending: false });
 
       if (error) {
         console.error("Erreur lors du chargement des documents:", error);
@@ -25,8 +30,7 @@ export default function NewslettersTable() {
 
       const newslettersMap = data.map((doc) => ({
         name: doc.name,
-        url: supabase.storage.from(bucketId).getPublicUrl(doc.name).data
-          .publicUrl,
+        url: doc.link,
       }));
 
       setNewsletters(newslettersMap);
