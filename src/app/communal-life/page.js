@@ -2,7 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import { useEffect, useState, useTransition } from "react";
-import { DownloadIcon } from "@radix-ui/react-icons";
+import { ExternalLink } from "lucide-react";
 
 import { createClient } from "@/lib/supabase/client";
 import PageTitleAndDescription from "@/components/common/pageTitleAndDescription";
@@ -36,9 +36,12 @@ export default function Communal_life() {
     >
       <PageTitleAndDescription
         title={t("communal-life-alt")}
-        description={t("intro-text")}
+        description={<>{t("intro-text")}</>}
       />
-      <DownloadIcon />
+      <div className="flex gap-1">
+        <span>{t("intro-text-follow-up")}</span>
+        <ExternalLink />
+      </div>
       <div className={"flex flex-col py-5"}>
         <div className={"flex bg-orange_2 p-2 text-white"}>
           <div className={"flex w-full justify-between"}>

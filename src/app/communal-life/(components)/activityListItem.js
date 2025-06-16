@@ -1,4 +1,4 @@
-import { DownloadIcon } from "@radix-ui/react-icons";
+import { ExternalLink } from "lucide-react";
 
 /**
  * Composant qui représente une activité dans le tableau des activités.
@@ -16,7 +16,7 @@ export default function ActivityListItem({ activity }) {
         rel="noopener noreferrer"
       >
         <span>{activity.name}</span>
-        <DownloadIcon />
+        <ExternalLink />
       </a>
     );
   }
