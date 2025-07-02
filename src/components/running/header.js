@@ -21,7 +21,7 @@ export default function Header() {
         {/* TODO: Replace LOGO */}
         <Link href={"/"}>
           <Image
-            src="/logos/Schefferville-Logo-H-Avec_sous-app-RGB.jpg"
+            src="/logos/Corporation-Logo-H-RGB-10x.jpg"
             alt="Logo de la ville de Schefferville, à remplacer avec celui de la corporation."
             width={350}
             height={100}
