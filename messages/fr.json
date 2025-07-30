@@ -1,0 +1,83 @@
+{
+  "common": {
+    "name": "Nom",
+    "action": "Action",
+    "download": "Télécharger",
+    "contact-us": "Contactez-nous.",
+    "to-do": "Section à venir...",
+    "browse": "Choisir un fichier"
+  },
+  "running": {
+    "home": "Accueil",
+    "newsletter": "Infolettre",
+    "schefferville-website": "Ville de Schefferville",
+    "contact-us": "Nous joindre",
+    "locale-switcher": "En",
+    "copyright": "Tous droits réservés © 2025 Corporation de développement de Schefferville | Conception : Elair Développement | ",
+    "admin": "Admin"
+  },
+  "contact-popover": {
+    "text-part-1": "Pour répondre à vos questions ou pour avoir de l’information sur les projets en cours. Écrivez-nous à l’adresse électronique : ",
+    "text-part-2": "ou téléphonez-nous au :"
+  },
+  "home": {
+    "mission": "Notre mission",
+    "mission-text": "Favoriser le développement durable de Schefferville et de sa région en réalisant en partenariat des projets dans les domaines de l'habitation, du développement économique et de la vie communautaire et culturelle.",
+    "more": "En savoir plus"
+  },
+  "newsletter": {
+    "newsletter": "Infolettre",
+    "intro-text": "L’infolettre pour présentera l’avancement des projets, les bonnes nouvelles, les activités communautaires et culturelles à venir. Elle sera publiée à tous les deux mois ou dans l’immédiat suivant une nouvelle d’importance.",
+    "subscribe": "S'inscrire à l'infolettre",
+    "download-text": "Vous pouvez consulter et télécharger toutes les infolettres ci-dessous."
+  },
+  "housing": {
+    "housing": "Habitation",
+    "intro-text": "L’habitation est au cœur du développement communautaire et économique. Nous disposons d’une banque de terrains afin de répondre à vos besoins. Nous travaillons sur un projet de logements abordables et de la revitalisation du quartier Eclipse. Faite nous part de vos besoins, nous vous accompagnerons.",
+    "housing-alt": "Logements et terrains disponibles",
+    "page-text": "Vous souhaitez louer un logement? Nous possédons quelques propriétés résidentielles. Vous êtes à la recherche d’un terrain à construire ? Nous possédons une banque de terrains . Dans les deux cas n’hésitez pas à nous contacter !",
+    "central-sector": "Secteur central",
+    "industrial-sector": "Secteur industriel"
+  },
+  "business": {
+    "business": "Développement économique",
+    "intro-text": "Vous avez en tête un projet d'entreprise ? Vous souhaitez démarrer une entreprise d'économie sociale, connaître les ressources et les services disponibles à Schefferville ? En apprendre plus sur les projets miniers ? Vous êtes à la recherche d'un site pour votre entreprise ? Nous vous invitons à consulter cette section ou à nous contacter.",
+    "label-project": "Démarrer un projet ou une entreprise",
+    "project-text": "Vous souhaitez démarrer un projet, une activité ou mettre en place une initiative, faites-nous en part. Notre longue expérience en gestion et développement de projet conjugué à un réseau de contact et des partenaires pour le financement, vous aidera à atteindre vos objectifs. Nous vous précisons que les échanges demeureront confidentiels. Si vous être à l’étape de préfaisabilité, envoyez-nous le sommaire du projet. Nous en discuterons. Votre projet n’est pas encore démarré mais votre plan d’affaires est monté, soumettez-le-nous afin de le valider et s’assurer d’obtenir les aides financières selon les règles établis par les partenaires financiers. N’oubliez pas que lorsque qu’un projet est démarré, il est difficile de demander du financement.",
+    "label-finance": "Financement et partenaires",
+    "label-mining": "Projets miniers",
+    "label-directory": "Bottin entreprises et ressources"
+  },
+  "communal-life":{
+    "communal-life": "Vie communautaire et culturelle",
+    "communal-life-alt": "Loisirs, vie communautaire et culturelle, saines habitudes",
+    "intro-text": "Nous souhaitons enrichir l’offre aux citoyens en matière de loisirs, de sport, de plein air, d’activités culturelles et communautaires et de saines habitudes de vie. Des activités sont en cours, peut-être souhaitez-vous démarrer un projet ou encore vous informer sur les équipements disponibles et en développement.",
+    "intro-text-follow-up": "Pour plus de détails, cliquez sur les activités marquées de l'icône",
+    "ongoing": "Activités en cours",
+    "gear": "Équipements disponibles",
+    "in-development": "En développement"
+  },
+  "corporation": {
+    "corporation": "La corporation",
+    "intro-text": "La corporation de développement de Schefferville est un organisme sans but lucratif paramunicipal dont les membres sont nommés majoritairement par la Ville de Schefferville. Les nations innues de Matimekush-Lac-John et Kawawachichamak nomment également des représentants.",
+    "intro-text-follow-up": "En plus de l'information sur la corporation et ses membres, vous trouverez dans l'onglet Documents, plusieurs documents publics concernant la corporation.",
+    "members": "Membres",
+    "documents": "Documents",
+    "documents-text": "Vous retrouverez ici les documents publics de la corporation de développement de Schefferville. Pour toute question, n'hésitez pas à nous contacter.",
+    "general-assembly": "Assemblée générale",
+    "general-assembly-text": "L'assemblée des membres est constituée de représentants de la nation innu de Matimekush-Lac John, de la nation naskapie de Kawawachikamach et de la ville de Schefferville.",
+    "board-of-directors": "Conseil d'administration",
+    "board-of-directors-text": "Le conseil d'administration est composé de sept membres représentants des trois communautés. Trois sièges sont réservés pour chaque volet de développement.",
+    "general-management": "Direction générale",
+    "general-management-text": ""
+  },
+  "login-admin": {
+    "login-admin": "Connexion Admin",
+    "email": "Adresse courriel:",
+    "password": "Mot de passe:",
+    "login-button": "Se connecter",
+    "login-button-loading": "Connexion...",
+    "login-error": "Erreur de connexion, veuillez vérifier vos identifiants.",
+    "invalid-email-error": "Veuillez entrer une adresse courriel valide."
+  }
+}

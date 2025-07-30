@@ -3,24 +3,13 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
     --green-1: #3e4827;
     --green-2: #636a51;
     --orange-1: #b94700;
     --orange-2: #bd6439;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
-  color: var(--foreground);
-  background: var(--background);
   font-family: var(--font-dm-sans), sans-serif;
 }
 
@@ -32,4 +21,10 @@ h1, h2, h3 {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+@layer base {
+  :root {
+        --radius: 0.5rem;
+    }
 }

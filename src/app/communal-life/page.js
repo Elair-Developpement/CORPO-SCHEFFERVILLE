@@ -1,57 +1,85 @@
-import TitleCard from "@/components/common/titleCard";
+"use client";
+
+import { useTranslations } from "next-intl";
+import { useEffect, useState, useTransition } from "react";
+import { ExternalLink } from "lucide-react";
+
+import { createClient } from "@/lib/supabase/client";
+import PageTitleAndDescription from "@/components/common/pageTitleAndDescription";
+import ActivityListItem from "@/app/communal-life/(components)/activityListItem";
 
 export default function Communal_life() {
+  const t = useTranslations("communal-life");
+  const [projects, setProjects] = useState([]);
+  const [isPending, startTransition] = useTransition();
+
+  useEffect(() => {
+    startTransition(async () => {
+      const supabase = await createClient();
+
+      const { data: projectsData, error: projectsError } = await supabase
+        .from("projects")
+        .select("*");
+
+      if (projectsError) {
+        console.error(projectsError);
+        return;
+      }
+
+      setProjects(projectsData);
+    });
+  }, []);
+
   return (
     <main
       className={"container mx-auto min-h-[calc(100vh-249.27px)] flex flex-col"}
     >
-      <TitleCard
-        title={"Loisir, vie communautaire et culturelle, saines habitudes"}
-        description={
-          "Nous souhaitons enrichir l’offre aux citoyens en matière de loisirs, de sport, de plein\n" +
-          "air, d’activités culturelles et communautaires et de saines habitudes de vie. Des\n" +
-          "activités sont en cours, peut-être souhaitez-vous démarrer un projet ou encore vous\n" +
-          "informer sur les équipements disponibles et en développement."
-        }
+      <PageTitleAndDescription
+        title={t("communal-life-alt")}
+        description={<>{t("intro-text")}</>}
       />
-      <button
-        className={
-          "self-center bg-green_1 hover:bg-white hover:text-green_1 hover:border-green_1 text-white font-bold py-3 px-5 border-2 rounded"
-        }
-      >
-        Démarrer un projet
-      </button>
+      <div className="flex gap-1">
+        <span>{t("intro-text-follow-up")}</span>
+        <ExternalLink />
+      </div>
       <div className={"flex flex-col py-5"}>
         <div className={"flex bg-orange_2 p-2 text-white"}>
           <div className={"flex w-full justify-between"}>
-            <div className={"flex text-xl font-bold"}>Activités en cours</div>
-            <div className={"flex-col text-right"}>
-              <div>Club de marche</div>
-              <div>Agriculture nordique</div>
+            <div className={"flex text-xl font-bold"}>{t("ongoing")}</div>
+            <div className={"flex-col text-lg text-right"}>
+              {projects
+                .filter((project) => project.category === "en-cours")
+                .map((activity) => (
+                  <ActivityListItem key={activity.id} activity={activity} />
+                ))}
             </div>
           </div>
         </div>
         <div className={"flex p-2"}>
           <div className={"flex w-full justify-between"}>
-            <div className={"flex text-xl font-bold"}>
-              Équipements disponibles
-            </div>
-            <div className={"flex-col text-right"}>
-              <div>Salle de conditionnement physique</div>
-              <div>Aréna</div>
-              <div>Piscine</div>
-              <div>Aire de jeux pour enfants</div>
+            <div className={"flex text-xl font-bold"}>{t("gear")}</div>
+            <div className={"flex-col text-lg text-right"}>
+              {projects
+                .filter(
+                  (project) => project.category === "equipements-disponibles",
+                )
+                .map((activity) => (
+                  <ActivityListItem key={activity.id} activity={activity} />
+                ))}
             </div>
           </div>
         </div>
         <div className={"flex bg-orange_2 p-2 text-white"}>
           <div className={"flex w-full justify-between"}>
-            <div className={"flex text-xl font-bold"}>En développement</div>
-            <div className={"flex-col text-right"}>
-              <div>Salle de conditionnement physique</div>
-              <div>Aréna</div>
-              <div>Piscine</div>
-              <div>Aire de jeux pour enfants</div>
+            <div className={"flex text-xl font-bold"}>
+              {t("in-development")}
+            </div>
+            <div className={"flex-col text-lg text-right"}>
+              {projects
+                .filter((project) => project.category === "en-developpement")
+                .map((activity) => (
+                  <ActivityListItem key={activity.id} activity={activity} />
+                ))}
             </div>
           </div>
         </div>

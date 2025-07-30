@@ -1,99 +1,39 @@
-import TitleCard from "@/components/common/titleCard";
-import { Tabs, Tab } from "@/components/utils/tabs";
+import { useTranslations } from "next-intl";
+
+import { Tabs, Tab } from "@/components/ui/tabs";
+import PageTitleAndDescription from "@/components/common/pageTitleAndDescription";
+import CorporationDocumentsTable from "@/app/corporation/(components)/corporationDocumentsTable";
+import CorporationMembersDetails from "@/app/corporation/(components)/corporationMembersDetails";
 
 export default function Corporation() {
+  const t = useTranslations("corporation");
+
   return (
-    <div className={"container mx-auto min-h-[calc(100vh-249.27px)]"}>
-      <TitleCard
-        title={"La corporation"}
+    <main className={"container mx-auto min-h-[calc(100vh-249.27px)]"}>
+      <PageTitleAndDescription
+        title={t("corporation")}
         description={
-          "La corporation de développement de Schefferville est un organisme sans but lucratif paramunicipal dont les membres sont nommés majoritairement par la Ville de Schefferville. Les nations innues de Matimekush-Lac-John et Kawawachichamak nomment également des représentants."
+          <>
+            <p>{t("intro-text")}</p>
+            <br />
+            <p>{t("intro-text-follow-up")}</p>
+          </>
         }
       />
       <Tabs>
-        <Tab label="Assemblée générale">
+        <Tab label={t("members")} value="members">
+          <CorporationMembersDetails />
+        </Tab>
+        <Tab label={t("documents")} value="documents">
           <div className="py-4">
             <h2 className="text-xl font-bold mb-2 text-green_1">
-              Assemblée générale
+              {t("documents")}
             </h2>
-            <p className="text-gray-700">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
-              mollitia, molestiae quas vel sint commodi repudiandae consequuntur
-              voluptatum laborum numquam blanditiis harum quisquam eius sed odit
-              fugiat iusto fuga praesentium optio, eaque rerum! Provident
-              similique accusantium nemo autem. Veritatis obcaecati tenetur iure
-              eius earum ut molestias architecto voluptate aliquam nihil,
-              eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit,
-              tenetur error, harum nesciunt ipsum debitis quas aliquid.
-              Reprehenderit, quia. Quo neque error repudiandae fuga? Ipsa
-              laudantium molestias eos sapiente officiis modi at sunt excepturi
-              expedita sint? Sed quibusdam recusandae alias error harum maxime
-              adipisci amet laborum.
-            </p>
-          </div>
-        </Tab>
-        <Tab label="Conseil d'administration">
-          <div className="py-4">
-            <h2 className="text-xl font-bold mb-2 text-green_1">
-              Conseil d'administration
-            </h2>
-            <p className="text-gray-700">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
-              mollitia, molestiae quas vel sint commodi repudiandae consequuntur
-              voluptatum laborum numquam blanditiis harum quisquam eius sed odit
-              fugiat iusto fuga praesentium optio, eaque rerum! Provident
-              similique accusantium nemo autem. Veritatis obcaecati tenetur iure
-              eius earum ut molestias architecto voluptate aliquam nihil,
-              eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit,
-              tenetur error, harum nesciunt ipsum debitis quas aliquid.
-              Reprehenderit, quia. Quo neque error repudiandae fuga? Ipsa
-              laudantium molestias eos sapiente officiis modi at sunt excepturi
-              expedita sint? Sed quibusdam recusandae alias error harum maxime
-              adipisci amet laborum.
-            </p>
-          </div>
-        </Tab>
-        <Tab label="Direction générale">
-          <div className="py-4">
-            <h2 className="text-xl font-bold mb-2 text-green_1">
-              Direction générale
-            </h2>
-            <p className="text-gray-700">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
-              mollitia, molestiae quas vel sint commodi repudiandae consequuntur
-              voluptatum laborum numquam blanditiis harum quisquam eius sed odit
-              fugiat iusto fuga praesentium optio, eaque rerum! Provident
-              similique accusantium nemo autem. Veritatis obcaecati tenetur iure
-              eius earum ut molestias architecto voluptate aliquam nihil,
-              eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit,
-              tenetur error, harum nesciunt ipsum debitis quas aliquid.
-              Reprehenderit, quia. Quo neque error repudiandae fuga? Ipsa
-              laudantium molestias eos sapiente officiis modi at sunt excepturi
-              expedita sint? Sed quibusdam recusandae alias error harum maxime
-              adipisci amet laborum.
-            </p>
-          </div>
-        </Tab>
-        <Tab label="Documents">
-          <div className="py-4">
-            <h2 className="text-xl font-bold mb-2 text-green_1">Documents</h2>
-            <p className="text-gray-700">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
-              mollitia, molestiae quas vel sint commodi repudiandae consequuntur
-              voluptatum laborum numquam blanditiis harum quisquam eius sed odit
-              fugiat iusto fuga praesentium optio, eaque rerum! Provident
-              similique accusantium nemo autem. Veritatis obcaecati tenetur iure
-              eius earum ut molestias architecto voluptate aliquam nihil,
-              eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit,
-              tenetur error, harum nesciunt ipsum debitis quas aliquid.
-              Reprehenderit, quia. Quo neque error repudiandae fuga? Ipsa
-              laudantium molestias eos sapiente officiis modi at sunt excepturi
-              expedita sint? Sed quibusdam recusandae alias error harum maxime
-              adipisci amet laborum.
-            </p>
+            <p className="text-gray-700">{t("documents-text")}</p>
+            <CorporationDocumentsTable />
           </div>
         </Tab>
       </Tabs>
-    </div>
+    </main>
   );
 }

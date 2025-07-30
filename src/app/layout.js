@@ -1,6 +1,10 @@
-import { Poppins } from "next/font/google";
-import { DM_Sans } from "next/font/google";
-import "../styles/globals.css";
+import { NextIntlClientProvider } from "next-intl";
+import { getLocale } from "next-intl/server";
+
+import { Poppins, DM_Sans } from "next/font/google";
+import "@/styles/globals.css";
+
+import { Toaster } from "@/components/ui/sonner";
 
 import Header from "@/components/running/header";
 import Footer from "@/components/running/footer";
@@ -22,13 +26,18 @@ export const metadata = {
   description: "",
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  const locale = await getLocale();
+
   return (
-    <html lang="fr">
+    <html lang={locale} className="scroll-smooth">
       <body className={`${poppins.variable} ${dmSans.variable} antialiased`}>
-        <Header />
-        <main>{children}</main>
-        <Footer />
+        <NextIntlClientProvider>
+          <Header />
+          <main>{children}</main>
+          <Toaster position="top-center" />
+          <Footer />
+        </NextIntlClientProvider>
       </body>
     </html>
   );

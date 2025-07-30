@@ -1,7 +1,16 @@
+import { useTranslations } from "next-intl";
+
 import Image from "next/image";
 import Link from "next/link";
+import ContactPopover from "@/components/dialog/contactPopover";
+import LocaleSwitcher from "@/components/running/localeSwitcher";
 
+/**
+ * Composant de l'en-tête du site web.
+ */
 export default function Header() {
+  const t = useTranslations("running");
+
   return (
     <header className="bg-green_1">
       <div
@@ -12,17 +21,18 @@ export default function Header() {
         {/* TODO: Replace LOGO */}
         <Link href={"/"}>
           <Image
-            src="/logos/Schefferville-Logo-H-Avec_sous-app-RGB.jpg"
+            src="/logos/Corporation-Logo-H-RGB-10x.jpg"
             alt="Logo de la ville de Schefferville, à remplacer avec celui de la corporation."
             width={350}
             height={100}
+            priority={true}
           />
         </Link>
         {/* Navigation Links */}
         <ul className={"flex space-x-6"}>
           <li>
             <Link href={"/newsletter"} className={"hover:underline"}>
-              Infolettre
+              {t("newsletter")}
             </Link>
           </li>
           <li>
@@ -31,18 +41,14 @@ export default function Header() {
               target={"_blank"}
               className={"hover:underline"}
             >
-              Ville de Schefferville
+              {t("schefferville-website")}
             </a>
           </li>
           <li>
-            <Link href="/contact" className={"hover:underline"}>
-              Nous joindre
-            </Link>
+            <ContactPopover triggerText={t("contact-us")} />
           </li>
           <li>
-            <Link href="/todo" className={"hover:underline"}>
-              En
-            </Link>
+            <LocaleSwitcher />
           </li>
         </ul>
       </div>

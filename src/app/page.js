@@ -1,10 +1,20 @@
+import { useTranslations } from "next-intl";
+
+import SonnerNewsletterService from "@/components/home/sonnerNewsletterService";
 import HomeImage from "@/components/home/homeImage";
 import ServiceCard from "@/components/home/serviceCard";
 
 export default function Home() {
+  const t = useTranslations("home");
+  const h = useTranslations("housing");
+  const b = useTranslations("business");
+  const l = useTranslations("communal-life");
+  const c = useTranslations("corporation");
+
   return (
     <main>
-      <HomeImage />
+      <SonnerNewsletterService />
+      <HomeImage missionTitle={t("mission")} missionText={t("mission-text")} />
       <div
         className={
           "py-20 px-16 mx-auto flex flex-row justify-center space-x-11"
@@ -12,33 +22,25 @@ export default function Home() {
       >
         <div className={"flex flex-col space-y-10"}>
           <ServiceCard
-            title={"Habitation"}
-            description={
-              "Aenean quis dui sed sapien dignissim volutpat eu vel ex. Praesent tempor enim in augue gravida volutpat. In a metus odio. Pellentesque et pretium dolor. Cras ullamcorper urna nulla."
-            }
+            title={h("housing")}
+            description={h("intro-text")}
             path={"/housing"}
           />
           <ServiceCard
-            title={"Vie communautaire et culturelle"}
-            description={
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque in libero magna. Praesent eget pellentesque lorem. Aenean quis dui sed sapien dignissim volutpat eu vel ex."
-            }
+            title={l("communal-life")}
+            description={l("intro-text")}
             path={"/communal-life"}
           />
         </div>
         <div className={"flex flex-col space-y-10"}>
           <ServiceCard
-            title={"Développement économique"}
-            description={
-              "Cras ullamcorper urna nulla. Maecenas vel laoreet tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in massa eu nulla porttitor auctor id sed erat."
-            }
+            title={b("business")}
+            description={b("intro-text")}
             path={"/business"}
           />
           <ServiceCard
-            title={"La corporation"}
-            description={
-              "Donec in massa eu nulla porttitor auctor id sed erat. Pellentesque ullamcorper ex nec dolor aliquam, vitae egestas ipsum aliquet."
-            }
+            title={c("corporation")}
+            description={c("intro-text")}
             path={"/corporation"}
           />
         </div>
