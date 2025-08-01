@@ -15,9 +15,17 @@ export default function Home() {
     <main>
       <SonnerNewsletterService />
       <HomeImage missionTitle={t("mission")} missionText={t("mission-text")} />
+        <div className="flex flex-col bg-blue_1 w-full min-h-[5rem] text-white text-xl text-center justify-center items-center p-2">
+            <div>
+                {t("70-intro")}
+            </div>
+            <a href="https://www.schefferville70.ca" target="_blank" className="underline font-bold hover:cursor-pointer">
+                www.schefferville70.ca
+            </a>
+        </div>
       <div
         className={
-          "py-20 px-16 mx-auto flex flex-row justify-center space-x-11"
+          "pb-20 pt-16 px-16 mx-auto flex flex-row justify-center space-x-11"
         }
       >
         <div className={"flex flex-col space-y-10"}>

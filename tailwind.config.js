@@ -14,7 +14,10 @@ module.exports = {
   			green_1: 'var(--green-1)',
   			green_2: 'var(--green-2)',
   			orange_1: 'var(--orange-1)',
-  			orange_2: 'var(--orange-2)'
+  			orange_2: 'var(--orange-2)',
+			blue_1: 'var(--blue-1)',
+			blue_2: 'var(--blue-2)',
+			teal_1: 'var(--teal-1)'
   		},
   		borderRadius: {
   			lg: 'var(--radius)',
