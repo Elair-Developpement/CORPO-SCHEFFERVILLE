@@ -38,7 +38,12 @@
     "housing-alt": "Available housing and land",
     "page-text": "Are you looking to rent a home? We have a few residential properties available. Are you searching for land to build on? We have a bank of land available. In both cases, do not hesitate to contact us!",
     "central-sector": "Central sector",
-    "industrial-sector": "Industrial sector"
+    "industrial-sector": "Industrial sector",
+    "address": "Address :",
+    "registration-number": "Registration number: ",
+    "area": "Available area :",
+    "served": "Served",
+    "not-served": "Not served"
   },
   "business": {
     "business": "Economic Development",
