@@ -53,7 +53,14 @@
     "project-text": "Do you want to start a project, activity, or initiative? Let us know. Our extensive experience in project management and development, combined with a network of contacts and funding partners, will help you achieve your goals. We assure you that discussions will remain confidential. If you are at the pre-feasibility stage, send us a project summary for discussion. If your business plan is ready, submit it to us for validation and to ensure you receive financial assistance according to the rules set by financial partners. Remember that once a project is started, it is difficult to request funding.",
     "label-finance": "Funding and partners",
     "label-mining": "Mining projects",
-    "label-directory": "Businesses and resources directory"
+    "label-directory": "Businesses and resources directory",
+    "contact": "Contact : ",
+    "phone": "Phone : ",
+    "phone-free": "Toll-free : ",
+    "fax": "Fax : ",
+    "email": "E-mail : ",
+    "website": "Website : ",
+    "facebook": "Facebook Page : "
   },
   "communal-life":{
     "communal-life": "Communal and Cultural Life",

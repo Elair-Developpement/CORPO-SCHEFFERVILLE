@@ -59,19 +59,20 @@ export default function Housing() {
         description={t("page-text")}
       />
       <div className="flex items-center space-x-2">
-        <Label htmlFor="map-toggle" className="text-lg">
+        <Label htmlFor="map-toggle" className="text-lg font-semibold text-green_1">
           {t("industrial-sector")}
         </Label>
         <Switch
           id="map-toggle"
           checked={isResidentialMap}
           onCheckedChange={(checked) => setIsResidentialMap(checked)}
+          className="data-[state=checked]:bg-orange_1 data-[state=unchecked]:bg-green_1"
         />
-        <Label htmlFor="map-toggle" className="text-lg">
+        <Label htmlFor="map-toggle" className="text-lg font-semibold text-orange_1">
           {t("central-sector")}
         </Label>
       </div>
-      <div className={"flex flex-grow h-[60rem] w-full mb-7 z-0"}>
+      <div className={"flex flex-grow h-[60rem] w-full mb-7 z-0 rounded-2xl overflow-hidden"}>
         {!isPending && (
             isResidentialMap ? <CentralLeafletMap centralPropertiesProp={centralProperties} /> : <IndustrialLeafletMap industrialPropertiesProp={industrialProperties} />
         )}

@@ -14,6 +14,7 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
+import BusinessCard from "@/app/business/(components)/businessCard";
 
 export default function BusinessDirectorySearch() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -25,7 +26,7 @@ export default function BusinessDirectorySearch() {
     const fetchBusinesses = async () => {
       const supabase = await createClient();
       const { data, error } = await supabase
-        .from("businesses")
+        .from("companies")
         .select("*")
         .ilike("name", `%${searchTerm}%`)
         .range((page - 1) * 10, page * 10 - 1);
@@ -52,10 +53,7 @@ export default function BusinessDirectorySearch() {
       />
       <div className="mt-4">
         {businesses.map((business) => (
-          <div key={business.id} className="mb-2">
-            <h3 className="text-lg font-semibold">{business.name}</h3>
-            <p>{business.description}</p>
-          </div>
+          <BusinessCard key={business.id} {...business}/>
         ))}
       </div>
       <Pagination>

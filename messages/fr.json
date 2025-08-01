@@ -52,7 +52,14 @@
     "project-text": "Vous souhaitez démarrer un projet, une activité ou mettre en place une initiative, faites-nous en part. Notre longue expérience en gestion et développement de projet conjugué à un réseau de contact et des partenaires pour le financement, vous aidera à atteindre vos objectifs. Nous vous précisons que les échanges demeureront confidentiels. Si vous être à l’étape de préfaisabilité, envoyez-nous le sommaire du projet. Nous en discuterons. Votre projet n’est pas encore démarré mais votre plan d’affaires est monté, soumettez-le-nous afin de le valider et s’assurer d’obtenir les aides financières selon les règles établis par les partenaires financiers. N’oubliez pas que lorsque qu’un projet est démarré, il est difficile de demander du financement.",
     "label-finance": "Financement et partenaires",
     "label-mining": "Projets miniers",
-    "label-directory": "Bottin entreprises et ressources"
+    "label-directory": "Bottin entreprises et ressources",
+    "contact": "Personne à contacter : ",
+    "phone": "Téléphone : ",
+    "phone-free": "Sans frais : ",
+    "fax": "Télécopieur : ",
+    "email": "Courriel : ",
+    "website": "Site web : ",
+    "facebook": "Page Facebook : "
   },
   "communal-life":{
     "communal-life": "Vie communautaire et culturelle",
