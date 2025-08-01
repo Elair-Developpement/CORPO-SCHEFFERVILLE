@@ -4,7 +4,7 @@ export default function BusinessCard( businessProp ) {
     const t = useTranslations("business")
 
     return(
-        <div className="mb-2">
+        <div className="mb-2 p-1 w-fit ">
             <h3 className="text-lg font-semibold text-blue_2">{businessProp.name}</h3>
             { businessProp.category && (
                 <p className="italic">{businessProp.category}</p>
@@ -24,6 +24,26 @@ export default function BusinessCard( businessProp ) {
                     <a href={'tel:'+businessProp.phone_1} target="_blank" className="underline hover:cursor-pointer hover:text-orange_1">{businessProp.phone_1}</a>
                 </div>
             )}
+
+            { businessProp.contact_name_2 && (
+                <div>
+                    <span>{t("contact")}</span>
+                    <span className="">{businessProp.contact_name_2}</span>
+                </div>
+            )}
+            { businessProp.phone_2 && (
+                <div>
+                    <span>{t("phone")}</span>
+                    <a href={'tel:'+businessProp.phone_2} target="_blank" className="underline hover:cursor-pointer hover:text-orange_1">{businessProp.phone_2}</a>
+                </div>
+            )}
+            {
+                businessProp.phone_free && (
+                    <div>
+                        <span>{t("phone-free")}</span>
+                        <a href={'tel:'+businessProp.phone_free} target="_blank" className="underline hover:cursor-pointer hover:text-orange_1">{businessProp.phone_free}</a>
+                    </div>
+                )}
             { businessProp.fax && (
                 <div>
                     <span>{t("fax")}</span>
@@ -36,10 +56,22 @@ export default function BusinessCard( businessProp ) {
                     <a href={'mailto:'+businessProp.email_1} target="_blank" className="underline hover:cursor-pointer hover:text-orange_1">{businessProp.email_1}</a>
                 </div>
             )}
+            { businessProp.email_2 && (
+                <div>
+                    <span>{t("email")}</span>
+                    <a href={'mailto:'+businessProp.email_2} target="_blank" className="underline hover:cursor-pointer hover:text-orange_1">{businessProp.email_2}</a>
+                </div>
+            )}
             { businessProp.website && (
                 <div>
                     <span>{t("website")}</span>
                     <a href={'https://'+businessProp.website} target="_blank" className="underline hover:cursor-pointer hover:text-orange_1">{businessProp.website}</a>
+                </div>
+            )}
+            { businessProp.facebook && (
+                <div>
+                    <span>{t("facebook")}</span>
+                    <a href={businessProp.facebook_link} target="_blank" className="underline hover:cursor-pointer hover:text-orange_1">{businessProp.facebook}</a>
                 </div>
             )}
         </div>

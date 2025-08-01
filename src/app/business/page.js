@@ -17,6 +17,14 @@ export default function Business() {
         description={t("intro-text")}
       />
       <Tabs>
+        <Tab label={t("label-directory")} value="directory">
+          <div className="py-4">
+            <h2 className="text-xl font-bold mb-2 text-green_1">
+              {t("label-directory")}
+            </h2>
+            <BusinessDirectorySearch />
+          </div>
+        </Tab>
         <Tab label={t("label-project")} value="projects">
           <div className="py-4">
             <h2 className="text-xl font-bold mb-2 text-green_1">
@@ -50,14 +58,7 @@ export default function Business() {
             <p className="text-gray-700">{c("to-do")}</p>
           </div>
         </Tab>
-        <Tab label={t("label-directory")} value="directory">
-          <div className="py-4">
-            <h2 className="text-xl font-bold mb-2 text-green_1">
-              {t("label-directory")}
-            </h2>
-            <BusinessDirectorySearch />
-          </div>
-        </Tab>
+
       </Tabs>
     </main>
   );

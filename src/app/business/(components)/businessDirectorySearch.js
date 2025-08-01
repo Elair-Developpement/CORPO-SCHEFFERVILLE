@@ -1,5 +1,7 @@
 "use client";
 
+import {useTranslations} from "next-intl";
+
 import { createClient } from "@/lib/supabase/client";
 import { useState, useEffect } from "react";
 
@@ -17,6 +19,8 @@ import {
 import BusinessCard from "@/app/business/(components)/businessCard";
 
 export default function BusinessDirectorySearch() {
+  const t = useTranslations("business");
+
   const [searchTerm, setSearchTerm] = useState("");
   const [businesses, setBusinesses] = useState([]);
   const [page, setPage] = useState(1);
@@ -47,11 +51,11 @@ export default function BusinessDirectorySearch() {
     <div className="container mx-auto p-4">
       <Input
         type="text"
-        placeholder="Search for businesses..."
+        placeholder={t("directory-search")}
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
-      <div className="mt-4">
+      <div className="md:grid md:grid-cols-2 md:grid-rows-5 md:grid-flow-col mt-4 items-center">
         {businesses.map((business) => (
           <BusinessCard key={business.id} {...business}/>
         ))}
