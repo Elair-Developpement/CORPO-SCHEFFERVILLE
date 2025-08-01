@@ -37,7 +37,12 @@
     "housing-alt": "Logements et terrains disponibles",
     "page-text": "Vous souhaitez louer un logement? Nous possédons quelques propriétés résidentielles. Vous êtes à la recherche d’un terrain à construire ? Nous possédons une banque de terrains . Dans les deux cas n’hésitez pas à nous contacter !",
     "central-sector": "Secteur central",
-    "industrial-sector": "Secteur industriel"
+    "industrial-sector": "Secteur industriel",
+    "address": "Adresse : ",
+    "registration-number": "Matricule : ",
+    "area": "Superficie disponible : ",
+    "served": "Desservi",
+    "not-served": "Non desservi"
   },
   "business": {
     "business": "Développement économique",
