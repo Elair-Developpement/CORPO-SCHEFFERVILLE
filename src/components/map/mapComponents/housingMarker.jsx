@@ -44,7 +44,7 @@ export default function HousingMarker({ propertyProp, verbose }) {
             ) : (
               <div>{t("not-served")}</div>
             )}
-            <div>{propertyProp.notes}</div>
+            <div className="italic">{propertyProp.notes}</div>
           </div>
         </div>
       </Popup>
