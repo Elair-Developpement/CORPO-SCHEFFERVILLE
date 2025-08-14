@@ -11,7 +11,7 @@ const imageBounds = [
   [0, 0],
   [5275, 8031],
 ];
-const customCenter = [2150, 3800];
+const customCenter = [1900, 3800];
 const imageUrl = "/maps/schefferville_map-central.png";
 
 function ClickHandler() {
