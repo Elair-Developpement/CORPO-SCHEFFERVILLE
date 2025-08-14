@@ -1,10 +1,15 @@
 import { useTranslations } from "next-intl";
 import { Marker, Popup, Tooltip } from "react-leaflet";
 
+/**
+ * Composant qui représente un marqueur sur les cartes de terrains résidentiels et industriels.
+ * @param propertyProp Informations sur la propriété en particulier.
+ * @param verbose Si vrai, affiche des informations supplémentaires sur la propriété.
+ * @returns {JSX.Element} Un Marker de react-leaflet, et son Popup qui contient l'informmation sur la propriété.
+ */
 export default function HousingMarker({ propertyProp, verbose }) {
   const t = useTranslations("housing");
-  console.log("Received props:", propertyProp);
-  console.log("Marker coordinates:", propertyProp.coordinates);
+
   return (
     <Marker position={propertyProp.coordinates}>
       <Tooltip className="">
