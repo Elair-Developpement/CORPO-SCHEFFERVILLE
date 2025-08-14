@@ -28,7 +28,7 @@ export default function NewslettersTable() {
 
   const handleDelete = async (id) => {
     const confirmed = confirm(
-      "Êtes-vous sûr de vouloir supprimer ce document ?",
+      "Êtes-vous sûr de vouloir supprimer ce document ?"
     );
     if (!confirmed) return;
 
@@ -36,7 +36,7 @@ export default function NewslettersTable() {
 
     if (!error) {
       setNewsletters((prev) =>
-        prev.filter((newsletter) => newsletter.id !== id),
+        prev.filter((newsletter) => newsletter.id !== id)
       );
       alert("Document supprimé avec succès !");
     } else {

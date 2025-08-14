@@ -53,8 +53,10 @@
     "project-text": "Do you want to start a project, activity, or initiative? Let us know. Our extensive experience in project management and development, combined with a network of contacts and funding partners, will help you achieve your goals. We assure you that discussions will remain confidential. If you are at the pre-feasibility stage, send us a project summary for discussion. If your business plan is ready, submit it to us for validation and to ensure you receive financial assistance according to the rules set by financial partners. Remember that once a project is started, it is difficult to request funding.",
     "label-finance": "Funding and partners",
     "label-mining": "Mining projects",
-    "label-directory": "Businesses and resources directory",
-    "directory-search": "Search for businesses...",
+    "label-directory": "Businesses, public and community organisation directory",
+    "directory-search": "Search for businesses, public or community organisations...",
+    "directory-previous": "Précédent",
+    "directory-next": "Suivant",
     "contact": "Contact : ",
     "phone": "Phone : ",
     "phone-free": "Toll-free : ",
@@ -63,7 +65,7 @@
     "website": "Website : ",
     "facebook": "Facebook Page : "
   },
-  "communal-life":{
+  "communal-life": {
     "communal-life": "Communal and Cultural Life",
     "communal-life-alt": "Recreation, community and cultural life, healthy habits",
     "intro-text": "We aim to enrich the offerings for citizens in terms of recreation, sports, outdoor activities, cultural and community activities, and healthy living habits. Activities are underway; perhaps you want to start a project or learn about available and developing facilities.",

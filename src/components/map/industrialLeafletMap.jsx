@@ -27,7 +27,7 @@ export default function IndustrialLeafletMap({ industrialPropertiesProp }) {
   return (
     <MapContainer
       crs={CRS.Simple}
-      minZoom={-2.50}
+      minZoom={-2.5}
       maxBounds={imageBounds}
       center={customCenter}
       zoom={-2.25}

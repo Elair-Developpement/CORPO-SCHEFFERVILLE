@@ -6,15 +6,14 @@ import { createClient } from "@/lib/supabase/client";
 import { toast } from "sonner";
 
 export default function SonnerNewsletterService() {
-  const supabase = createClient();
   const tableName = "newsletters";
-
-  // If the last newsletter was uploaded less than 10  days ago, show a sonner to redirect to newsletter, inviting guests to look at it
 
   const [isPending, startTransition] = useTransition();
   const [newsletters, setNewsletters] = useState([]);
 
   useEffect(() => {
+    const supabase = createClient();
+
     startTransition(async () => {
       const { data, error } = await supabase
         .from(tableName)
@@ -33,7 +32,7 @@ export default function SonnerNewsletterService() {
         const lastNewsletterDate = new Date(lastNewsletter.created_at);
         const currentDate = new Date();
         const daysDifference = Math.floor(
-          (currentDate - lastNewsletterDate) / (1000 * 60 * 60 * 24),
+          (currentDate - lastNewsletterDate) / (1000 * 60 * 60 * 24)
         );
 
         if (
@@ -50,7 +49,7 @@ export default function SonnerNewsletterService() {
                 },
               },
               duration: 30000,
-            },
+            }
           );
           sessionStorage.setItem("newsletterToastShown", "true"); //
         }
