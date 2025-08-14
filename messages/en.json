@@ -44,7 +44,8 @@
     "registration-number": "Registration number: ",
     "area": "Available area :",
     "served": "Served",
-    "not-served": "Not served"
+    "not-served": "Not served",
+    "price": "Price : "
   },
   "business": {
     "business": "Economic Development",

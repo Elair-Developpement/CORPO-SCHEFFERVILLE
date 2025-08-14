@@ -43,7 +43,8 @@
     "registration-number": "Matricule : ",
     "area": "Superficie disponible : ",
     "served": "Desservi",
-    "not-served": "Non desservi"
+    "not-served": "Non desservi",
+    "price": "Prix : "
   },
   "business": {
     "business": "Développement économique",

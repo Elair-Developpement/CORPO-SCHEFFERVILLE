@@ -44,7 +44,18 @@ export default function HousingMarker({ propertyProp, verbose }) {
             ) : (
               <div>{t("not-served")}</div>
             )}
-            <div className="italic">{propertyProp.notes}</div>
+            {propertyProp.notes && (
+              <div className="italic">{propertyProp.notes}</div>
+            )}
+            {propertyProp.price && (
+              <>
+                <br />
+                <div>{t("price")}</div>
+                <div className="text-orange_1 font-bold flex">
+                  <span>{propertyProp.price} $</span>
+                </div>
+              </>
+            )}
           </div>
         </div>
       </Popup>
