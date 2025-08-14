@@ -35,8 +35,8 @@ export default function Housing() {
     const supabase = createClient();
 
     startTransition(async () => {
-      const { data: residentialData, error: residentialError } = await supabase.from("land").select("*").eq("residential", true);
-      const {data: industrialData, error: industrialError} = await supabase.from("land").select("*").eq("residential", false);
+      const { data: residentialData, error: residentialError } = await supabase.from("land").select("*").eq("residential", true).eq("active", true);
+      const {data: industrialData, error: industrialError} = await supabase.from("land").select("*").eq("residential", false).eq("active", true);
 
       // TODO: Ajouter error handling
 
