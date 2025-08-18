@@ -25,7 +25,7 @@ export default function Footer() {
         </li>
         <li>
           <a
-            href="https://ville-schefferville.ca/"
+            href="https://schefferville.ca/"
             target="_blank"
             className="hover:underline"
           >
