@@ -1,11 +1,10 @@
 "use client";
 
-import {useTranslations} from "next-intl";
+import { useTranslations } from "next-intl";
 
 import { createClient } from "@/lib/supabase/client";
 import { useState, useEffect } from "react";
 
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
   Pagination,
@@ -29,10 +28,10 @@ export default function BusinessDirectorySearch() {
   useEffect(() => {
     const fetchBusinesses = async () => {
       const supabase = await createClient();
-      const { data, error } = await supabase
+      const { data, error, count } = await supabase
         .from("companies")
-        .select("*")
-        .ilike("name", `%${searchTerm}%`)
+        .select("*", { count: "exact" })
+        .or(`name.ilike.%${searchTerm}%,category.ilike.%${searchTerm}%`)
         .range((page - 1) * 10, page * 10 - 1);
 
       if (error) {
@@ -40,7 +39,7 @@ export default function BusinessDirectorySearch() {
       } else {
         setBusinesses(data);
         // Assuming total count is returned in the response
-        setTotalPages(Math.ceil(data.length / 10));
+        setTotalPages(Math.ceil(count / 10));
       }
     };
 
@@ -55,28 +54,81 @@ export default function BusinessDirectorySearch() {
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
+      <Pagination>
+        <PaginationContent>
+          <PaginationItem>
+            <PaginationPrevious
+              onClick={() => setPage((prev) => Math.max(prev - 1, 1))}
+              className="hover:cursor-pointer"
+            />
+          </PaginationItem>
+          {[...Array(totalPages)].map((_, index) => (
+            <PaginationItem key={index}>
+              {page === index + 1 ? (
+                <PaginationLink
+                  onClick={() => setPage(index + 1)}
+                  className="hover:cursor-pointer"
+                  isActive
+                >
+                  {index + 1}
+                </PaginationLink>
+              ) : (
+                <PaginationLink
+                  onClick={() => setPage(index + 1)}
+                  className="hover:cursor-pointer"
+                >
+                  {index + 1}
+                </PaginationLink>
+              )}
+            </PaginationItem>
+          ))}
+          <PaginationItem>
+            <PaginationNext
+              onClick={() => setPage((prev) => Math.min(prev + 1, totalPages))}
+              className="hover:cursor-pointer"
+            />
+          </PaginationItem>
+        </PaginationContent>
+      </Pagination>
       <div className="md:grid md:grid-cols-2 md:grid-rows-5 md:grid-flow-col mt-4 items-center">
         {businesses.map((business) => (
-          <BusinessCard key={business.id} {...business}/>
+          <BusinessCard key={business.id} {...business} />
         ))}
       </div>
       <Pagination>
         <PaginationContent>
-          <PaginationPrevious
-            onClick={() => setPage((prev) => Math.max(prev - 1, 1))}
-          >
-            Previous
-          </PaginationPrevious>
+          <PaginationItem>
+            <PaginationPrevious
+              onClick={() => setPage((prev) => Math.max(prev - 1, 1))}
+              className="hover:cursor-pointer"
+            />
+          </PaginationItem>
           {[...Array(totalPages)].map((_, index) => (
-            <PaginationItem key={index} onClick={() => setPage(index + 1)}>
-              {index + 1}
+            <PaginationItem key={index}>
+              {page === index + 1 ? (
+                <PaginationLink
+                  onClick={() => setPage(index + 1)}
+                  className="hover:cursor-pointer"
+                  isActive
+                >
+                  {index + 1}
+                </PaginationLink>
+              ) : (
+                <PaginationLink
+                  onClick={() => setPage(index + 1)}
+                  className="hover:cursor-pointer"
+                >
+                  {index + 1}
+                </PaginationLink>
+              )}
             </PaginationItem>
           ))}
-          <PaginationNext
-            onClick={() => setPage((prev) => Math.min(prev + 1, totalPages))}
-          >
-            Next
-          </PaginationNext>
+          <PaginationItem>
+            <PaginationNext
+              onClick={() => setPage((prev) => Math.min(prev + 1, totalPages))}
+              className="hover:cursor-pointer"
+            />
+          </PaginationItem>
         </PaginationContent>
       </Pagination>
     </div>
