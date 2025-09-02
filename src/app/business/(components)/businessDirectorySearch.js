@@ -54,7 +54,7 @@ export default function BusinessDirectorySearch() {
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
-      <Pagination>
+      <Pagination className="mt-2">
         <PaginationContent>
           <PaginationItem>
             <PaginationPrevious
@@ -90,7 +90,7 @@ export default function BusinessDirectorySearch() {
           </PaginationItem>
         </PaginationContent>
       </Pagination>
-      <div className="md:grid md:grid-cols-2 md:grid-rows-5 md:grid-flow-col mt-4 items-center">
+      <div className="md:grid md:grid-cols-2 md:grid-rows-5 md:grid-flow-col items-center">
         {businesses.map((business) => (
           <BusinessCard key={business.id} {...business} />
         ))}
