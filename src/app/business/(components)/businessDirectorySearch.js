@@ -26,11 +26,16 @@ export default function BusinessDirectorySearch() {
   const [totalPages, setTotalPages] = useState(0);
 
   useEffect(() => {
+    setPage(1);
+  }, [searchTerm]);
+
+  useEffect(() => {
     const fetchBusinesses = async () => {
       const supabase = await createClient();
       const { data, error, count } = await supabase
         .from("companies")
-        .select("*", { count: "exact" }).order(`name`, {ascending: true})
+        .select("*", { count: "exact" })
+        .order(`name`, { ascending: true })
         .or(`name.ilike.%${searchTerm}%,category.ilike.%${searchTerm}%`)
         .range((page - 1) * 10, page * 10 - 1);
 
@@ -54,83 +59,95 @@ export default function BusinessDirectorySearch() {
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
-      <Pagination className="mt-2">
-        <PaginationContent>
-          <PaginationItem>
-            <PaginationPrevious
-              onClick={() => setPage((prev) => Math.max(prev - 1, 1))}
-              className="hover:cursor-pointer"
-            />
-          </PaginationItem>
-          {[...Array(totalPages)].map((_, index) => (
-            <PaginationItem key={index}>
-              {page === index + 1 ? (
-                <PaginationLink
-                  onClick={() => setPage(index + 1)}
+      {businesses.length !== 0 ? (
+        <>
+          <Pagination className="mt-2">
+            <PaginationContent>
+              <PaginationItem>
+                <PaginationPrevious
+                  onClick={() => setPage((prev) => Math.max(prev - 1, 1))}
                   className="hover:cursor-pointer"
-                  isActive
-                >
-                  {index + 1}
-                </PaginationLink>
-              ) : (
-                <PaginationLink
-                  onClick={() => setPage(index + 1)}
+                />
+              </PaginationItem>
+              {[...Array(totalPages)].map((_, index) => (
+                <PaginationItem key={index}>
+                  {page === index + 1 ? (
+                    <PaginationLink
+                      onClick={() => setPage(index + 1)}
+                      className="hover:cursor-pointer"
+                      isActive
+                    >
+                      {index + 1}
+                    </PaginationLink>
+                  ) : (
+                    <PaginationLink
+                      onClick={() => setPage(index + 1)}
+                      className="hover:cursor-pointer"
+                    >
+                      {index + 1}
+                    </PaginationLink>
+                  )}
+                </PaginationItem>
+              ))}
+              <PaginationItem>
+                <PaginationNext
+                  onClick={() =>
+                    setPage((prev) => Math.min(prev + 1, totalPages))
+                  }
                   className="hover:cursor-pointer"
-                >
-                  {index + 1}
-                </PaginationLink>
-              )}
-            </PaginationItem>
-          ))}
-          <PaginationItem>
-            <PaginationNext
-              onClick={() => setPage((prev) => Math.min(prev + 1, totalPages))}
-              className="hover:cursor-pointer"
-            />
-          </PaginationItem>
-        </PaginationContent>
-      </Pagination>
-      <div className="md:grid md:grid-cols-2 md:grid-rows-5 md:grid-flow-col items-center">
-        {businesses.map((business) => (
-          <BusinessCard key={business.id} {...business} />
-        ))}
-      </div>
-      <Pagination>
-        <PaginationContent>
-          <PaginationItem>
-            <PaginationPrevious
-              onClick={() => setPage((prev) => Math.max(prev - 1, 1))}
-              className="hover:cursor-pointer"
-            />
-          </PaginationItem>
-          {[...Array(totalPages)].map((_, index) => (
-            <PaginationItem key={index}>
-              {page === index + 1 ? (
-                <PaginationLink
-                  onClick={() => setPage(index + 1)}
+                />
+              </PaginationItem>
+            </PaginationContent>
+          </Pagination>
+          <div className="md:grid md:grid-cols-2 md:grid-rows-5 md:grid-flow-col items-center">
+            {businesses.map((business) => (
+              <BusinessCard key={business.id} {...business} />
+            ))}
+          </div>
+          <Pagination>
+            <PaginationContent>
+              <PaginationItem>
+                <PaginationPrevious
+                  onClick={() => setPage((prev) => Math.max(prev - 1, 1))}
                   className="hover:cursor-pointer"
-                  isActive
-                >
-                  {index + 1}
-                </PaginationLink>
-              ) : (
-                <PaginationLink
-                  onClick={() => setPage(index + 1)}
+                />
+              </PaginationItem>
+              {[...Array(totalPages)].map((_, index) => (
+                <PaginationItem key={index}>
+                  {page === index + 1 ? (
+                    <PaginationLink
+                      onClick={() => setPage(index + 1)}
+                      className="hover:cursor-pointer"
+                      isActive
+                    >
+                      {index + 1}
+                    </PaginationLink>
+                  ) : (
+                    <PaginationLink
+                      onClick={() => setPage(index + 1)}
+                      className="hover:cursor-pointer"
+                    >
+                      {index + 1}
+                    </PaginationLink>
+                  )}
+                </PaginationItem>
+              ))}
+              <PaginationItem>
+                <PaginationNext
+                  onClick={() =>
+                    setPage((prev) => Math.min(prev + 1, totalPages))
+                  }
                   className="hover:cursor-pointer"
-                >
-                  {index + 1}
-                </PaginationLink>
-              )}
-            </PaginationItem>
-          ))}
-          <PaginationItem>
-            <PaginationNext
-              onClick={() => setPage((prev) => Math.min(prev + 1, totalPages))}
-              className="hover:cursor-pointer"
-            />
-          </PaginationItem>
-        </PaginationContent>
-      </Pagination>
+                />
+              </PaginationItem>
+            </PaginationContent>
+          </Pagination>
+        </>
+      ) : searchTerm === "" ? (
+        <p className="mt-4">{t("directory-loading")}</p>
+      ) : (
+        <p className="mt-4">{t("directory-no-results")}</p>
+      )}
     </div>
   );
 }

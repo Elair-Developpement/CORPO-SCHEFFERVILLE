@@ -57,6 +57,8 @@
     "directory-search": "Rechercher des entreprises, organismes publics et communautaires...",
     "directory-previous": "Précédent",
     "directory-next": "Suivant",
+    "directory-loading": "Chargement des entreprises...",
+    "directory-no-results": "Aucun résultat",
     "contact": "Personne à contacter : ",
     "phone": "Téléphone : ",
     "phone-free": "Sans frais : ",
@@ -65,7 +67,7 @@
     "website": "Site web : ",
     "facebook": "Page Facebook : "
   },
-  "communal-life":{
+  "communal-life": {
     "communal-life": "Vie communautaire et culturelle",
     "communal-life-alt": "Loisirs, vie communautaire et culturelle, saines habitudes",
     "intro-text": "Nous souhaitons enrichir l’offre aux citoyens en matière de loisirs, de sport, de plein air, d’activités culturelles et communautaires et de saines habitudes de vie. Des activités sont en cours, peut-être souhaitez-vous démarrer un projet ou encore vous informer sur les équipements disponibles et en développement.",
