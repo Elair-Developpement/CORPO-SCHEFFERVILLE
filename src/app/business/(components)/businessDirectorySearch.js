@@ -30,7 +30,7 @@ export default function BusinessDirectorySearch() {
       const supabase = await createClient();
       const { data, error, count } = await supabase
         .from("companies")
-        .select("*", { count: "exact" })
+        .select("*", { count: "exact" }).order(`name`, {ascending: true})
         .or(`name.ilike.%${searchTerm}%,category.ilike.%${searchTerm}%`)
         .range((page - 1) * 10, page * 10 - 1);
 
