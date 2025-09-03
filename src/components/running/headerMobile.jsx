@@ -13,7 +13,6 @@ export default function HeaderMobile() {
     <header className="fixed top-0 w-full h-[5rem] z-40 bg-green_1 shadow-md ">
       <nav className="flex h-full items-center justify-between ps-2 pe-4 py-2">
         <Link href="/" className="h-full w-fit">
-        
           <Image
             src="/logos/Corporation-Logo-H-RGB-10x.jpg"
             alt="Logo seulement du 70e anniversaire de la Ville de Schefferville"
