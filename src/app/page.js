@@ -12,23 +12,25 @@ export default function Home() {
   const c = useTranslations("corporation");
 
   return (
-    <main>
+    <main className="mt-[5rem] md:mt-0">
       <SonnerNewsletterService />
       <HomeImage missionTitle={t("mission")} missionText={t("mission-text")} />
-        <div className="flex flex-col bg-blue_1 w-full min-h-[5rem] text-white text-xl text-center justify-center items-center p-2">
-            <div>
-                {t("70-intro")}
-            </div>
-            <a href="https://www.schefferville70.ca" target="_blank" className="underline font-bold hover:cursor-pointer">
-                www.schefferville70.ca
-            </a>
-        </div>
+      <div className="flex flex-col bg-blue_1 w-full min-h-[5rem] text-white text-xl text-center justify-center items-center p-2">
+        <div>{t("70-intro")}</div>
+        <a
+          href="https://www.schefferville70.ca"
+          target="_blank"
+          className="underline font-bold hover:cursor-pointer"
+        >
+          www.schefferville70.ca
+        </a>
+      </div>
       <div
         className={
-          "pb-20 pt-16 px-16 mx-auto flex flex-row justify-center space-x-11"
+          "p-2 md:pb-20 md:pt-16 md:px-16 mx-auto flex flex-col md:flex-row justify-center md:space-x-11"
         }
       >
-        <div className={"flex flex-col space-y-10"}>
+        <div className={"flex flex-col md:space-y-10"}>
           <ServiceCard
             title={h("housing")}
             description={h("intro-text")}
@@ -40,7 +42,7 @@ export default function Home() {
             path={"/communal-life"}
           />
         </div>
-        <div className={"flex flex-col space-y-10"}>
+        <div className={"flex flex-col md:space-y-10"}>
           <ServiceCard
             title={b("business")}
             description={b("intro-text")}

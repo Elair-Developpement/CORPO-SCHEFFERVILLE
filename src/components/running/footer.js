@@ -54,7 +54,7 @@ export default function Footer() {
           <LocaleSwitcher />
         </li>
       </ul>
-      <p className="flex max-md:flex-col  justify-center text-xs text-white">
+      <p className="flex max-md:flex-col justify-center text-xs text-white">
         {t("copyright")}&nbsp;
         <Link href="/admin" className="hover:underline">
           {t("admin")}
