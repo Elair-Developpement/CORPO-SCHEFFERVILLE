@@ -3,21 +3,23 @@
 @tailwind utilities;
 
 :root {
-    --green-1: #3e4827;
-    --green-2: #636a51;
-    --orange-1: #b94700;
-    --orange-2: #bd6439;
-    --blue-1: #2f6f7a;
-    --blue-2: #5c7e87;
-    --teal-1: #00bb7e;
+  --green-1: #3e4827;
+  --green-2: #636a51;
+  --orange-1: #b94700;
+  --orange-2: #bd6439;
+  --blue-1: #2f6f7a;
+  --blue-2: #5c7e87;
+  --teal-1: #00bb7e;
 }
 
 body {
   font-family: var(--font-dm-sans), sans-serif;
 }
 
-h1, h2, h3 {
-    font-family: var(--font-poppins), sans-serif;
+h1,
+h2,
+h3 {
+  font-family: var(--font-poppins), sans-serif;
 }
 
 @layer utilities {
@@ -28,6 +30,17 @@ h1, h2, h3 {
 
 @layer base {
   :root {
-        --radius: 0.5rem;
-    }
+    --radius: 0.5rem;
+  }
+}
+
+/* Lower Leaflet's default z-index values */
+.leaflet-container {
+  z-index: 0 !important;
+}
+
+.leaflet-control,
+.leaflet-top,
+.leaflet-bottom {
+  z-index: 0 !important;
 }
