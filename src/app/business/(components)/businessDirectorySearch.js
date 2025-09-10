@@ -52,7 +52,7 @@ export default function BusinessDirectorySearch() {
   }, [searchTerm, page]);
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="container mx-auto mt-2 md:p-4">
       <Input
         type="text"
         placeholder={t("directory-search")}

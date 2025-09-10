@@ -11,14 +11,18 @@ export default function Business() {
   const c = useTranslations("common");
 
   return (
-    <main className={"container mx-auto min-h-[calc(100vh-249.27px)]"}>
+    <main
+      className={
+        "container mt-[5rem] p-2 md:mt-0 mx-auto min-h-[calc(100vh-249.27px)]"
+      }
+    >
       <PageTitleAndDescription
         title={t("business")}
         description={t("intro-text")}
       />
       <Tabs>
         <Tab label={t("label-directory")} value="directory">
-          <div className="py-4">
+          <div className="md:py-4">
             <h2 className="text-xl font-bold mb-2 text-green_1">
               {t("label-directory")}
             </h2>
@@ -26,7 +30,7 @@ export default function Business() {
           </div>
         </Tab>
         <Tab label={t("label-project")} value="projects">
-          <div className="py-4">
+          <div className="md:py-4">
             <h2 className="text-xl font-bold mb-2 text-green_1">
               {t("label-project")}
             </h2>
@@ -41,7 +45,7 @@ export default function Business() {
           </div>
         </Tab>
         <Tab label={t("label-finance")} value="finance">
-          <div className="py-4">
+          <div className="md:py-4">
             <h2 className="text-xl font-bold mb-2 text-green_1">
               {t("label-finance")}
             </h2>
@@ -50,7 +54,7 @@ export default function Business() {
           </div>
         </Tab>
         <Tab label={t("label-mining")} value="mining">
-          <div className="py-4">
+          <div className="md:py-4">
             <h2 className="text-xl font-bold mb-2 text-green_1">
               {t("label-mining")}
             </h2>
@@ -58,7 +62,6 @@ export default function Business() {
             <p className="text-gray-700">{c("to-do")}</p>
           </div>
         </Tab>
-
       </Tabs>
     </main>
   );
