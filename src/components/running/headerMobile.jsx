@@ -10,7 +10,7 @@ import { Menu } from "lucide-react";
  */
 export default function HeaderMobile() {
   return (
-    <header className="fixed top-0 w-full h-[5rem] z-40 bg-green_1 shadow-md ">
+    <header className="fixed top-0 w-full h-[5rem] z-50 bg-green_1 shadow-md ">
       <nav className="flex h-full items-center justify-between ps-2 pe-4 py-2">
         <Link href="/" className="h-full w-fit">
           <Image
