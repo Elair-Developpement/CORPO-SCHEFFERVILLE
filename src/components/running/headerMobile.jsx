@@ -22,7 +22,7 @@ export default function HeaderMobile() {
     <>
       {/* En-tête */}
       <header className="fixed top-0 w-full h-[5rem] z-40 bg-green_1 shadow-md ">
-        <nav className="flex h-full items-center justify-between ps-2 pe-4 py-2">
+        <nav className="flex h-full items-center justify-between ps-2 py-2">
           <Link href="/" className="h-full w-fit">
             <Image
               src="/logos/Corporation-Logo-H-RGB-10x.jpg"
@@ -33,7 +33,7 @@ export default function HeaderMobile() {
             />
           </Link>
 
-          <button onClick={() => setIsMenuOpen(true)}>
+          <button className="p-4" onClick={() => setIsMenuOpen(true)}>
             <Menu size={30} className="stroke-3 text-white" />
           </button>
         </nav>
