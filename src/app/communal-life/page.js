@@ -46,7 +46,7 @@ export default function Communal_life() {
           <ExternalLink />
         </div>
       </div>
-      <div className={"flex flex-col py-5"}>
+      <div className={"flex flex-col pt-3 md:py-5"}>
         <div className={"flex bg-orange_2 p-3 md:p-2 text-white"}>
           <div className={"flex w-full justify-between"}>
             <div className={"flex text-xl font-bold"}>{t("ongoing")}</div>
