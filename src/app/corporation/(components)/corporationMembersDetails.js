@@ -29,7 +29,7 @@ export default function CorporationMembersDetails() {
   }, []);
 
   return (
-    <div className="py-4 grid grid-cols-3 gap-2">
+    <div className="md:py-4 grid md:grid-cols-3 gap-5 md:gap-2">
       <div>
         <h2 className="text-xl font-bold mb-2 text-green_1">
           {t("general-assembly")}
@@ -48,11 +48,10 @@ export default function CorporationMembersDetails() {
       </div>
       <div>
         <h2 className="text-xl font-bold mb-2 text-green_1">
-          {t("board-of-directors")}
+          {t("general-management")}
         </h2>
-        <p>{t("board-of-directors-text")}</p>
         {members
-          .filter((member) => member.section === "conseil")
+          .filter((member) => member.section === "direction")
           .map((member) => (
             <ProfileCard
               key={member.id}
@@ -64,10 +63,11 @@ export default function CorporationMembersDetails() {
       </div>
       <div>
         <h2 className="text-xl font-bold mb-2 text-green_1">
-          {t("general-management")}
+          {t("board-of-directors")}
         </h2>
+        <p>{t("board-of-directors-text")}</p>
         {members
-          .filter((member) => member.section === "direction")
+          .filter((member) => member.section === "conseil")
           .map((member) => (
             <ProfileCard
               key={member.id}

@@ -9,7 +9,11 @@ export default function Corporation() {
   const t = useTranslations("corporation");
 
   return (
-    <main className={"container mx-auto min-h-[calc(100vh-249.27px)]"}>
+    <main
+      className={
+        "container mt-[5rem] md:mt-0 p-2 mx-auto min-h-[calc(100vh-249.27px)]"
+      }
+    >
       <PageTitleAndDescription
         title={t("corporation")}
         description={
@@ -25,7 +29,7 @@ export default function Corporation() {
           <CorporationMembersDetails />
         </Tab>
         <Tab label={t("documents")} value="documents">
-          <div className="py-4">
+          <div className="md:py-4">
             <h2 className="text-xl font-bold mb-2 text-green_1">
               {t("documents")}
             </h2>
