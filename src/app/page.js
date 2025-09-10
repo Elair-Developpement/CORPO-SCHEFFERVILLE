@@ -27,10 +27,10 @@ export default function Home() {
       </div>
       <div
         className={
-          "p-2 md:pb-20 md:pt-16 md:px-16 mx-auto flex flex-col md:flex-row justify-center md:space-x-11"
+          "p-2 md:pb-20 md:pt-16 md:px-16 mx-auto flex flex-col md:flex-row justify-center max-md:space-y-2 md:space-x-11"
         }
       >
-        <div className={"flex flex-col md:space-y-10"}>
+        <div className={"flex flex-col space-y-2 md:space-y-10"}>
           <ServiceCard
             title={h("housing")}
             description={h("intro-text")}
@@ -42,7 +42,7 @@ export default function Home() {
             path={"/communal-life"}
           />
         </div>
-        <div className={"flex flex-col md:space-y-10"}>
+        <div className={"flex flex-col space-y-2 md:space-y-10"}>
           <ServiceCard
             title={b("business")}
             description={b("intro-text")}

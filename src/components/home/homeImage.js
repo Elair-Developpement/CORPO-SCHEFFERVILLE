@@ -11,7 +11,7 @@ export default function HomeImage({ missionTitle, missionText }) {
         className="absolute inset-0 z-0 brightness-50"
       />
 
-      <div className="absolute inset-0 flex flex-col items-center justify-center space-y-5 z-10 p-2">
+      <div className="absolute inset-0 flex flex-col items-center justify-center md:text-center space-y-5 z-10 p-2">
         <h1 className="flex text-7xl text-white drop-shadow-lg">
           {missionTitle}
         </h1>
