@@ -74,7 +74,7 @@ export default function HeaderMobile() {
           <Link href="/business" onClick={() => setIsMenuOpen(false)}>
             {t("business")}
           </Link>
-          <Link href="/corporations" onClick={() => setIsMenuOpen(false)}>
+          <Link href="/corporation" onClick={() => setIsMenuOpen(false)}>
             {t("corporation")}
           </Link>
           <ContactPopover triggerText={t("contact-us")} />

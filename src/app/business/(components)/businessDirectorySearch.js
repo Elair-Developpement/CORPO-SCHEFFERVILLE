@@ -43,7 +43,6 @@ export default function BusinessDirectorySearch() {
         console.error("Error fetching businesses:", error);
       } else {
         setBusinesses(data);
-        // Assuming total count is returned in the response
         setTotalPages(Math.ceil(count / 10));
       }
     };
