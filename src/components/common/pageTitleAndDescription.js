@@ -4,7 +4,7 @@ export default function PageTitleAndDescription({ title, description }) {
       <h1 className="text-3xl text-left text-orange_1 justify-center font-bold">
         {title}
       </h1>
-      <div className="text-left">{description}</div>
+      <div className="text-justify md:text-left">{description}</div>
     </div>
   );
 }

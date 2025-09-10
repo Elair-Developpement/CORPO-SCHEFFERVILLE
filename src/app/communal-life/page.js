@@ -32,21 +32,25 @@ export default function Communal_life() {
 
   return (
     <main
-      className={"container mx-auto min-h-[calc(100vh-249.27px)] flex flex-col"}
+      className={
+        "container mx-auto max-md:mt-[5rem] min-h-[calc(100vh-249.27px)] flex flex-col"
+      }
     >
-      <PageTitleAndDescription
-        title={t("communal-life-alt")}
-        description={<>{t("intro-text")}</>}
-      />
-      <div className="flex gap-1">
-        <span>{t("intro-text-follow-up")}</span>
-        <ExternalLink />
+      <div className="m-2 mb-0">
+        <PageTitleAndDescription
+          title={t("communal-life-alt")}
+          description={t("intro-text")}
+        />
+        <div className="flex max-md:flex-col gap-1">
+          <span>{t("intro-text-follow-up")}</span>
+          <ExternalLink />
+        </div>
       </div>
       <div className={"flex flex-col py-5"}>
-        <div className={"flex bg-orange_2 p-2 text-white"}>
+        <div className={"flex bg-orange_2 p-3 md:p-2 text-white"}>
           <div className={"flex w-full justify-between"}>
             <div className={"flex text-xl font-bold"}>{t("ongoing")}</div>
-            <div className={"flex-col text-lg text-right"}>
+            <div className={"flex-col text-lg space-y-2 text-right"}>
               {projects
                 .filter((project) => project.category === "en-cours")
                 .map((activity) => (
@@ -55,13 +59,13 @@ export default function Communal_life() {
             </div>
           </div>
         </div>
-        <div className={"flex p-2"}>
+        <div className={"flex p-3 md:p-2"}>
           <div className={"flex w-full justify-between"}>
             <div className={"flex text-xl font-bold"}>{t("gear")}</div>
-            <div className={"flex-col text-lg text-right"}>
+            <div className={"flex-col text-lg space-y-2 text-right"}>
               {projects
                 .filter(
-                  (project) => project.category === "equipements-disponibles",
+                  (project) => project.category === "equipements-disponibles"
                 )
                 .map((activity) => (
                   <ActivityListItem key={activity.id} activity={activity} />
@@ -69,12 +73,12 @@ export default function Communal_life() {
             </div>
           </div>
         </div>
-        <div className={"flex bg-orange_2 p-2 text-white"}>
+        <div className={"flex bg-orange_2 p-3 md:p-2 text-white"}>
           <div className={"flex w-full justify-between"}>
             <div className={"flex text-xl font-bold"}>
               {t("in-development")}
             </div>
-            <div className={"flex-col text-lg text-right"}>
+            <div className={"flex-col text-lg space-y-2 text-right"}>
               {projects
                 .filter((project) => project.category === "en-developpement")
                 .map((activity) => (
