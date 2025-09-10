@@ -11,7 +11,9 @@ export default function Newsletter() {
 
   return (
     <main
-      className={"container mx-auto min-h-[calc(100vh-249.27px)] flex-col flex"}
+      className={
+        "container mt-[5rem] md:mt-0 p-2 md:p-0 mx-auto min-h-[calc(100vh-249.27px)] flex-col flex"
+      }
     >
       <PageTitleAndDescription
         title={t("newsletter")}
