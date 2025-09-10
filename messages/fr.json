@@ -14,7 +14,11 @@
     "contact-us": "Nous joindre",
     "locale-switcher": "En",
     "copyright": "Tous droits réservés © 2025 Corporation de développement de Schefferville | Conception : Elair Développement | ",
-    "admin": "Admin"
+    "admin": "Admin",
+    "housing": "Habitation",
+    "business": "Développement économique",
+    "communal-life": "Vie communautaire et culturelle",
+    "corporation": "La corporation"
   },
   "contact-popover": {
     "text-part-1": "Pour répondre à vos questions ou pour avoir de l’information sur les projets en cours. Écrivez-nous à l’adresse électronique : ",

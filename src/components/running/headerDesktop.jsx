@@ -2,6 +2,7 @@ import { useTranslations } from "next-intl";
 
 import Image from "next/image";
 import Link from "next/link";
+
 import ContactPopover from "@/components/dialog/contactPopover";
 import LocaleSwitcher from "@/components/running/localeSwitcher";
 
