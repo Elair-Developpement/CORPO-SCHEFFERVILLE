@@ -33,7 +33,7 @@ export default function HeaderMobile() {
             />
           </Link>
 
-          <button className="p-4" onClick={() => setIsMenuOpen(true)}>
+          <button className="p-4 block" onClick={() => setIsMenuOpen(true)}>
             <Menu size={30} className="stroke-3 text-white" />
           </button>
         </nav>
@@ -41,7 +41,7 @@ export default function HeaderMobile() {
 
       {/* Menu déroulant */}
       <div
-        className={`fixed flex-col top-0 left-0 shadow-2xl w-full h-screen bg-white z-50 transition-transform duration-250 ease-in-out ${
+        className={`fixed flex-col top-0 left-0 shadow-2xl border-b-8 border-green_1 w-full h-fit pb-2 rounded-b-3xl bg-white z-50 transition-transform duration-300 ease-in-out ${
           isMenuOpen ? "translate-y-0" : "-translate-y-full"
         }`}
       >
@@ -58,7 +58,7 @@ export default function HeaderMobile() {
           </button>
         </div>
 
-        <nav className="flex flex-col px-5 py-auto flex-grow items-center text-center justify-center gap-8 pb-[8rem] text-3xl font-bold text-green_1">
+        <nav className="flex flex-col px-5 py-auto flex-grow items-center text-center justify-center gap-8 text-3xl font-bold text-green_1">
           <Link href="/" onClick={() => setIsMenuOpen(false)}>
             {t("home")}
           </Link>
