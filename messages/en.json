@@ -14,7 +14,11 @@
     "contact-us": "Contact us",
     "locale-switcher": "Fr",
     "copyright": "All rights reserved © 2025 Corporation de développement de Schefferville | Design: Elair Développement | ",
-    "admin": "Admin"
+    "admin": "Admin",
+    "housing": "Housing",
+    "business": "Economic Development",
+    "communal-life": "Communal and Cultural Life",
+    "corporation": "The Corporation"
   },
   "contact-popover": {
     "title": "Contact us",
