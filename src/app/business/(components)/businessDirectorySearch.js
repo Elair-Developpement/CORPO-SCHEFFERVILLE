@@ -52,13 +52,14 @@ export default function BusinessDirectorySearch() {
   }, [searchTerm, page]);
 
   return (
-    <div className="container mx-auto my-2 md:p-4">
+    <div className="container mx-auto mt-2 md:p-4">
       {/* Barre de recherche */}
       <Input
         type="text"
         placeholder={t("directory-search")}
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
+        className="mb-2"
       />
       {businesses.length !== 0 ? (
         <>
