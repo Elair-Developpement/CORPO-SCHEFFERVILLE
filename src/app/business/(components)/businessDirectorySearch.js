@@ -15,6 +15,7 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
+import BusinessDirectoryPagination from "./businessDirectoryPagination";
 import BusinessCard from "@/app/business/(components)/businessCard";
 
 export default function BusinessDirectorySearch() {
@@ -51,7 +52,8 @@ export default function BusinessDirectorySearch() {
   }, [searchTerm, page]);
 
   return (
-    <div className="container mx-auto mt-2 md:p-4">
+    <div className="container mx-auto my-2 md:p-4">
+      {/* Barre de recherche */}
       <Input
         type="text"
         placeholder={t("directory-search")}
@@ -60,89 +62,27 @@ export default function BusinessDirectorySearch() {
       />
       {businesses.length !== 0 ? (
         <>
-          <Pagination className="mt-2">
-            <PaginationContent>
-              <PaginationItem>
-                <PaginationPrevious
-                  onClick={() => setPage((prev) => Math.max(prev - 1, 1))}
-                  className="hover:cursor-pointer"
-                />
-              </PaginationItem>
-              {[...Array(totalPages)].map((_, index) => (
-                <PaginationItem key={index}>
-                  {page === index + 1 ? (
-                    <PaginationLink
-                      onClick={() => setPage(index + 1)}
-                      className="hover:cursor-pointer"
-                      isActive
-                    >
-                      {index + 1}
-                    </PaginationLink>
-                  ) : (
-                    <PaginationLink
-                      onClick={() => setPage(index + 1)}
-                      className="hover:cursor-pointer"
-                    >
-                      {index + 1}
-                    </PaginationLink>
-                  )}
-                </PaginationItem>
-              ))}
-              <PaginationItem>
-                <PaginationNext
-                  onClick={() =>
-                    setPage((prev) => Math.min(prev + 1, totalPages))
-                  }
-                  className="hover:cursor-pointer"
-                />
-              </PaginationItem>
-            </PaginationContent>
-          </Pagination>
+          {/* Pagination du haut */}
+          <BusinessDirectoryPagination
+            page={page}
+            totalPages={totalPages}
+            onPageChange={(newPage) => setPage(newPage)}
+          />
+          {/* Liste des résultats */}
           <div className="md:grid md:grid-cols-2 md:grid-rows-5 md:grid-flow-col items-center">
             {businesses.map((business) => (
               <BusinessCard key={business.id} {...business} />
             ))}
           </div>
-          <Pagination>
-            <PaginationContent>
-              <PaginationItem>
-                <PaginationPrevious
-                  onClick={() => setPage((prev) => Math.max(prev - 1, 1))}
-                  className="hover:cursor-pointer"
-                />
-              </PaginationItem>
-              {[...Array(totalPages)].map((_, index) => (
-                <PaginationItem key={index}>
-                  {page === index + 1 ? (
-                    <PaginationLink
-                      onClick={() => setPage(index + 1)}
-                      className="hover:cursor-pointer"
-                      isActive
-                    >
-                      {index + 1}
-                    </PaginationLink>
-                  ) : (
-                    <PaginationLink
-                      onClick={() => setPage(index + 1)}
-                      className="hover:cursor-pointer"
-                    >
-                      {index + 1}
-                    </PaginationLink>
-                  )}
-                </PaginationItem>
-              ))}
-              <PaginationItem>
-                <PaginationNext
-                  onClick={() =>
-                    setPage((prev) => Math.min(prev + 1, totalPages))
-                  }
-                  className="hover:cursor-pointer"
-                />
-              </PaginationItem>
-            </PaginationContent>
-          </Pagination>
+          {/* Pagination du bas */}
+          <BusinessDirectoryPagination
+            page={page}
+            totalPages={totalPages}
+            onPageChange={(newPage) => setPage(newPage)}
+          />
         </>
-      ) : searchTerm === "" ? (
+      ) : searchTerm ===
+        "" /* Si l'utilisateur a effectué une recherche, affiche aucun résultat, sinon affiche chargement en cas de liste d'entreprises vide... */ ? (
         <p className="mt-4">{t("directory-loading")}</p>
       ) : (
         <p className="mt-4">{t("directory-no-results")}</p>

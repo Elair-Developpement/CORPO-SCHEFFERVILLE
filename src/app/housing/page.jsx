@@ -90,7 +90,7 @@ export default function Housing() {
       </div>
       <div
         className={
-          "flex flex-grow h-[40rem] md:h-[60rem] w-full md:mb-7 -z-0 rounded-2xl overflow-hidden"
+          "flex flex-grow h-[40rem] md:h-[60rem] w-full md:mb-7 z-0 rounded-2xl overflow-hidden"
         }
       >
         {!isPending &&
