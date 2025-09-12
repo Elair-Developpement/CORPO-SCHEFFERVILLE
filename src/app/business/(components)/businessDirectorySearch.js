@@ -6,15 +6,6 @@ import { createClient } from "@/lib/supabase/client";
 import { useState, useEffect } from "react";
 
 import { Input } from "@/components/ui/input";
-import {
-  Pagination,
-  PaginationContent,
-  PaginationEllipsis,
-  PaginationItem,
-  PaginationLink,
-  PaginationNext,
-  PaginationPrevious,
-} from "@/components/ui/pagination";
 import BusinessDirectoryPagination from "./businessDirectoryPagination";
 import BusinessCard from "@/app/business/(components)/businessCard";
 
