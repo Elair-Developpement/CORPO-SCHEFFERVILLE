@@ -3,8 +3,8 @@ import { useTranslations } from "next-intl";
 import PageTitleAndDescription from "@/components/common/pageTitleAndDescription";
 import { Tabs, Tab } from "@/components/ui/tabs";
 import ContactPopover from "@/components/dialog/contactPopover";
-import BusinessDirectorySearch from "@/app/business/(components)/businessDirectorySearch";
-import { Button } from "@/components/ui/button";
+import BusinessDirectorySearch from "./(components)/businessDirectorySearch";
+import FinancingAndPartners from "./(components)/financingAndPartners";
 
 export default function Business() {
   const t = useTranslations("business");
@@ -49,8 +49,8 @@ export default function Business() {
             <h2 className="text-xl font-bold mb-2 text-green_1">
               {t("label-finance")}
             </h2>
-            {/* TODO: Texte manquant */}
-            <p className="text-gray-700">{c("to-do")}</p>
+            {t("partners-header")}
+            <FinancingAndPartners />
           </div>
         </Tab>
         <Tab label={t("label-mining")} value="mining">
