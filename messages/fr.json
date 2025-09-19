@@ -70,7 +70,10 @@
     "email": "Courriel : ",
     "website": "Site web : ",
     "facebook": "Page Facebook : ",
-    "partners-header": "Merci à tous nos partenaires :"
+    "partners-header": "Merci à tous nos partenaires :",
+    "mining-intro": "Ci-dessous vous trouverez de l'information sur les multiples projets miniers de la région ainsi que des liens vers des contacts et ressources.",
+    "mining-map": "Carte des projets miniers",
+    "contact-commissioner": "Commissaire aux mines"
   },
   "communal-life": {
     "communal-life": "Vie communautaire et culturelle",

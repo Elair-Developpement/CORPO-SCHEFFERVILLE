@@ -69,7 +69,10 @@
     "email": "E-mail : ",
     "website": "Website : ",
     "facebook": "Facebook Page : ",
-    "partners-header": "Thank you to all our partners :"
+    "partners-header": "Thank you to all our partners",
+    "mining-intro": "Below you will find information about current and upcoming mining projects as well as ressources to learn more about mining in the region.",
+    "mining-map": "Mining projects map",
+    "contact-commissioner": "Mining Commissioner"
   },
   "communal-life": {
     "communal-life": "Communal and Cultural Life",

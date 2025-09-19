@@ -5,6 +5,7 @@ import { Tabs, Tab } from "@/components/ui/tabs";
 import ContactPopover from "@/components/dialog/contactPopover";
 import BusinessDirectorySearch from "./(components)/businessDirectorySearch";
 import FinancingAndPartners from "./(components)/financingAndPartners";
+import MiningTab from "./(components)/miningTab";
 
 export default function Business() {
   const t = useTranslations("business");
@@ -54,13 +55,7 @@ export default function Business() {
           </div>
         </Tab>
         <Tab label={t("label-mining")} value="mining">
-          <div className="md:py-4">
-            <h2 className="text-xl font-bold mb-2 text-green_1">
-              {t("label-mining")}
-            </h2>
-            {/* TODO: Texte manquant */}
-            <p className="text-gray-700">{c("to-do")}</p>
-          </div>
+          <MiningTab />
         </Tab>
       </Tabs>
     </main>
