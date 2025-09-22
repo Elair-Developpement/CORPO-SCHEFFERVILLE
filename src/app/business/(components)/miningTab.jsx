@@ -15,7 +15,7 @@ export default function MiningTab() {
       <p>{t("mining-intro")}</p>
       <ProfileCard
         name="Ghislain Lévesque"
-        role="Commisionnaire aux mines"
+        role={t("contact-commissioner")}
         email="glevesque@cgl25.ca"
         phone="418-964-6275"
       />
