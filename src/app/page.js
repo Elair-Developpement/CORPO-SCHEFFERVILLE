@@ -2,6 +2,7 @@ import { useTranslations } from "next-intl";
 
 import SonnerNewsletterService from "@/components/home/sonnerNewsletterService";
 import HomeImage from "@/components/home/homeImage";
+import Banner from "@/components/home/banner";
 import ServiceCard from "@/components/home/serviceCard";
 
 export default function Home() {
@@ -15,16 +16,24 @@ export default function Home() {
     <main className="mt-[5rem] md:mt-0">
       <SonnerNewsletterService />
       <HomeImage missionTitle={t("mission")} missionText={t("mission-text")} />
-      <div className="flex flex-col bg-blue_1 w-full min-h-[5rem] text-white text-xl text-center justify-center items-center p-2">
-        <div>{t("70-intro")}</div>
-        <a
-          href="https://www.schefferville70.ca"
-          target="_blank"
-          className="underline font-bold hover:cursor-pointer"
-        >
-          www.schefferville70.ca
-        </a>
-      </div>
+      <Banner
+        text={
+          <>
+            <div>
+              Aider nous à recenser les sites qui ont besoin d’être nettoyés,
+              dans le cadre du projet PLUS PROPRE ENSEMBLE.
+            </div>
+            <a
+              href="https://schefferville.ca/services-municipaux/urbanisme/plus-propre-ensemble/"
+              target="_blank"
+              className="underline font-bold bg-gree hover:cursor-pointer"
+            >
+              Visitez la page du projet.
+            </a>
+          </>
+        }
+        bgColor={"bg-green_2"}
+      />
       <div
         className={
           "p-2 md:pb-20 md:pt-16 md:px-16 mx-auto flex flex-col md:flex-row justify-center max-md:space-y-2 md:space-x-11"
