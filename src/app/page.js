@@ -16,24 +16,6 @@ export default function Home() {
     <main className="mt-[5rem] md:mt-0">
       <SonnerNewsletterService />
       <HomeImage missionTitle={t("mission")} missionText={t("mission-text")} />
-      <Banner
-        text={
-          <>
-            <div>
-              Aider nous à recenser les sites qui ont besoin d’être nettoyés,
-              dans le cadre du projet PLUS PROPRE ENSEMBLE.
-            </div>
-            <a
-              href="https://schefferville.ca/services-municipaux/urbanisme/plus-propre-ensemble/"
-              target="_blank"
-              className="underline font-bold bg-gree hover:cursor-pointer"
-            >
-              Visitez la page du projet.
-            </a>
-          </>
-        }
-        bgColor={"bg-green_2"}
-      />
       <div
         className={
           "p-2 md:pb-20 md:pt-16 md:px-16 mx-auto flex flex-col md:flex-row justify-center max-md:space-y-2 md:space-x-11"
