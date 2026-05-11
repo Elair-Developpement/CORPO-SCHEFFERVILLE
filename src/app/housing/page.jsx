@@ -9,19 +9,20 @@ import { createClient } from "@/lib/supabase/client";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import PageTitleAndDescription from "@/components/common/pageTitleAndDescription";
+import Banner from "@/components/home/banner";
 
 const CentralLeafletMap = dynamic(
   () => import("@/components/map/centralLeafletMap"),
   {
     ssr: false,
-  }
+  },
 );
 
 const IndustrialLeafletMap = dynamic(
   () => import("@/components/map/industrialLeafletMap"),
   {
     ssr: false,
-  }
+  },
 );
 
 export default function Housing() {
@@ -68,6 +69,23 @@ export default function Housing() {
         title={t("housing-alt")}
         description={t("page-text")}
       />
+
+      <Banner
+        text={
+          <>
+            <div className="font-bold">
+              Veuillez noter qu'il n'y a pas de terrains disponibles pour le
+              moment.
+            </div>
+            <div>
+              Nous vous invitons à consulter cette page régulièrement pour être
+              informé de la disponibilité des terrains.
+            </div>
+          </>
+        }
+        bgColor={"bg-green_2"}
+      />
+
       <div className="flex items-center mt-2 space-x-2">
         <Label
           htmlFor="map-toggle"
