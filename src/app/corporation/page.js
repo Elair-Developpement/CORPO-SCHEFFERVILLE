@@ -3,6 +3,7 @@ import { useTranslations } from "next-intl";
 import { Tabs, Tab } from "@/components/ui/tabs";
 import PageTitleAndDescription from "@/components/common/pageTitleAndDescription";
 import CorporationDocumentsTable from "@/app/corporation/(components)/corporationDocumentsTable";
+import CorporationPoliciesTable from "@/app/corporation/(components)/corporationPoliciesTable";
 import CorporationMembersDetails from "@/app/corporation/(components)/corporationMembersDetails";
 
 export default function Corporation() {
@@ -35,6 +36,15 @@ export default function Corporation() {
             </h2>
             <p className="text-gray-700">{t("documents-text")}</p>
             <CorporationDocumentsTable />
+          </div>
+        </Tab>
+        <Tab label={t("policies")} value="policies">
+          <div className="md:py-4">
+            <h2 className="text-xl font-bold mb-2 text-green_1">
+              {t("policies")}
+            </h2>
+            <p className="text-gray-700">{t("policies-text")}</p>
+            <CorporationPoliciesTable />
           </div>
         </Tab>
       </Tabs>
