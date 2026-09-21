@@ -14,7 +14,7 @@ export default function CorporationPoliciesTable() {
     startTransition(async () => {
       const supabase = await createClient();
       const bucketId = "documents";
-      const folderId = "policies";
+      const folderId = "corporation/policies";
 
       const { data, error } = await supabase.storage
         .from(bucketId)
@@ -28,10 +28,15 @@ export default function CorporationPoliciesTable() {
         return;
       }
 
-      const documentsMap = data.map((doc) => ({
+      let documentsMap = data.filter(
+        (doc) => doc.name !== ".emptyFolderPlaceholder",
+      );
+
+      documentsMap = data.map((doc) => ({
         name: doc.name,
-        url: supabase.storage.from(bucketId).getPublicUrl(doc.name).data
-          .publicUrl,
+        url: supabase.storage
+          .from(bucketId)
+          .getPublicUrl(`${folderId}/${doc.name}`).data.publicUrl,
       }));
 
       setDocuments(documentsMap);

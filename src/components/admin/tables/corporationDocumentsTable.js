@@ -18,8 +18,9 @@ export default function CorporationDocumentsTable() {
       if (!error) {
         const documentsList = data.map((doc) => ({
           name: doc.name,
-          url: supabase.storage.from(bucketId).getPublicUrl(doc.name).data
-            .publicUrl,
+          url: supabase.storage
+            .from(bucketId)
+            .getPublicUrl(`${folderId}/${doc.name}`).data.publicUrl,
         }));
         setDocuments(documentsList);
       }
