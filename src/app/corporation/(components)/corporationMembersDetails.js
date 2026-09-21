@@ -42,7 +42,7 @@ export default function CorporationMembersDetails() {
               key={member.id}
               name={member.name}
               role={member.role}
-              image={member.image || "/images/blank_person.png"}
+              image={member.image_url || "/images/blank_person.png"}
             />
           ))}
       </div>
@@ -57,7 +57,7 @@ export default function CorporationMembersDetails() {
               key={member.id}
               name={member.name}
               role={member.role}
-              image={member.image || "/images/blank_person.png"}
+              image={member.image_url || "/images/blank_person.png"}
             />
           ))}
       </div>
@@ -73,7 +73,7 @@ export default function CorporationMembersDetails() {
               key={member.id}
               name={member.name}
               role={member.role}
-              image={member.image || "/images/blank_person.png"}
+              image={member.image_url || "/images/blank_person.png"}
             />
           ))}
       </div>
