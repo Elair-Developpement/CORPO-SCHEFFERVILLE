@@ -1,0 +1,10 @@
+allowBuilds:
+  '@parcel/watcher': true
+  '@swc/core': true
+  all: true
+  esbuild: true
+  unrs-resolver: true
+  workerd: true
+overrides:
+  postcss-selector-parser@<7.1.6: ^7.1.6
+  postcss@<=8.5.22: ^8.5.23
